@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>NFS</nome>
+    <path>source\desktop_new\commonfeature\nfs\package\nfs.dproj</path>
+    <dependencias>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>ITENSFATURAMENTO</dependencia>
+        <dependencia>ITENSFATURAMENTOBASE</dependencia>
+        <dependencia>OBJETOSSERVICOS</dependencia>
+        <dependencia>CODIGORECEITA</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>FINANCEIRO</dependencia>
+        <dependencia>NSREPORT</dependencia>
+        <dependencia>OBJETOSSERVICOSBASE</dependencia>
+        <dependencia>RELATORIOS</dependencia>
+        <dependencia>SERVICOSCONVENIO115_03</dependencia>
+        <dependencia>OBRA</dependencia>
+        <dependencia>PRODUTO</dependencia>
+        <dependencia>SERIES</dependencia>
+        <dependencia>NSXEUTIL</dependencia>
+        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+    </dependencias>
+</projeto>

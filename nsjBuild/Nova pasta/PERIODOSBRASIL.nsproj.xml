@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>PERIODOSBRASIL</nome>
+    <path>source\desktop_new\commonfeature\periodosbrasil\package\PeriodosBrasil.dproj</path>
+    <dependencias>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>NSPROTECAO</dependencia>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>NSREPORT</dependencia>
+        <dependencia>RESOURCES</dependencia>
+        <dependencia>RELATORIOS</dependencia>
+        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+    </dependencias>
+</projeto>

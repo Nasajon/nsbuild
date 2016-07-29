@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>NSJCOMPRAS</nome>
+    <path>source\desktop_new\projects\compras\projeto\nsjCompras.dproj</path>
+    <dependencias>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>OFERTAS</dependencia>
+        <dependencia>CONSULTADOCENGINE</dependencia>
+        <dependencia>NSREPORT</dependencia>
+        <dependencia>CATALOGODEOFERTAS</dependencia>
+        <dependencia>NSCERTIFICADODIGITAL</dependencia>
+        <dependencia>NSLICENCIAMENTO</dependencia>
+        <dependencia>OBJETOSSERVICOSBASE</dependencia>
+        <dependencia>NSINTEGRADORGED</dependencia>
+        <dependencia>RELATORIOS</dependencia>
+        <dependencia>GERADORDEDOCUMENTO</dependencia>
+        <dependencia>PERFISUSUARIO</dependencia>
+        <dependencia>COMPONENTESBASE</dependencia>
+        <dependencia>NSJUSUARIOS</dependencia>
+        <dependencia>NSJESTOQUE</dependencia>
+        <dependencia>TEMPLATESEMAILS</dependencia>
+        <dependencia>CATEGORIADEPRODUTO</dependencia>
+        <dependencia>CONFIGURACAO</dependencia>
+        <dependencia>PARTICIPANTES</dependencia>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>WORKFLOW</dependencia>
+        <dependencia>OBJETOSSERVICOS</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>FINANCEIRO</dependencia>
+        <dependencia>NSPROXY</dependencia>
+        <dependencia>NSMENUFAVORITOS</dependencia>
+        <dependencia>FOLLOWUP</dependencia>
+        <dependencia>PRODUTO</dependencia>
+        <dependencia>NSPROTECAO</dependencia>
+        <dependencia>WORKFLOWCOMMONFEATURE</dependencia>
+        <dependencia>GRADE</dependencia>
+        <dependencia>UNIDADES</dependencia>
+        <dependencia>USUARIO</dependencia>
+        <dependencia>SCRITTAMATERIAIS</dependencia>
+        <dependencia>RESOURCES</dependencia>
+        <dependencia>NSLOG</dependencia>
+        <dependencia>NSEMAIL</dependencia>
+        <dependencia>OFERTASBASE</dependencia>
+        <dependencia>OPERACOES</dependencia>
+        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+    </dependencias>
+</projeto>

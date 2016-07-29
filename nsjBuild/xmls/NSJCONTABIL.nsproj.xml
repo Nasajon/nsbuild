@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>NSJCONTABIL</nome>
+    <path>source\desktop_new\projects\contabil\projeto\nsjContabil.dproj</path>
+    <dependencias>
+        <dependencia>NSLOCALIZAR</dependencia>
+        <dependencia>SCP</dependencia>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>NSREPORT</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>BI</dependencia>
+        <dependencia>NSLICENCIAMENTO</dependencia>
+        <dependencia>NSINTEGRADORGED</dependencia>
+        <dependencia>NSMENUFAVORITOS</dependencia>
+        <dependencia>NSPROXY</dependencia>
+        <dependencia>SOCIOS</dependencia>
+        <dependencia>NSINICIORAPIDO</dependencia>
+        <dependencia>NSJAPI</dependencia>
+        <dependencia>SOCIOSPARTICIPACOES</dependencia>
+        <dependencia>QUALIFICACOESPJ</dependencia>
+        <dependencia>NSPROTECAO</dependencia>
+        <dependencia>NSTELEMETRIA</dependencia>
+        <dependencia>USUARIO</dependencia>
+        <dependencia>RESOURCES</dependencia>
+        <dependencia>NSLOG</dependencia>
+        <dependencia>CONTACONTABIL</dependencia>
+        <dependencia>NSEMAIL</dependencia>
+        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+    </dependencias>
+</projeto>

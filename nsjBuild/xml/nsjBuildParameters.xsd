@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.nasajon.com.br/nsjbuild"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified"
+			xmlns:nsjb="http://www.nasajon.com.br/nsjbuild">
+
+	<xs:element name="parametros_nsjbuild">
+        <xs:complexType>
+			<xs:sequence>
+				
+				<xs:element name="erp_path" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Caminho absoluto do repositório "erp" na máquina.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="xmls_projects_path" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Caminho absoluto do diretório que contém os xmls descritores dos projetos.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="max_processos" type="xs:integer">
+					<xs:annotation>
+						<xs:documentation>
+							Máximo de processos de compilação executados simultaneamente.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+</xs:schema>

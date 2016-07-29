@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsjb:projeto xmlns:nsjb="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+  <nsjb:nome>atendimento</nsjb:nome>
+  <nsjb:path>C:\@work\erp\source\desktop_new\commonfeature\atendimentos\package\atendimento.dproj</nsjb:path>
+  <nsjb:dependencias>
+    <nsjb:dependencia>commonutils_static</nsjb:dependencia>
+    <nsjb:dependencia>nsORM</nsjb:dependencia>
+    <nsjb:dependencia>EntidadesEmpresariais</nsjb:dependencia>
+    <nsjb:dependencia>nsTraducao</nsjb:dependencia>
+    <nsjb:dependencia>objetosservicosbase</nsjb:dependencia>
+    <nsjb:dependencia>tiposfollowups</nsjb:dependencia>
+    <nsjb:dependencia>nsjUsuarios</nsjb:dependencia>
+    <nsjb:dependencia>PrioridadesAtendimentos</nsjb:dependencia>
+    <nsjb:dependencia>requisicaoalmoxarifado</nsjb:dependencia>
+produto
+ObjetosServicos
+followup
+Resources
+Resources
+tiposordensservicos
+tiposmanutencoes
+operacoes
+OperacaoOrdemServico
+servicosTecnicos
+relatorios
+
+<!--     <nsjb:dependencia>nsSkin</nsjb:dependencia> -->
+  </nsjb:dependencias>
+</nsjb:projeto>

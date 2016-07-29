@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>COMPONENTES</nome>
+    <path>source\desktop_new\commonfeature\componentes\package\componentes.dproj</path>
+    <dependencias>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>COMPONENTESBASE</dependencia>
+        <dependencia>ITEM</dependencia>
+        <dependencia>ITENSFATURAMENTOBASE</dependencia>
+        <dependencia>ITENSFATURAMENTO</dependencia>
+        <dependencia>SERVICOSTECNICOS</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>CATALOGODEOFERTAS</dependencia>
+        <dependencia>GRUPOSDECOMPONENTES</dependencia>
+        <dependencia>ATRIBUTOS</dependencia>
+        <dependencia>OFERTASBASE</dependencia>
+    </dependencias>
+</projeto>

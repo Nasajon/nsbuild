@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsjb:parametros_nsjbuild xmlns:nsjb="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildParameters.xsd ">
+  <nsjb:erp_path>C:\@work\erp</nsjb:erp_path>
+  <nsjb:xmls_projects_path>C:\Users\sergiosilva\workspace\nsjBuild\xml\</nsjb:xmls_projects_path>
+  <nsjb:max_processos>2</nsjb:max_processos>
+</nsjb:parametros_nsjbuild>

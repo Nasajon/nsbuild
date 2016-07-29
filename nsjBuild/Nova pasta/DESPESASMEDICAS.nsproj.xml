@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>DESPESASMEDICAS</nome>
+    <path>source\desktop_new\commonfeature\despesasmedicas\package\DespesasMedicas.dproj</path>
+    <dependencias>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>MOEDA</dependencia>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>NSPROTECAO</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>NSREPORT</dependencia>
+        <dependencia>FINANCEIRO</dependencia>
+        <dependencia>PERIODOSBRASIL</dependencia>
+        <dependencia>RESOURCES</dependencia>
+        <dependencia>CONTAFINANCEIRA</dependencia>
+        <dependencia>RELATORIOS</dependencia>
+        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+    </dependencias>
+</projeto>

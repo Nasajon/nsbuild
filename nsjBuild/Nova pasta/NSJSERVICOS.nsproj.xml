@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>NSJSERVICOS</nome>
+    <path>source\desktop_new\projects\servicos\package\nsjServicos.dproj</path>
+    <dependencias>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>SERVICOSTECNICOS</dependencia>
+        <dependencia>CATALOGODEOFERTAS</dependencia>
+        <dependencia>NSREPORT</dependencia>
+        <dependencia>NSLICENCIAMENTO</dependencia>
+        <dependencia>PROJETOS</dependencia>
+        <dependencia>RELATORIOS</dependencia>
+        <dependencia>CENTRODECUSTOFINANCEIRO</dependencia>
+        <dependencia>COMPONENTES</dependencia>
+        <dependencia>RATEIOPADRAO</dependencia>
+        <dependencia>PERFISUSUARIO</dependencia>
+        <dependencia>NSJUSUARIOS</dependencia>
+        <dependencia>GRUPOSDECOMPONENTES</dependencia>
+        <dependencia>TIPOSDESERVICOS</dependencia>
+        <dependencia>VEICULO</dependencia>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>ITENSFATURAMENTO</dependencia>
+        <dependencia>OBJETOSSERVICOS</dependencia>
+        <dependencia>CLASSIFICACAOFINANCEIRA</dependencia>
+        <dependencia>TABELADEPRECO</dependencia>
+        <dependencia>SEGMENTODEATUACAO</dependencia>
+        <dependencia>NSPROXY</dependencia>
+        <dependencia>NSPROTECAO</dependencia>
+        <dependencia>MOTORISTA</dependencia>
+        <dependencia>USUARIO</dependencia>
+        <dependencia>RESOURCES</dependencia>
+        <dependencia>NSLOG</dependencia>
+        <dependencia>TIPOSPROJETOS</dependencia>
+        <dependencia>ATRIBUTOS</dependencia>
+        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+    </dependencias>
+</projeto>

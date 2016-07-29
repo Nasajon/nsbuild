@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>NSJPERSONA</nome>
+    <path>source\desktop_new\projects\persona\nsjPersona.dproj</path>
+    <dependencias>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>NSREPORT</dependencia>
+        <dependencia>BI</dependencia>
+        <dependencia>NSLICENCIAMENTO</dependencia>
+        <dependencia>NSINTEGRADORGED</dependencia>
+        <dependencia>NSINICIORAPIDO</dependencia>
+        <dependencia>NSWS</dependencia>
+        <dependencia>NSIMAGEMCROP</dependencia>
+        <dependencia>NSJCONTABILIZACAO</dependencia>
+        <dependencia>NSXEUTIL</dependencia>
+        <dependencia>NSLOCALIZAR</dependencia>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>PERSONA</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>FINANCEIRO</dependencia>
+        <dependencia>NSMALADIRETA</dependencia>
+        <dependencia>NSMENUFAVORITOS</dependencia>
+        <dependencia>NSPROXY</dependencia>
+        <dependencia>NSJAPI</dependencia>
+        <dependencia>NSPROTECAO</dependencia>
+        <dependencia>NSBROKER</dependencia>
+        <dependencia>USUARIO</dependencia>
+        <dependencia>RESOURCES</dependencia>
+        <dependencia>V2</dependencia>
+        <dependencia>NSLOG</dependencia>
+        <dependencia>NSEMAIL</dependencia>
+    </dependencias>
+</projeto>

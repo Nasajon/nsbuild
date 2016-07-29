@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>ITENSFATURAMENTO</nome>
+    <path>source\desktop_new\commonfeature\ItensFaturamento\package\ItensFaturamento.dproj</path>
+    <dependencias>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>ITENSFATURAMENTOBASE</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>CLASSIFICACAOFINANCEIRA</dependencia>
+        <dependencia>USUARIO</dependencia>
+        <dependencia>TIPOSDESERVICOS</dependencia>
+        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+    </dependencias>
+</projeto>

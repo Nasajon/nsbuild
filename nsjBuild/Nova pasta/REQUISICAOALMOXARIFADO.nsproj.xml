@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>REQUISICAOALMOXARIFADO</nome>
+    <path>source\desktop_new\commonfeature\requisicaoalmoxarifado\package\requisicaoalmoxarifado.dproj</path>
+    <dependencias>
+        <dependencia>GERADORDEDOCUMENTO</dependencia>
+        <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>PRODUTO</dependencia>
+        <dependencia>NOTASDEMERCADORIAS</dependencia>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>CONSULTADOCENGINE</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>SCRITTAMATERIAIS</dependencia>
+        <dependencia>RESOURCES</dependencia>
+        <dependencia>CONFIGURACAO</dependencia>
+        <dependencia>RELATORIOS</dependencia>
+        <dependencia>OPERACOES</dependencia>
+    </dependencias>
+</projeto>

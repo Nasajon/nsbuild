@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			targetNamespace="http://www.nasajon.com.br/nsjbuild"
+			elementFormDefault="qualified"
+			attributeFormDefault="unqualified"
+			xmlns:nsjb="http://www.nasajon.com.br/nsjbuild">
+
+	<xs:element name="projeto">
+        <xs:complexType>
+			<xs:sequence>
+				
+				<xs:element name="nome" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Nome do projeto (identificador que precisa ser único).
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="path" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Caminho relativo do projeto, a partir do diretório do repositório "erp" (caminho do arquivo "dproj" do projeto atual).
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dependencias" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Lista de projetos dos quais o projeto atual depende.
+						</xs:documentation>
+					</xs:annotation>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="dependencia" type="xs:string" minOccurs="1" maxOccurs="1000">
+								<xs:annotation>
+									<xs:documentation>
+										Nome do projeto do qual o projeto atual depende.
+									</xs:documentation>
+								</xs:annotation>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				
+			</xs:sequence>
+		</xs:complexType>
+    </xs:element>
+</xs:schema>
