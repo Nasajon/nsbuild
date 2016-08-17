@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>LIMITEDECREDITO</nome>
+    <nome>limitedecredito</nome>
     <path>source\desktop_new\commonfeature\limitedecredito\package\limitedecredito.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>LIMITEDECREDITOHISTORICO</dependencia>
-        <dependencia>FAIXADECREDITO</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>NSJUSUARIOS</dependencia>
-        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>limitedecreditohistorico</dependencia>
+        <dependencia>faixadecredito</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

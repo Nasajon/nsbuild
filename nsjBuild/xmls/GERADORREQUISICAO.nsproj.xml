@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>GERADORREQUISICAO</nome>
+    <nome>geradorrequisicao</nome>
     <path>source\desktop_new\commonfeature\geradorrequisicao\package\geradorRequisicao.dproj</path>
     <dependencias>
-        <dependencia>GERADORDEDOCUMENTO</dependencia>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>PRODUTO</dependencia>
-        <dependencia>CONSULTADOCENGINE</dependencia>
-        <dependencia>NSJUSUARIOS</dependencia>
-        <dependencia>OPERACOES</dependencia>
-        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+        <dependencia>geradordedocumento</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>consultadocengine</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>BEMPATRIMONIAL</nome>
+    <nome>bempatrimonial</nome>
     <path>source\desktop_new\commonfeature\bempatrimonial\package\bempatrimonial.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>NSINTEGRADORGED</dependencia>
-        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>nsintegradorged</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

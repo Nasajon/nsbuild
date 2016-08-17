@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>WORKFLOWCOMMONFEATURE</nome>
+    <nome>workflowcommonfeature</nome>
     <path>source\desktop_new\commonfeature\workflow\package\workflowCommonfeature.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>WORKFLOW</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>NSJUSUARIOS</dependencia>
-        <dependencia>RESOURCES</dependencia>
-        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>workflow</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

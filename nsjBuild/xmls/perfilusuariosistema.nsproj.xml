@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>perfilusuariosistema</nome>
+    <path>source\desktop_new\commonfeature\perfilusuariosistema\package\PerfilUsuarioSistema.dproj</path>
+    <dependencias>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>perfisusuario</dependencia>
+        <dependencia>nsorm</dependencia>
+    </dependencias>
+</projeto>

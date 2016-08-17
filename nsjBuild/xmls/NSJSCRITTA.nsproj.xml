@@ -1,28 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSJSCRITTA</nome>
+    <nome>nsjscritta</nome>
     <path>source\desktop_new\projects\scritta\nsjScritta.dproj</path>
     <dependencias>
-        <dependencia>NSLOCALIZAR</dependencia>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>NSREPORT</dependencia>
-        <dependencia>EXPORTADORDEDOCUMENTOS</dependencia>
-        <dependencia>BI</dependencia>
-        <dependencia>NSLICENCIAMENTO</dependencia>
-        <dependencia>NSINTEGRADORGED</dependencia>
-        <dependencia>NSPROXY</dependencia>
-        <dependencia>NSINICIORAPIDO</dependencia>
-        <dependencia>NSMENUFAVORITOS</dependencia>
-        <dependencia>NSPROTECAO</dependencia>
-        <dependencia>PRETITULOS</dependencia>
-        <dependencia>PREVISAOFINANCEIRA</dependencia>
-        <dependencia>NSXEUTIL</dependencia>
-        <dependencia>NSTELEMETRIA</dependencia>
-        <dependencia>USUARIO</dependencia>
-        <dependencia>RESOURCES</dependencia>
-        <dependencia>V2</dependencia>
-        <dependencia>NSLOG</dependencia>
-        <dependencia>INVENTARIO</dependencia>
+        <dependencia>nsreport</dependencia>
+        <dependencia>bi</dependencia>
+        <dependencia>nslicenciamento</dependencia>
+        <dependencia>nsintegradorged</dependencia>
+        <dependencia>nsiniciorapido</dependencia>
+        <dependencia>previsaofinanceira</dependencia>
+        <dependencia>nsjcontabilizacao</dependencia>
+        <dependencia>nsxeutil</dependencia>
+        <dependencia>inventario</dependencia>
+        <dependencia>nslocalizar</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>exportadordedocumentos</dependencia>
+        <dependencia>nsproxy</dependencia>
+        <dependencia>nsmenufavoritos</dependencia>
+        <dependencia>nsprotecao</dependencia>
+        <dependencia>pretitulos</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>nstelemetria</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>v2</dependencia>
+        <dependencia>nslog</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

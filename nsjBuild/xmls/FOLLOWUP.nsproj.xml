@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>FOLLOWUP</nome>
+    <nome>followup</nome>
     <path>source\desktop_new\commonfeature\followup\package\followup.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>NSJUSUARIOS</dependencia>
-        <dependencia>HISTORICOSPADRAO</dependencia>
-        <dependencia>TIPOSFOLLOWUPS</dependencia>
-        <dependencia>PROMOCOESLEADS</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>historicospadrao</dependencia>
+        <dependencia>tiposfollowups</dependencia>
+        <dependencia>promocoesleads</dependencia>
     </dependencias>
 </projeto>

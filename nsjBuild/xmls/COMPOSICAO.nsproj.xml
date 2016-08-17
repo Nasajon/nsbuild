@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>COMPOSICAO</nome>
+    <nome>composicao</nome>
     <path>source\desktop_new\commonfeature\composicao\package\composicao.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>PRODUTO</dependencia>
-        <dependencia>SERVICOSTECNICOS</dependencia>
-        <dependencia>NSORM</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>servicostecnicos</dependencia>
+        <dependencia>nsorm</dependencia>
     </dependencias>
 </projeto>

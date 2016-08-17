@@ -35,8 +35,8 @@
         <dependencia>VOUCHERS</dependencia>
         <dependencia>SEGMENTODEATUACAO</dependencia>
         <dependencia>NSJAPI</dependencia>
-        <dependencia>FOLLOWUP</dependencia>
         <dependencia>NSTRADUCAO</dependencia>
+        <dependencia>FOLLOWUP</dependencia>
         <dependencia>RPS</dependencia>
         <dependencia>SERIES</dependencia>
         <dependencia>PROPOSTAOPERACAO</dependencia>

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSJAGENTE</nome>
+    <nome>nsjagente</nome>
     <path>source\desktop_new\projects\agente\nsjAgente.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>NSWS</dependencia>
-        <dependencia>PERSONA</dependencia>
-        <dependencia>RPS</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>NSJPERSONA</dependencia>
-        <dependencia>NSJUSUARIOS</dependencia>
-        <dependencia>V2</dependencia>
-        <dependencia>NSPROXY</dependencia>
-        <dependencia>NSJAPI</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsws</dependencia>
+        <dependencia>persona</dependencia>
+        <dependencia>rps</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>nsjpersona</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>v2</dependencia>
+        <dependencia>nsproxy</dependencia>
+        <dependencia>nsjapi</dependencia>
     </dependencias>
 </projeto>

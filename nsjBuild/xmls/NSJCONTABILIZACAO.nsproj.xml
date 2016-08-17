@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSJCONTABILIZACAO</nome>
-    <path>source\desktop_new\projects\contabilizacao\projeto\nsjContabilizacao.dproj</path>
+    <nome>nsjcontabilizacao</nome>
+    <path>source\desktop_new\commonfeature\contabilizacao\package\nsjContabilizacao.dproj</path>
     <dependencias>
-        <dependencia>NSLOCALIZAR</dependencia>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>PERSONA</dependencia>
-        <dependencia>NSPROTECAO</dependencia>
-        <dependencia>NSREPORT</dependencia>
-        <dependencia>NSJPERSONA</dependencia>
-        <dependencia>NSXEUTIL</dependencia>
-        <dependencia>NSJCONTABIL</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>resources</dependencia>
     </dependencias>
 </projeto>

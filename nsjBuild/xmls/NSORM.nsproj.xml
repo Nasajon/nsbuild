@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSORM</nome>
+    <nome>nsorm</nome>
     <path>source\desktop_new\frameworks\nsORM\_package\nsORM.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>WORKFLOW</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>workflow</dependencia>
     </dependencias>
 </projeto>

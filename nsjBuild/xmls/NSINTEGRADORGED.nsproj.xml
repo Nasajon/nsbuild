@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSINTEGRADORGED</nome>
+    <nome>nsintegradorged</nome>
     <path>source\desktop_new\commonfeature\nsIntegradorGED\package\nsIntegradorGED.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>NSREPORT</dependencia>
-        <dependencia>NSXEUTIL</dependencia>
-        <dependencia>TLB</dependencia>
-        <dependencia>RESOURCES</dependencia>
-        <dependencia>V2</dependencia>
-        <dependencia>NSPROXY</dependencia>
-        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>nsreport</dependencia>
+        <dependencia>nsxeutil</dependencia>
+        <dependencia>tlb</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>v2</dependencia>
+        <dependencia>nsproxy</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

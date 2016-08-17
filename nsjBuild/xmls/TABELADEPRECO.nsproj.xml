@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>TABELADEPRECO</nome>
+    <nome>tabeladepreco</nome>
     <path>source\desktop_new\commonfeature\tabelaDePreco\package\tabelaDePreco.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>SERVICOSTECNICOS</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>ELEMENTOSDECONTROLEBASE</dependencia>
-        <dependencia>ELEMENTOSDECONTROLE</dependencia>
-        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>servicostecnicos</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>elementosdecontrolebase</dependencia>
+        <dependencia>elementosdecontrole</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

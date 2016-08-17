@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSJDIPJ</nome>
-    <path>source\desktop_new\projects\DIPJ\projeto\nsjDIPJ.dproj</path>
+    <nome>nsjautoupdate</nome>
+    <path>source\desktop_new\projects\launcher\autoUpdate\nsjAutoUpdate.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>PRODUCAO</dependencia>
-        <dependencia>NSJCONTABIL</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsiniciorapido</dependencia>
     </dependencias>
 </projeto>

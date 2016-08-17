@@ -3,23 +3,22 @@
     <nome>NSJCONTABIL</nome>
     <path>source\desktop_new\projects\contabil\projeto\nsjContabil.dproj</path>
     <dependencias>
-        <dependencia>NSJREPORTEDITOR</dependencia>
-        <dependencia>NSREPORT</dependencia>
-        <dependencia>BI</dependencia>
-        <dependencia>NSLICENCIAMENTO</dependencia>
-        <dependencia>NSINTEGRADORGED</dependencia>
-        <dependencia>NSINICIORAPIDO</dependencia>
-        <dependencia>QUALIFICACOESPJ</dependencia>
-        <dependencia>NSJCONTABILIZACAO</dependencia>
         <dependencia>NSLOCALIZAR</dependencia>
         <dependencia>SCP</dependencia>
         <dependencia>COMMONUTILS_STATIC</dependencia>
+        <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>NSREPORT</dependencia>
         <dependencia>NSORM</dependencia>
+        <dependencia>BI</dependencia>
+        <dependencia>NSLICENCIAMENTO</dependencia>
+        <dependencia>NSINTEGRADORGED</dependencia>
         <dependencia>NSMENUFAVORITOS</dependencia>
         <dependencia>NSPROXY</dependencia>
         <dependencia>SOCIOS</dependencia>
+        <dependencia>NSINICIORAPIDO</dependencia>
         <dependencia>NSJAPI</dependencia>
         <dependencia>SOCIOSPARTICIPACOES</dependencia>
+        <dependencia>QUALIFICACOESPJ</dependencia>
         <dependencia>NSPROTECAO</dependencia>
         <dependencia>NSTELEMETRIA</dependencia>
         <dependencia>USUARIO</dependencia>

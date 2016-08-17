@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSLICENCIAMENTO</nome>
+    <nome>nslicenciamento</nome>
     <path>source\desktop_new\libraries\NsLicenciamento\package\NsLicenciamento.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>V2</dependencia>
-        <dependencia>NSLOG</dependencia>
-        <dependencia>NSPROXY</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>v2</dependencia>
+        <dependencia>nslog</dependencia>
+        <dependencia>nsproxy</dependencia>
     </dependencias>
 </projeto>

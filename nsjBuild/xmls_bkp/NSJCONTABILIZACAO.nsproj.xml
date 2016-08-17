@@ -7,7 +7,6 @@
         <dependencia>COMMONUTILS_STATIC</dependencia>
         <dependencia>PERSONA</dependencia>
         <dependencia>NSPROTECAO</dependencia>
-        <dependencia>PRODUCAO</dependencia>
         <dependencia>NSREPORT</dependencia>
         <dependencia>NSJPERSONA</dependencia>
         <dependencia>NSXEUTIL</dependencia>

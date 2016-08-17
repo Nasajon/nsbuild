@@ -1,36 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>NSJSERVICOS</nome>
-    <path>source\desktop_new\projects\servicos\package\nsjServicos.dproj</path>
+    <nome>NSJCRM</nome>
+    <path>source\desktop_new\projects\crm\package\nsjCRM.dproj</path>
     <dependencias>
         <dependencia>NSJREPORTEDITOR</dependencia>
+        <dependencia>OFERTAS</dependencia>
         <dependencia>SERVICOSTECNICOS</dependencia>
         <dependencia>CATALOGODEOFERTAS</dependencia>
-        <dependencia>NSREPORT</dependencia>
+        <dependencia>PEDIDODEFATURAMENTO</dependencia>
         <dependencia>NSLICENCIAMENTO</dependencia>
-        <dependencia>PROJETOS</dependencia>
-        <dependencia>RELATORIOS</dependencia>
-        <dependencia>CENTRODECUSTOFINANCEIRO</dependencia>
+        <dependencia>OBJETOSSERVICOSBASE</dependencia>
         <dependencia>COMPONENTES</dependencia>
-        <dependencia>RATEIOPADRAO</dependencia>
         <dependencia>PERFISUSUARIO</dependencia>
         <dependencia>NSJUSUARIOS</dependencia>
+        <dependencia>DASHBOARDINSTANCIA</dependencia>
+        <dependencia>PROPOSTABASE</dependencia>
         <dependencia>GRUPOSDECOMPONENTES</dependencia>
+        <dependencia>CLIENTES</dependencia>
         <dependencia>TIPOSDESERVICOS</dependencia>
-        <dependencia>VEICULO</dependencia>
+        <dependencia>PARTICIPANTES</dependencia>
         <dependencia>COMMONUTILS_STATIC</dependencia>
         <dependencia>ITENSFATURAMENTO</dependencia>
+        <dependencia>ITENSFATURAMENTOBASE</dependencia>
         <dependencia>OBJETOSSERVICOS</dependencia>
-        <dependencia>CLASSIFICACAOFINANCEIRA</dependencia>
-        <dependencia>TABELADEPRECO</dependencia>
-        <dependencia>SEGMENTODEATUACAO</dependencia>
+        <dependencia>NSPAGEMASTER</dependencia>
+        <dependencia>PROPOSTA</dependencia>
+        <dependencia>NSORM</dependencia>
+        <dependencia>PORTFOLIOBENS</dependencia>
+        <dependencia>COMPOSICAO</dependencia>
+        <dependencia>VOUCHERS</dependencia>
         <dependencia>NSPROXY</dependencia>
+        <dependencia>SEGMENTODEATUACAO</dependencia>
+        <dependencia>NSTRADUCAO</dependencia>
         <dependencia>NSPROTECAO</dependencia>
-        <dependencia>MOTORISTA</dependencia>
+        <dependencia>PROPOSTAOPERACAO</dependencia>
         <dependencia>USUARIO</dependencia>
         <dependencia>RESOURCES</dependencia>
-        <dependencia>NSLOG</dependencia>
-        <dependencia>TIPOSPROJETOS</dependencia>
+        <dependencia>DASHBOARDCLIENTES</dependencia>
+        <dependencia>NSEMAIL</dependencia>
+        <dependencia>DOCUMENTTEMPLATE</dependencia>
         <dependencia>ATRIBUTOS</dependencia>
         <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
     </dependencias>

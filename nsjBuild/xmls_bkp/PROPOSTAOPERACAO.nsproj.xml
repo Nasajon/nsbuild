@@ -14,6 +14,7 @@
         <dependencia>NATUREZASCONTRATOS</dependencia>
         <dependencia>NSTRADUCAO</dependencia>
         <dependencia>DOCUMENTOSITENS</dependencia>
+        <dependencia>DOCUMENTTEMPLATE</dependencia>
         <dependencia>OPERACOES</dependencia>
         <dependencia>FORMAPAGAMENTO</dependencia>
     </dependencias>

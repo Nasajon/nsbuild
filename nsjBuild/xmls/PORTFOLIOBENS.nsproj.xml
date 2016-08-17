@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>PORTFOLIOBENS</nome>
+    <nome>portfoliobens</nome>
     <path>source\desktop_new\commonfeature\portfoliobens\package\portfoliobens.dproj</path>
     <dependencias>
-        <dependencia>GERADORDEDOCUMENTO</dependencia>
-        <dependencia>NSTRADUCAO</dependencia>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>COMPONENTESBASE</dependencia>
-        <dependencia>OBJETOSSERVICOS</dependencia>
-        <dependencia>DOCUMENTOSITENS</dependencia>
-        <dependencia>GERADORREQUISICAO</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>OBJETOSSERVICOSBASE</dependencia>
-        <dependencia>ELEMENTOSDECONTROLEBASE</dependencia>
-        <dependencia>OFERTASBASE</dependencia>
-        <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
+        <dependencia>geradordedocumento</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>componentesbase</dependencia>
+        <dependencia>objetosservicos</dependencia>
+        <dependencia>documentositens</dependencia>
+        <dependencia>geradorrequisicao</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>elementosdecontrolebase</dependencia>
+        <dependencia>ofertasbase</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

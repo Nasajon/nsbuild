@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>CATEGORIADEPRODUTO</nome>
+    <nome>categoriadeproduto</nome>
     <path>source\desktop_new\commonfeature\categoriadeproduto\package\categoriadeproduto.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>FIGURATRIBUTARIA</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>GRADE</dependencia>
-        <dependencia>NCM</dependencia>
-        <dependencia>USUARIO</dependencia>
-        <dependencia>CONFIGURACAO</dependencia>
-        <dependencia>NSJAPI</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>figuratributaria</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>grade</dependencia>
+        <dependencia>ncm</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>configuracao</dependencia>
+        <dependencia>nsjapi</dependencia>
     </dependencias>
 </projeto>

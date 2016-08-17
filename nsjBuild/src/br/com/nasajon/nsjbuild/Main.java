@@ -58,7 +58,7 @@ public class Main {
 		}
 
 		try {
-			new Compilador(g, 2).compilaProjetoComDependencias("NSORM");
+			new Compilador(g, 2).compilaProjetoComDependencias("PRODUTO");
 		} catch (GrafoCiclicoException e) {
 			System.out.println(e.getMessage());
 		} catch (InterruptedException e) {

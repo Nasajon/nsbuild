@@ -30,7 +30,6 @@
         <dependencia>TIPOSORDENSSERVICOS</dependencia>
         <dependencia>NSPROTECAO</dependencia>
         <dependencia>NSBACKUP</dependencia>
-        <dependencia>PRODUCAO</dependencia>
         <dependencia>WORKFLOWCOMMONFEATURE</dependencia>
         <dependencia>DOCFIS</dependencia>
         <dependencia>USUARIO</dependencia>
@@ -42,6 +41,7 @@
         <dependencia>ENTIDADESEMPRESARIAIS</dependencia>
         <dependencia>SERVICOSTECNICOS</dependencia>
         <dependencia>NSTEST</dependencia>
+        <dependencia>PEDIDODEFATURAMENTO</dependencia>
         <dependencia>BI</dependencia>
         <dependencia>OPERACAOORDEMSERVICO</dependencia>
         <dependencia>NSCERTIFICADODIGITAL</dependencia>
@@ -64,6 +64,7 @@
         <dependencia>ITENSFATURAMENTOBASE</dependencia>
         <dependencia>INTEGRACAOFINANCASPERSONA</dependencia>
         <dependencia>FINANCEIRO</dependencia>
+        <dependencia>PROPOSTA</dependencia>
         <dependencia>CLASSIFICACAOFINANCEIRA</dependencia>
         <dependencia>DOCUMENTORATEADO</dependencia>
         <dependencia>DESPESASMEDICAS</dependencia>
@@ -75,6 +76,7 @@
         <dependencia>PRETITULOS</dependencia>
         <dependencia>PRODUTO</dependencia>
         <dependencia>TIPOSMANUTENCOES</dependencia>
+        <dependencia>PROPOSTAOPERACAO</dependencia>
         <dependencia>DOCENGINE</dependencia>
         <dependencia>SCRITTAMATERIAIS</dependencia>
         <dependencia>NSLOG</dependencia>

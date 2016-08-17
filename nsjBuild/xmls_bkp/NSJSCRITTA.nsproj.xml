@@ -17,7 +17,6 @@
         <dependencia>NSPROTECAO</dependencia>
         <dependencia>PRETITULOS</dependencia>
         <dependencia>PREVISAOFINANCEIRA</dependencia>
-        <dependencia>NSJCONTABILIZACAO</dependencia>
         <dependencia>NSXEUTIL</dependencia>
         <dependencia>NSTELEMETRIA</dependencia>
         <dependencia>USUARIO</dependencia>

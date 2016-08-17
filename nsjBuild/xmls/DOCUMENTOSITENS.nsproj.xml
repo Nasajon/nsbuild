@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>DOCUMENTOSITENS</nome>
+    <nome>documentositens</nome>
     <path>source\desktop_new\commonfeature\documentositens\package\documentositens.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>ITENSFATURAMENTOBASE</dependencia>
-        <dependencia>OBJETOSSERVICOS</dependencia>
-        <dependencia>OFERTAS</dependencia>
-        <dependencia>SERVICOSTECNICOS</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>DOCUMENTOSITENSESCOPO</dependencia>
-        <dependencia>CATALOGODEOFERTAS</dependencia>
-        <dependencia>OBJETOSSERVICOSBASE</dependencia>
-        <dependencia>NSTRADUCAO</dependencia>
-        <dependencia>COMPONENTESBASE</dependencia>
-        <dependencia>UNIDADES</dependencia>
-        <dependencia>CATEGORIADEPRODUTO</dependencia>
-        <dependencia>OFERTASBASE</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>itensfaturamentobase</dependencia>
+        <dependencia>objetosservicos</dependencia>
+        <dependencia>ofertas</dependencia>
+        <dependencia>servicostecnicos</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>documentositensescopo</dependencia>
+        <dependencia>catalogodeofertas</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>componentesbase</dependencia>
+        <dependencia>unidades</dependencia>
+        <dependencia>categoriadeproduto</dependencia>
+        <dependencia>ofertasbase</dependencia>
     </dependencias>
 </projeto>

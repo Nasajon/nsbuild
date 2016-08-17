@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>OFERTASBASE</nome>
+    <nome>ofertasbase</nome>
     <path>source\desktop_new\commonfeature\ofertasbase\package\ofertasbase.dproj</path>
     <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>COMPONENTESBASE</dependencia>
-        <dependencia>ITENSFATURAMENTOBASE</dependencia>
-        <dependencia>SERVICOSTECNICOS</dependencia>
-        <dependencia>NSORM</dependencia>
-        <dependencia>CATALOGODEOFERTAS</dependencia>
-        <dependencia>DOCUMENTOSITENSESCOPO</dependencia>
-        <dependencia>OBJETOSSERVICOSBASE</dependencia>
-        <dependencia>GRUPOSDECOMPONENTES</dependencia>
-        <dependencia>ATRIBUTOS</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>componentesbase</dependencia>
+        <dependencia>itensfaturamentobase</dependencia>
+        <dependencia>servicostecnicos</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>catalogodeofertas</dependencia>
+        <dependencia>documentositensescopo</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>gruposdecomponentes</dependencia>
+        <dependencia>atributos</dependencia>
     </dependencias>
 </projeto>
