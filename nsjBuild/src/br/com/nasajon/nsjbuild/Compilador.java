@@ -9,8 +9,10 @@ public class Compilador implements ControleCompilacao {
 	private int maxThreadsAtivas;
 	private Integer threadsAtivas;
 	private Set<No> nosCompilados;
+	private BuildMode buildMode;
+	private String batchName;
 	
-	public Compilador(Grafo grafoDependencias, int maxThreadsAtivas) {
+	public Compilador(Grafo grafoDependencias, int maxThreadsAtivas, BuildMode buildMode, String batchName) {
 		
 		super();
 		
@@ -18,6 +20,8 @@ public class Compilador implements ControleCompilacao {
 		this.maxThreadsAtivas = maxThreadsAtivas;
 		this.grafoDependencias = grafoDependencias;
 		this.nosCompilados = new HashSet<No>();
+		this.buildMode = buildMode;
+		this.batchName = batchName;
 	}
 
 //	public void compilaProjetoComDependenciasBuscaLargura(String idProjeto) throws InterruptedException {
@@ -148,6 +152,11 @@ public class Compilador implements ControleCompilacao {
 
 	@Override
 	public String getBuildMode() {
-		return "debug";
+		return buildMode.toString();
+	}
+
+	@Override
+	public String getBatchName() {
+		return batchName;
 	}
 }

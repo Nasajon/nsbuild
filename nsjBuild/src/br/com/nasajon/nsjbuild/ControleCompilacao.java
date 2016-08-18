@@ -8,4 +8,5 @@ public interface ControleCompilacao {
 	public void notifyThreadError(No no, String msgErro);
 	
 	public String getBuildMode();
+	public String getBatchName();
 }

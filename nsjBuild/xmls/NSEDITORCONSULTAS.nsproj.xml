@@ -5,6 +5,5 @@
     <dependencias>
         <dependencia>nsdicionariodedados</dependencia>
         <dependencia>commonutils_static</dependencia>
-        <dependencia>nsreport</dependencia>
     </dependencias>
 </projeto>

@@ -30,6 +30,16 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:element name="batch_name" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Nome do batch a ser chamado para execução do build de cada projeto especifico.
+							A chamada realizada a este batch tem dois parâmetros:
+								1 - Modo do build: debug pu release
+								2 - Path do arquivo de projeto a ser compilado
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				
 			</xs:sequence>
 		</xs:complexType>

@@ -1,5 +1,5 @@
-@CALL "%PROGRAMFILES(X86)%\Embarcadero\RAD Studio\10.0\bin\rsvars.bat"
+PUSHD "C:\@work\erp\source\desktop_new\_bin"
+@CALL "copydfm.bat"
+POPD
 
-msbuild %2%
-
-if %errorlevel% equ 0 EXIT
+java -jar nsjBuild.jar %1 %2
