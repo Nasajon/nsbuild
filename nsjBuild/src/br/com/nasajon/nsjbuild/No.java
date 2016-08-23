@@ -1,5 +1,6 @@
 package br.com.nasajon.nsjbuild;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,14 +11,18 @@ public class No {
 	private Set<No> saidas;
 	private boolean marcado;
 	private boolean visitado;
+	private boolean compilacaoChamada;
+    private File arquivoXML;
 
-	public No(String id, String path) {
+	public No(String id, String path, File arquivoXML) {
 		super();
 		
 		this.id = id;
 		this.setPath(path);
+		this.arquivoXML = arquivoXML;
 		entradas = new HashSet<No>();
 		saidas = new HashSet<No>();
+		compilacaoChamada = false;
 	}
 	
 	public String getId() {
@@ -31,6 +36,16 @@ public class No {
 	}
 	public Set<No> getSaidas() {
 		return saidas;
+	}
+	
+	public boolean existsSaidaNaoCompilada() {
+		for (No saida : this.saidas) {
+			if (!saida.isMarcado()) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	public void addSaida(No saida) {
@@ -89,5 +104,21 @@ public class No {
 
 	public void setPath(String path) {
 		this.path = path;
+	}
+
+	public File getArquivoXML() {
+		return arquivoXML;
+	}
+
+	public void setArquivoXML(File arquivoXML) {
+		this.arquivoXML = arquivoXML;
+	}
+
+	public boolean isCompilacaoChamada() {
+		return compilacaoChamada;
+	}
+
+	public void setCompilacaoChamada(boolean compilacaoChamada) {
+		this.compilacaoChamada = compilacaoChamada;
 	}
 }

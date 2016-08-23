@@ -1,5 +1,6 @@
 package br.com.nasajon.nsjbuild;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -35,14 +36,15 @@ public class Grafo {
 	public No getNo(String idNo) {
 		return this.nos.get(idNo);
 	}
-	public boolean addNo(String id, String path) {
-		if(nos.containsKey(id)) {
-			return false;
+	public No addNo(String id, String path, File arquivoXML) {
+		No no = nos.get(id);
+		if(no != null) {
+			return no;
 		}
 		
-		No no = new No(id, path);
+		no = new No(id, path,arquivoXML);
 		this.nos.put(id, no);
-		return true;
+		return no;
 	}
 	public boolean removeNo(String idNo) {
 		No no = this.nos.get(idNo);
@@ -104,7 +106,7 @@ public class Grafo {
 		Grafo copia = new Grafo();
 		
 		for (No n: this.nos.values()) {
-			copia.addNo(n.getId(), n.getPath());
+			copia.addNo(n.getId(), n.getPath(), n.getArquivoXML());
 		}
 		
 		for (No n: this.nos.values()) {

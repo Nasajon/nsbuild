@@ -11,6 +11,7 @@ public class Compilador implements ControleCompilacao {
 	private Set<No> nosCompilados;
 	private BuildMode buildMode;
 	private String batchName;
+	private boolean isAborted;
 	
 	public Compilador(Grafo grafoDependencias, int maxThreadsAtivas, BuildMode buildMode, String batchName) {
 		
@@ -22,6 +23,7 @@ public class Compilador implements ControleCompilacao {
 		this.nosCompilados = new HashSet<No>();
 		this.buildMode = buildMode;
 		this.batchName = batchName;
+		this.isAborted = false;
 	}
 
 //	public void compilaProjetoComDependenciasBuscaLargura(String idProjeto) throws InterruptedException {
@@ -123,14 +125,19 @@ public class Compilador implements ControleCompilacao {
 	@Override
 	public boolean compilar(No no) throws InterruptedException {
 		
-		while(this.threadsAtivas >= maxThreadsAtivas || !this.nosCompilados.containsAll(no.getSaidas())) {
+//		while(this.threadsAtivas >= maxThreadsAtivas || !this.nosCompilados.containsAll(no.getSaidas())) {
+		while(this.threadsAtivas >= maxThreadsAtivas || no.existsSaidaNaoCompilada()) {
+			if (this.isAborted) {
+				return false;
+			}
+			
 			Thread.sleep(2000);
 		}
 		
-		new ThreadCompilacao(no, this).start();
 		synchronized (this.threadsAtivas) {
 			this.threadsAtivas++;
 		}
+		new ThreadCompilacao(no, this).start();
 		
 		return true;
 	}
@@ -147,6 +154,7 @@ public class Compilador implements ControleCompilacao {
 
 	@Override
 	public void notifyThreadError(No no, String msgErro) {
+		this.isAborted = true;
 		System.out.println(msgErro);
 	}
 
@@ -158,5 +166,13 @@ public class Compilador implements ControleCompilacao {
 	@Override
 	public String getBatchName() {
 		return batchName;
+	}
+	
+	public boolean existsThreadAtiva() {
+		return this.threadsAtivas > 0;
+	}
+
+	public boolean isAborted() {
+		return isAborted;
 	}
 }

@@ -22,20 +22,35 @@ public class BuscaProfundidade {
 	
 	private static void buscaRecursiva(No noIteracao, ControleCompilacao controleCompilacao, Queue<No> retorno) throws GrafoCiclicoException, InterruptedException {
 
+		if (controleCompilacao.isAborted()) {
+			return;
+		}
+
 		noIteracao.setVisitado(true);
 
 		for(No n: noIteracao.getSaidas()) {
-			if (!n.isVisitado()) {
-				buscaRecursiva(n, controleCompilacao, retorno);
+			if (controleCompilacao.isAborted()) {
+				return;
+			}
+			
+//			if (!n.isVisitado()) {
+//				buscaRecursiva(n, controleCompilacao, retorno);
+//			} else {
+//				if (!n.isCompilacaoChamada()) {
+//					throw new GrafoCiclicoException(noIteracao.getId(), n.getId());
+//				}
+//			}
+			if (n.isVisitado() && !n.isCompilacaoChamada()) {
+				throw new GrafoCiclicoException(noIteracao.getId(), n.getId());
 			} else {
-				if (!n.isMarcado()) {
-					throw new GrafoCiclicoException(noIteracao.getId(), n.getId());
+				if (!n.isVisitado() && !n.isMarcado()) {
+					buscaRecursiva(n, controleCompilacao, retorno);
 				}
 			}
 		}
 		
 		controleCompilacao.compilar(noIteracao);
-		noIteracao.setMarcado(true);
+		noIteracao.setCompilacaoChamada(true);
 		
 		retorno.offer(noIteracao);
 	}

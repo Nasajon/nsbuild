@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2016.07.11 às 12:39:32 PM BRT 
+// Gerado em: 2016.08.19 às 11:26:26 AM BRT 
 //
 
 
@@ -10,11 +10,14 @@ package br.com.nasajon.nsjbuild.modelXML;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -40,6 +43,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
+ *         &lt;element name="ultimaCompilacao" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -52,7 +56,8 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "", propOrder = {
     "nome",
     "path",
-    "dependencias"
+    "dependencias",
+    "ultimaCompilacao"
 })
 @XmlRootElement(name = "projeto")
 public class Projeto {
@@ -62,6 +67,8 @@ public class Projeto {
     @XmlElement(required = true)
     protected String path;
     protected Projeto.Dependencias dependencias;
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar ultimaCompilacao;
 
     /**
      * Obtém o valor da propriedade nome.
@@ -135,8 +142,33 @@ public class Projeto {
         this.dependencias = value;
     }
 
+    /**
+     * Obtém o valor da propriedade ultimaCompilacao.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getUltimaCompilacao() {
+        return ultimaCompilacao;
+    }
 
     /**
+     * Define o valor da propriedade ultimaCompilacao.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setUltimaCompilacao(XMLGregorianCalendar value) {
+        this.ultimaCompilacao = value;
+    }
+
+
+
+	/**
      * <p>Classe Java de anonymous complex type.
      * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.

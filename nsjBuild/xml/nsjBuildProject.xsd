@@ -41,6 +41,13 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="ultimaCompilacao" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Data e hora da última compilação bem sucedida do projeto.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				
 			</xs:sequence>
 		</xs:complexType>

@@ -9,4 +9,6 @@ public interface ControleCompilacao {
 	
 	public String getBuildMode();
 	public String getBatchName();
+	
+	public boolean isAborted(); 
 }
