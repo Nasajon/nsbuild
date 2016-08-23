@@ -1,6 +1,7 @@
 package br.com.nasajon.nsjbuild;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.datatype.DatatypeConfigurationException;
@@ -30,13 +31,14 @@ public class ThreadCompilacao extends Thread {
 			
 			if(p.waitFor() != 0) {
 //				System.out.println("ERRO de compilação no projeto: " + this.no.getId());
-				this.controleCompilacao.notifyThreadError(this.no, "ERRO de compilação no projeto: " + this.no.getId());
+				this.controleCompilacao.notifyThreadError(this.no, "ERRO DE COMPILAÇÃO NO PROJETO: " + this.no.getId());
 				xmlHandler.atualizaUltimaCompilacaoXML(this.no.getArquivoXML(), false);
+				
+				InputStream error = p.getInputStream();
+				for (int i = 0; i < error.available(); i++) {
+					System.out.print("" + (char)error.read());
+				}
 				return;
-//				InputStream error = p.getInputStream();
-//				for (int i = 0; i < error.available(); i++) {
-//					System.out.print("" + (char)error.read());
-//				}
 			} else {
 				xmlHandler.atualizaUltimaCompilacaoXML(this.no.getArquivoXML(), true);
 				this.no.setMarcado(true);

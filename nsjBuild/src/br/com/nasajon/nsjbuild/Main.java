@@ -26,12 +26,12 @@ public class Main {
 			return;
 		}
 		
-		BuildMode bm = null;
-		bm = resolveBuildMode(args, bm);
+		BuildMode bm = resolveBuildMode(args);
 		
 		if (bm == null) {
 			System.out.println("Modo de build inválido. Por favor digite 'debug' ou 'release'. Exemplo de uso:");
 			System.out.println("nsjBuild nsjestoque <debug/release> [force]");
+			return;
 		}
 		
 		ParametrosNsjbuild parametros = carregaParametrosBuild();
@@ -106,7 +106,9 @@ public class Main {
 		System.out.println("Demorou " + intervaloMinutos + " (minutos)");
 	}
 
-	private static BuildMode resolveBuildMode(String[] args, BuildMode bm) {
+	private static BuildMode resolveBuildMode(String[] args) {
+		BuildMode bm = null;
+		
 		if (args[1].equals(BuildMode.debug.toString())) {
 			bm = BuildMode.debug;
 		}

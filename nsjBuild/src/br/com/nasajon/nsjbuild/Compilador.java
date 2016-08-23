@@ -155,6 +155,9 @@ public class Compilador implements ControleCompilacao {
 	@Override
 	public void notifyThreadError(No no, String msgErro) {
 		this.isAborted = true;
+		System.out.println("");
+		System.out.println("");
+		System.out.println("");
 		System.out.println(msgErro);
 	}
 
