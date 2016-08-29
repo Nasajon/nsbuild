@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>atendimento</nome>
+    <path>source\desktop_new\commonfeature\atendimentos\package\atendimento.dproj</path>
+    <dependencias>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsjreporteditor</dependencia>
+        <dependencia>objetosservicos</dependencia>
+        <dependencia>servicostecnicos</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>nsreport</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>operacaoordemservico</dependencia>
+        <dependencia>tiposfollowups</dependencia>
+        <dependencia>relatorios</dependencia>
+        <dependencia>followup</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>tiposordensservicos</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>tiposmanutencoes</dependencia>
+        <dependencia>prioridadesatendimentos</dependencia>
+        <dependencia>requisicaoalmoxarifado</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>configuracao</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

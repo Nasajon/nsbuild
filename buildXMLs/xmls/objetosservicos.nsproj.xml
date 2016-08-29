@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>objetosservicos</nome>
+    <path>source\desktop_new\commonfeature\objetosServicos\package\ObjetosServicos.dproj</path>
+    <dependencias>
+        <dependencia>nslayoutcontrol</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>docfis</dependencia>
+        <dependencia>ordensdeservicobase</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>contrato</dependencia>
+        <dependencia>dashboardinstancia</dependencia>
+        <dependencia>elementosdecontrolebase</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>participantes</nome>
+    <path>source\desktop_new\commonfeature\participantes\package\participantes.dproj</path>
+    <dependencias>
+        <dependencia>contafinanceira</dependencia>
+        <dependencia>centrodecustofinanceiro</dependencia>
+        <dependencia>rateiopadrao</dependencia>
+        <dependencia>limitedecreditohistorico</dependencia>
+        <dependencia>nsfuncoescontroles</dependencia>
+        <dependencia>faixadecredito</dependencia>
+        <dependencia>propostabase</dependencia>
+        <dependencia>nsdicionariodedados</dependencia>
+        <dependencia>rpsbase</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>financeiro</dependencia>
+        <dependencia>proposta</dependencia>
+        <dependencia>contrato</dependencia>
+        <dependencia>segmentodeatuacao</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>followup</dependencia>
+        <dependencia>template_os</dependencia>
+        <dependencia>rps</dependencia>
+        <dependencia>representante</dependencia>
+        <dependencia>pesssoaclassificacao</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>contasfornecedores</dependencia>
+        <dependencia>dashboardclientes</dependencia>
+        <dependencia>midiaorigem</dependencia>
+        <dependencia>formapagamento</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

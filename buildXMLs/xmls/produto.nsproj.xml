@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>produto</nome>
+    <path>source\desktop_new\commonfeature\produto\package\produto.dproj</path>
+    <dependencias>
+        <dependencia>ipienquadramento</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>localdeestoqueendereco</dependencia>
+        <dependencia>itemestabelecimento</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>perfiltributario</dependencia>
+        <dependencia>numeroserie</dependencia>
+        <dependencia>nsintegradorged</dependencia>
+        <dependencia>figuratributaria</dependencia>
+        <dependencia>grade</dependencia>
+        <dependencia>ncm</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>scrittamateriais</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>etiqueta_base</dependencia>
+        <dependencia>categoriadeproduto</dependencia>
+        <dependencia>configuracao</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

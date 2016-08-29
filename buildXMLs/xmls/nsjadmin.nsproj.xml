@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>nsjadmin</nome>
+    <path>source\desktop_new\projects\admin\nsjAdmin.dproj</path>
+    <dependencias>
+        <dependencia>limitedecredito</dependencia>
+        <dependencia>exclusaoempresas</dependencia>
+        <dependencia>ciclofaturamento</dependencia>
+        <dependencia>nsimportador</dependencia>
+        <dependencia>nsreport</dependencia>
+        <dependencia>atualizador_classificacaofinanceira</dependencia>
+        <dependencia>nslicenciamento</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>elementosdecontrolebase</dependencia>
+        <dependencia>contafinanceira</dependencia>
+        <dependencia>nsintegradorged</dependencia>
+        <dependencia>nsjagente</dependencia>
+        <dependencia>centrodecustofinanceiro</dependencia>
+        <dependencia>rateiopadrao</dependencia>
+        <dependencia>nseditorconsultas</dependencia>
+        <dependencia>perfilusuariosistema</dependencia>
+        <dependencia>configuracao</dependencia>
+        <dependencia>nsdicionariodedados</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>objetosservicos</dependencia>
+        <dependencia>integracaofinancaspersona</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>classificacaofinanceira</dependencia>
+        <dependencia>banco</dependencia>
+        <dependencia>bloqueios</dependencia>
+        <dependencia>documentosservicedocument</dependencia>
+        <dependencia>projetofinanceiro</dependencia>
+        <dependencia>nsproxy</dependencia>
+        <dependencia>nsmenufavoritos</dependencia>
+        <dependencia>nsjapi</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>nsbackup</dependencia>
+        <dependencia>nsprotecao</dependencia>
+        <dependencia>workflowcommonfeature</dependencia>
+        <dependencia>nsbroker</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>v2</dependencia>
+        <dependencia>elementosdecontrole</dependencia>
+        <dependencia>nslog</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

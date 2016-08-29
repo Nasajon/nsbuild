@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>geradordedocumento</nome>
+    <path>source\desktop_new\commonfeature\geradordedocumentos\package\geradordedocumento.dproj</path>
+    <dependencias>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>consultadocengine</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>financeiro</dependencia>
+        <dependencia>localdeestoque_operacao</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>pretitulos</dependencia>
+        <dependencia>series</dependencia>
+        <dependencia>docengine</dependencia>
+        <dependencia>nsxeutil</dependencia>
+        <dependencia>scrittamateriais</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>formapagamento</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

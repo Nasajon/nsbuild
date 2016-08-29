@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>producao</nome>
+    <path>source\desktop_new\commonfeature\producao\package\producao.dproj</path>
+    <dependencias>
+        <dependencia>etiqueta</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>nsjreporteditor</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>scrittamateriais</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>etiqueta_base</dependencia>
+        <dependencia>configuracao</dependencia>
+        <dependencia>relatorios</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

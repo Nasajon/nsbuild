@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>nsjcrm</nome>
+    <path>source\desktop_new\projects\crm\package\nsjCRM.dproj</path>
+    <dependencias>
+        <dependencia>nsjreporteditor</dependencia>
+        <dependencia>ofertas</dependencia>
+        <dependencia>servicostecnicos</dependencia>
+        <dependencia>catalogodeofertas</dependencia>
+        <dependencia>pedidodefaturamento</dependencia>
+        <dependencia>nslicenciamento</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>componentes</dependencia>
+        <dependencia>perfisusuario</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>dashboardinstancia</dependencia>
+        <dependencia>propostabase</dependencia>
+        <dependencia>gruposdecomponentes</dependencia>
+        <dependencia>clientes</dependencia>
+        <dependencia>tiposdeservicos</dependencia>
+        <dependencia>participantes</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>itensfaturamento</dependencia>
+        <dependencia>itensfaturamentobase</dependencia>
+        <dependencia>objetosservicos</dependencia>
+        <dependencia>nspagemaster</dependencia>
+        <dependencia>proposta</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>portfoliobens</dependencia>
+        <dependencia>composicao</dependencia>
+        <dependencia>vouchers</dependencia>
+        <dependencia>nsproxy</dependencia>
+        <dependencia>segmentodeatuacao</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>nsprotecao</dependencia>
+        <dependencia>propostaoperacao</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>dashboardclientes</dependencia>
+        <dependencia>nsemail</dependencia>
+        <dependencia>documenttemplate</dependencia>
+        <dependencia>atributos</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

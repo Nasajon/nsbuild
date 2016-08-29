@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>nsws</nome>
+    <path>source\desktop_new\frameworks\nsWS\package\nsWS.dproj</path>
+    <dependencias>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>v2</dependencia>
+        <dependencia>nsproxy</dependencia>
+    </dependencias>
+</projeto>

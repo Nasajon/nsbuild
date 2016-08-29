@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>financeiro</nome>
+    <path>source\desktop_new\commonfeature\financeiro\package\financeiro.dproj</path>
+    <dependencias>
+        <dependencia>limitedecredito</dependencia>
+        <dependencia>ciclofaturamento</dependencia>
+        <dependencia>nsintegradorged</dependencia>
+        <dependencia>contafinanceira</dependencia>
+        <dependencia>centrodecustofinanceiro</dependencia>
+        <dependencia>rateiopadrao</dependencia>
+        <dependencia>configuracoesnumeracoesdnf</dependencia>
+        <dependencia>nsfuncoescontroles</dependencia>
+        <dependencia>nsjusuarios</dependencia>
+        <dependencia>configuracao</dependencia>
+        <dependencia>rpsbase</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>workflow</dependencia>
+        <dependencia>integracaofinancaspersona</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>classificacaofinanceira</dependencia>
+        <dependencia>banco</dependencia>
+        <dependencia>documentorateado</dependencia>
+        <dependencia>projetofinanceiro</dependencia>
+        <dependencia>nsjapi</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>resources</dependencia>
+        <dependencia>bempatrimonial</dependencia>
+        <dependencia>formapagamento</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

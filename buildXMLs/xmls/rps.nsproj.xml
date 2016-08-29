@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>rps</nome>
+    <path>source\desktop_new\commonfeature\rps\package\rps.dproj</path>
+    <dependencias>
+        <dependencia>limitedecredito</dependencia>
+        <dependencia>nsjreporteditor</dependencia>
+        <dependencia>tlb</dependencia>
+        <dependencia>nsintegradorged</dependencia>
+        <dependencia>contafinanceira</dependencia>
+        <dependencia>relatorios</dependencia>
+        <dependencia>geradordedocumento</dependencia>
+        <dependencia>nsfuncoescontroles</dependencia>
+        <dependencia>nsxeutil</dependencia>
+        <dependencia>historicospadrao</dependencia>
+        <dependencia>loterps</dependencia>
+        <dependencia>rpsbase</dependencia>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>itensfaturamentobase</dependencia>
+        <dependencia>itensfaturamento</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>financeiro</dependencia>
+        <dependencia>cfop</dependencia>
+        <dependencia>documentorateado</dependencia>
+        <dependencia>projetofinanceiro</dependencia>
+        <dependencia>nsproxy</dependencia>
+        <dependencia>nsjapi</dependencia>
+        <dependencia>obra</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>series</dependencia>
+        <dependencia>docengine</dependencia>
+        <dependencia>usuario</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

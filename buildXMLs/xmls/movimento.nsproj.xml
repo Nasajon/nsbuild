@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>movimento</nome>
+    <path>source\desktop_new\commonfeature\movimento\package\movimento.dproj</path>
+    <dependencias>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>item</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>docfis</dependencia>
+        <dependencia>scrittamateriais</dependencia>
+        <dependencia>configuracao</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>

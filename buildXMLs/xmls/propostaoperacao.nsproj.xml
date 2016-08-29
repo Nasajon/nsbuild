@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>propostaoperacao</nome>
+    <path>source\desktop_new\commonfeature\proposta\operacao\package\propostaoperacao.dproj</path>
+    <dependencias>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>objetosservicos</dependencia>
+        <dependencia>nsorm</dependencia>
+        <dependencia>financeiro</dependencia>
+        <dependencia>catalogodeofertas</dependencia>
+        <dependencia>operacaoordemservico</dependencia>
+        <dependencia>objetosservicosbase</dependencia>
+        <dependencia>modelosnaturezas</dependencia>
+        <dependencia>naturezascontratos</dependencia>
+        <dependencia>nstraducao</dependencia>
+        <dependencia>documentositens</dependencia>
+        <dependencia>documenttemplate</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>formapagamento</dependencia>
+    </dependencias>
+</projeto>

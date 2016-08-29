@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
+    <nome>danfe</nome>
+    <path>source\desktop_new\commonfeature\danfe\package\danfe.dproj</path>
+    <dependencias>
+        <dependencia>commonutils_static</dependencia>
+        <dependencia>nsjreporteditor</dependencia>
+        <dependencia>workflow</dependencia>
+        <dependencia>nsreport</dependencia>
+        <dependencia>financeiro</dependencia>
+        <dependencia>relatorios</dependencia>
+        <dependencia>geradordedocumento</dependencia>
+        <dependencia>produto</dependencia>
+        <dependencia>workflowcommonfeature</dependencia>
+        <dependencia>docfis</dependencia>
+        <dependencia>rateios</dependencia>
+        <dependencia>operacoes</dependencia>
+        <dependencia>formapagamento</dependencia>
+        <dependencia>entidadesempresariais</dependencia>
+    </dependencias>
+</projeto>
