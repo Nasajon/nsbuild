@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>OPERACOES</nome>
-    <path>source\desktop_new\commonfeature\operacoes\package\operacoes.dproj</path>
-    <dependencias>
-        <dependencia>COMMONUTILS_STATIC</dependencia>
-        <dependencia>NSORM</dependencia>
-    </dependencias>
-</projeto>

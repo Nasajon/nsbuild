@@ -40,6 +40,17 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:element name="inline" type="xs:boolean">
+					<xs:annotation>
+						<xs:documentation>
+							Indica se o diretiva de compilação INLINE, está ligada ou desligada.
+							Esta diretiva determina se o compilador irá "explodir" funções dentro de outras, o que implica
+							no modo de recompilação dos projetos alterados:
+								ON - Recompila toda a árvore de um projeto compilado (árvore de projetos que depende do alterado).
+								OFF - Recompila apenas o primeiro nível da árvore de um projeto compilado (árvore de projetos que depende do alterado).
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				
 			</xs:sequence>
 		</xs:complexType>

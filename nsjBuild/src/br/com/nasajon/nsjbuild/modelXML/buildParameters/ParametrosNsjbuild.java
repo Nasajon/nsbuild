@@ -2,14 +2,13 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2016.08.18 às 10:13:58 AM BRT 
+// Gerado em: 2016.08.29 às 05:03:49 PM BRT 
 //
 
 
 package br.com.nasajon.nsjbuild.modelXML.buildParameters;
 
 import java.math.BigInteger;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -31,6 +30,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="xmls_projects_path" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="max_processos" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *         &lt;element name="batch_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="inline" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -44,7 +44,8 @@ import javax.xml.bind.annotation.XmlType;
     "erpPath",
     "xmlsProjectsPath",
     "maxProcessos",
-    "batchName"
+    "batchName",
+    "inline"
 })
 @XmlRootElement(name = "parametros_nsjbuild")
 public class ParametrosNsjbuild {
@@ -57,6 +58,7 @@ public class ParametrosNsjbuild {
     protected BigInteger maxProcessos;
     @XmlElement(name = "batch_name", required = true)
     protected String batchName;
+    protected boolean inline;
 
     /**
      * Obtém o valor da propriedade erpPath.
@@ -152,6 +154,22 @@ public class ParametrosNsjbuild {
      */
     public void setBatchName(String value) {
         this.batchName = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade inline.
+     * 
+     */
+    public boolean isInline() {
+        return inline;
+    }
+
+    /**
+     * Define o valor da propriedade inline.
+     * 
+     */
+    public void setInline(boolean value) {
+        this.inline = value;
     }
 
 }

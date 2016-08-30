@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
     <nome>cfop</nome>
+    <autor>[Identidde Nasajon]</autor>
+    <dataCriacao>[01/01/1900]</dataCriacao>
+    <resumo>[Indicar resumo para documentação do projeto]</resumo>
     <path>source\desktop_new\commonfeature\cfop\package\cfop.dproj</path>
     <dependencias>
         <dependencia>commonutils_static</dependencia>

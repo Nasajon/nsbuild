@@ -1,6 +1,5 @@
 package br.com.nasajon.nsjbuild;
 
-import java.io.File;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -36,13 +35,13 @@ public class Grafo {
 	public No getNo(String idNo) {
 		return this.nos.get(idNo);
 	}
-	public No addNo(String id, String path, File arquivoXML) {
+	public No addNo(String id, String path, ProjetoWrapper projeto) {
 		No no = nos.get(id);
 		if(no != null) {
 			return no;
 		}
 		
-		no = new No(id, path,arquivoXML);
+		no = new No(id, path, projeto);
 		this.nos.put(id, no);
 		return no;
 	}
@@ -106,7 +105,7 @@ public class Grafo {
 		Grafo copia = new Grafo();
 		
 		for (No n: this.nos.values()) {
-			copia.addNo(n.getId(), n.getPath(), n.getArquivoXML());
+			copia.addNo(n.getId(), n.getPath(), n.getProjeto());
 		}
 		
 		for (No n: this.nos.values()) {

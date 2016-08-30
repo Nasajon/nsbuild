@@ -2,9 +2,7 @@ package br.com.nasajon.nsjbuild;
 
 import java.io.IOException;
 import java.io.InputStream;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.datatype.DatatypeConfigurationException;
+import java.util.Date;
 
 public class ThreadCompilacao extends Thread {
 
@@ -21,18 +19,15 @@ public class ThreadCompilacao extends Thread {
 
 	@Override
 	public void run() {
-
+		long inicio = System.currentTimeMillis();
+		
 		try {
-//			Process p = Runtime.getRuntime().exec("cmd /c start /b /wait nsjBuild.bat " + this.controleCompilacao.getBuildMode() + " " + this.no.getPath());
-//			Process p = Runtime.getRuntime().exec("cmd /c " + this.controleCompilacao.getBatchName() + " " + this.controleCompilacao.getBuildMode() + " " + this.no.getPath() + " " + this.no.getId());
-			Process p = Runtime.getRuntime().exec(this.controleCompilacao.getBatchName() + " " + this.controleCompilacao.getBuildMode() + " " + this.no.getPath() + " " + this.no.getId());
-			
-			XMLHandler xmlHandler = new XMLHandler();
+			System.out.println(this.no.getId() + " - INICIANDO" );
+			Process p = Runtime.getRuntime().exec(this.controleCompilacao.getBatchName() + " " + this.controleCompilacao.getBuildMode() + " " + this.no.getPath() + " " + this.no.getId() + " " + this.controleCompilacao.getBuildTarget().toCallString());
 			
 			if(p.waitFor() != 0) {
-//				System.out.println("ERRO de compilação no projeto: " + this.no.getId());
 				this.controleCompilacao.notifyThreadError(this.no, "ERRO DE COMPILAÇÃO NO PROJETO: " + this.no.getId());
-				xmlHandler.atualizaUltimaCompilacaoXML(this.no.getArquivoXML(), false);
+				this.no.getProjeto().setUltimaCompilacao(null);
 				
 				InputStream error = p.getInputStream();
 				for (int i = 0; i < error.available(); i++) {
@@ -40,7 +35,7 @@ public class ThreadCompilacao extends Thread {
 				}
 				return;
 			} else {
-				xmlHandler.atualizaUltimaCompilacaoXML(this.no.getArquivoXML(), true);
+				this.no.getProjeto().setUltimaCompilacao(new Date());
 				this.no.setMarcado(true);
 			}
 		} catch (IOException e) {
@@ -51,17 +46,10 @@ public class ThreadCompilacao extends Thread {
 			this.controleCompilacao.notifyThreadError(this.no, e.getMessage());
 			e.printStackTrace();
 			return;
-		} catch (JAXBException e) {
-			this.controleCompilacao.notifyThreadError(this.no, e.getMessage());
-			e.printStackTrace();
-			return;
-		} catch (DatatypeConfigurationException e) {
-			this.controleCompilacao.notifyThreadError(this.no, e.getMessage());
-			e.printStackTrace();
-			return;
 		}
 
-		System.out.println(this.no.getId());
+		Double intervalo = ((System.currentTimeMillis() - inicio)/1000.0)/60.0;
+		System.out.println(this.no.getId() + " - FINALIZADO: " + intervalo + " minutos.");
 		this.controleCompilacao.notifyThreadFinished(this.no);
 	}
 	

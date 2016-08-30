@@ -1,5 +1,7 @@
 package br.com.nasajon.nsjbuild;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -51,14 +53,12 @@ public class BuscaLargura {
 //		return retorno;
 //	}
 
-	public static void desmarcaNosQueUtilizamAtual(String idRaiz, Grafo grafo) throws JAXBException, DatatypeConfigurationException {
+	public static void desmarcaNosQueUtilizamAtual(String idRaiz, Grafo grafo, boolean inline) throws JAXBException, DatatypeConfigurationException, FileNotFoundException, FreeCacheException, IOException {
 
 		No raiz = grafo.getNo(idRaiz);
 		if (raiz == null) {
 			return;
 		}
-		
-		XMLHandler xmlHandler = new XMLHandler(); 
 		
 		Queue<No> retorno = new LinkedList<No>();
 		Queue<No> fila = new LinkedList<No>();
@@ -74,9 +74,13 @@ public class BuscaLargura {
 			for(No n: noIteracao.getEntradas()) {
 				if (n.isMarcado()) {
 					n.setMarcado(false);
-					xmlHandler.atualizaUltimaCompilacaoXML(n.getArquivoXML(), false);
+					n.getProjeto().setUltimaCompilacao(null);
 					fila.offer(n);
 				}
+			}
+			
+			if (!inline) {
+				return;
 			}
 		}
 

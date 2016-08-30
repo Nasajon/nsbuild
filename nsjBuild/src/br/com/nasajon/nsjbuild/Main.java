@@ -15,22 +15,51 @@ import javax.xml.datatype.DatatypeConfigurationException;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 
 public class Main {
+	private static final String PAR_HELP = "/? -? --help -help /help";
+	
+	private static final String PAR_BUILD_CLEAN_CACHE = "clean_cache";
+	private static final String PAR_BUILD_ALL = "all";
+	private static final String PAR_BUILD_ALTERADOS = "alterados";
+	private static final String PAR_BUILD_FORCE = "force";
 
 	public static void main(String[] args) {
 
 		long inicio = System.currentTimeMillis();
 		
-		if (args.length < 2) {
-			System.out.println("Por favor, indique o projeto a ser compilado. Exemplo de uso:");
-			System.out.println("nsjBuild nsjestoque <debug/release> [force]");
+		if (args.length < 1) {
+			System.out.println("Por favor, indique o objetivo do build (primeiro parâmetro). Exemplo de uso:");
+			imprimirFormaUso();
 			return;
 		}
 		
+		// Pegando o prâmetro do projeto (objetivo do build):
+		String parProjeto = args[0];
+		
+		// Verificando se é uma chamada ao help:
+		if (PAR_HELP.contains(parProjeto)) {
+			imprimirFormaUso();
+			return;
+		}
+		
+		// Verificando se não é uma chamada ao clean (para limpar a cache):
+		if (parProjeto.equals(PAR_BUILD_CLEAN_CACHE)) {
+			limparCache();
+			return;
+		}
+		
+		// Testando se foltou o build mode
+		if (args.length < 2) {
+			System.out.println("Por favor, indique o objetivo do build (primeiro parâmetro), e o modo de build. Exemplo de uso:");
+			imprimirFormaUso();
+			return;
+		}
+		
+		// Resolvendo o build mode:
 		BuildMode bm = resolveBuildMode(args);
 		
 		if (bm == null) {
-			System.out.println("Modo de build inválido. Por favor digite 'debug' ou 'release'. Exemplo de uso:");
-			System.out.println("nsjBuild nsjestoque <debug/release> [force]");
+			System.out.println("Modo de build inválido. Por favor digite '" + BuildMode.debug.toString() + "' ou '" + BuildMode.release.toString() + "'. Exemplo de uso:");
+			imprimirFormaUso();
 			return;
 		}
 		
@@ -42,40 +71,71 @@ public class Main {
 		}
 		
 		// Verificando se o projeto passado existe:
-		boolean achou = false;
-		for (ProjetoWrapper p: listaProjetos) {
-			if (p.getProjeto().getNome().equals(args[0])) {
-				achou = true;
-				break;
+		boolean isBuildAlterados = false;
+		
+		if (!parProjeto.equals(PAR_BUILD_ALL) && !parProjeto.equals(PAR_BUILD_ALTERADOS)) {
+			boolean achou = false;
+			for (ProjetoWrapper p: listaProjetos) {
+				if (p.getProjeto().getNome().equals(parProjeto)) {
+					achou = true;
+					break;
+				}
 			}
+			
+			if (!achou) {
+				System.out.println("Projeto não encontrado: " + parProjeto);
+				return;
+			}
+		} else if (parProjeto.equals(PAR_BUILD_ALTERADOS)) {
+			isBuildAlterados = true;
 		}
 		
-		if (!achou) {
-			System.out.println("Projeto não encontrado: " + args[0]);
-			return;
-		}
+		// Verificando se foi passado o parâmetro de build force:
+		boolean isBuildForce = false;
+		BuildTarget buildTarget = BuildTarget.build;
 		
-		// Varificando se foi passado o parêmtro de build all:
-		boolean buildForce = false;
 		if (args.length > 2) {
-			if (!args[2].equals("force")) {
-				System.out.println("Parâmetro de indicação para build force inválido (build ignorando as marcações de projetos já compilados). Exemplo de uso:");
-				System.out.println("nsjBuild nsjestoque <debug/release> [force]");
+			String terceiroParametro = args[2]; 
+			String quartoParametro = "";
+			if (args.length > 3) {
+				quartoParametro = args[3];
+			}
+					
+			if (!terceiroParametro.equals(PAR_BUILD_FORCE) && !BuildTarget.isBuildTarget(terceiroParametro)) {
+				System.out.println("Parâmetro de inválido. Exemplo de uso:");
+				imprimirFormaUso();
+				return;
+			} else if (!quartoParametro.equals("") && !quartoParametro.equals(PAR_BUILD_FORCE) && !BuildTarget.isBuildTarget(quartoParametro)) {
+				System.out.println("Parâmetro de inválido. Exemplo de uso:");
+				imprimirFormaUso();
 				return;
 			} else {
-				buildForce = true;
+				if (terceiroParametro.equals(PAR_BUILD_FORCE) || quartoParametro.equals(PAR_BUILD_FORCE)) {
+					isBuildForce = true;
+				}
+				
+				if (BuildTarget.isBuildTarget(terceiroParametro)) {
+					buildTarget = BuildTarget.valueOf(terceiroParametro);
+				} else if (BuildTarget.isBuildTarget(quartoParametro)) {
+					buildTarget = BuildTarget.valueOf(quartoParametro);
+				}
 			}
 		}
 		
 		try {
 			long antesGrafo = System.currentTimeMillis();
 			System.out.println("Montando grafo...");
-			Grafo g = montaGrafo(parametros, listaProjetos, buildForce);
+			Grafo g = montaGrafo(parametros, listaProjetos, isBuildForce, isBuildAlterados);
 			Double intervaloGrafo = ((System.currentTimeMillis() - antesGrafo)/1000.0)/60.0;
 			System.out.println("Grafo completo. Tempo: " + intervaloGrafo + " minutos.");
 			
-			Compilador compilador = new Compilador(g, parametros.getMaxProcessos().intValue(), bm, parametros.getBatchName());
-			compilador.compilaProjetoComDependencias(args[0]);
+			Compilador compilador = new Compilador(g, parametros.getMaxProcessos().intValue(), bm, parametros.getBatchName(), buildTarget);
+			
+			if (!parProjeto.equals(PAR_BUILD_ALL) && !isBuildAlterados) {
+				compilador.compilaProjetoComDependencias(parProjeto);
+			} else {
+				compilador.compileAll();
+			}
 			
 			while (!compilador.isAborted() &&  compilador.existsThreadAtiva()) {
 				Thread.sleep(2000);
@@ -118,17 +178,23 @@ public class Main {
 		return bm;
 	}
 
-	private static Grafo montaGrafo(ParametrosNsjbuild parametros, List<ProjetoWrapper> listaProjetos, Boolean buildForce) throws IOException, JAXBException, DatatypeConfigurationException {
+	private static Grafo montaGrafo(
+		ParametrosNsjbuild parametros,
+		List<ProjetoWrapper> listaProjetos,
+		boolean isBuildForce,
+		boolean isBuildAlterados
+	) throws IOException, JAXBException, DatatypeConfigurationException {
+			
 		AvaliadorEstadoCompilacao avaliador = new AvaliadorEstadoCompilacao(parametros);
 		
 		// Montando o GRAFO - Primeira passada - Nós:
 		Grafo g = new Grafo();
 		for (ProjetoWrapper p : listaProjetos) {
-			No n = g.addNo(p.getProjeto().getNome(), parametros.getErpPath() + p.getProjeto().getPath(), p.getArquivoXML());
+			No n = g.addNo(p.getProjeto().getNome(), parametros.getErpPath() + p.getProjeto().getPath(), p);
 			
 			Boolean isProjetoCompilado = false;
-			if (!buildForce) {
-				isProjetoCompilado = avaliador.isProjetoCompilado(p.getProjeto()); 
+			if (!isBuildForce) {
+				isProjetoCompilado = avaliador.isProjetoCompilado(p, isBuildAlterados); 
 			}
 			n.setMarcado(isProjetoCompilado);
 			n.setVisitado(false);
@@ -142,7 +208,7 @@ public class Main {
 		}
 
 		// Montando o GRAFO - Terceira passada - Marcando nós pendentes de compilação (por dependência com os não compilados):
-		if (!buildForce) {
+		if (!isBuildForce) {
 			Set<String> raizes = new HashSet<String>();
 			for (No n : g.getNos().values()) {
 				if (!n.isMarcado()) {
@@ -151,7 +217,7 @@ public class Main {
 			}
 			
 			for (String idNo : raizes) {
-				BuscaLargura.desmarcaNosQueUtilizamAtual(idNo, g);
+				BuscaLargura.desmarcaNosQueUtilizamAtual(idNo, g, parametros.isInline());
 			}
 		}
 		
@@ -195,6 +261,7 @@ public class Main {
 		parametros.setMaxProcessos(new BigInteger("2"));
 		parametros.setXmlsProjectsPath(new File("xmls").getAbsolutePath());
 		parametros.setBatchName("internal_build.bat");
+		parametros.setInline(false);
 		
 		File fileParametros = new File("nsjBuildParameters.xml");
 		if (fileParametros.exists()) {
@@ -213,5 +280,39 @@ public class Main {
 		}
 		
 		return parametros;
+	}
+	
+	private static void limparCache() {
+		File dirCache = new File("cache");
+		
+		if (dirCache.exists() && dirCache.isDirectory()) {
+			for (File f: dirCache.listFiles()) {
+				if(!f.delete()) {
+					System.out.println("Erro ao limpar cache. Erro ao apagar arquivo: " + f.getAbsolutePath());
+				}
+			}
+		}
+	}
+	
+	private static void imprimirFormaUso() {
+		System.out.println("nsjBuild <nome do projeto/all/alterados/clean> [debug/release] [" + PAR_BUILD_FORCE + "] [" + BuildTarget.toSeparatedString("/") + "]");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Conceitos importantes:");
+		System.out.println("all - Chama o msbuild para todos os projetos nunca compilados ou modificados.");
+		System.out.println("");
+		System.out.println("alterados - Chama o msbuild somente para os projetos modificados desde a última compilção (e para os projetos que dependem dos mesmos).");
+		System.out.println("");
+		System.out.println("clean_cache - Limpa a cache de projetos compilados (isto é apaga os arquivos de controle para a data da última compilação).");
+		System.out.println("");
+		System.out.println("debug/release - Modo de build (só não é obrigatório numa chamada ao 'clean').");
+		System.out.println("");
+		System.out.println("force - Chama o msbuild para todos os projetos na árvore de compilação desejada (não importando se já algum projeto já tenha sido compilado anteriormente).");
+		System.out.println("");
+		System.out.println("compile/build - Chama o build passando o target desejado (o padrão é 'compile', para evitar recompilação desnecessária a nível das units).");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("Obs.: Para garantir a recompilação de todos os projetos (antigo build.bat na opção 0), é preciso usar o comando:");
+		System.out.println("nsjbuild all force build");
 	}
 }

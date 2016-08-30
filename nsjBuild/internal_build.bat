@@ -4,7 +4,7 @@
 if not exist logs mkdir logs
 
 @ECHO ON
-msbuild %2 /p:config="%1"
+msbuild "%2" /t:%4 /p:BuildInParallel=true /v:minimal /p:config="%1" > logs\%3.log
 
 if %errorlevel% equ 0 EXIT
 if %errorlevel% neq 0 EXIT \B 1

@@ -9,14 +9,37 @@
         <xs:complexType>
 			<xs:sequence>
 				
-				<xs:element name="nome" type="xs:string">
+				<xs:element name="nome" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false">
 					<xs:annotation>
 						<xs:documentation>
-							Nome do projeto (identificador que precisa ser único).
+							Nome do projeto (identificador que precisa ser único; sugere-se utilizar o nome do arquivo ".dproj").
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
-				<xs:element name="path" type="xs:string">
+
+				<xs:element name="autor" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Nome do programdor responsável pela criação do pacote (sugere-se utilizar a identidade Nasajon).
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="dataCriacao" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Data e hora da criação do projeto.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="resumo" type="xs:string" minOccurs="1" maxOccurs="1">
+					<xs:annotation>
+						<xs:documentation>
+							Comentário para documentação do projeto.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+
+				<xs:element name="path" type="xs:string" minOccurs="1" maxOccurs="1" nillable="false">
 					<xs:annotation>
 						<xs:documentation>
 							Caminho relativo do projeto, a partir do diretório do repositório "erp" (caminho do arquivo "dproj" do projeto atual).
@@ -40,13 +63,6 @@
 							</xs:element>
 						</xs:sequence>
 					</xs:complexType>
-				</xs:element>
-				<xs:element name="ultimaCompilacao" type="xs:dateTime" minOccurs="0" maxOccurs="1">
-					<xs:annotation>
-						<xs:documentation>
-							Data e hora da última compilação bem sucedida do projeto.
-						</xs:documentation>
-					</xs:annotation>
 				</xs:element>
 				
 			</xs:sequence>

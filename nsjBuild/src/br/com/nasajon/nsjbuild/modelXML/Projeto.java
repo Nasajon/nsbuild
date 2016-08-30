@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2016.08.19 às 11:26:26 AM BRT 
+// Gerado em: 2016.08.29 às 12:22:08 PM BRT 
 //
 
 
@@ -10,14 +10,11 @@ package br.com.nasajon.nsjbuild.modelXML;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -31,6 +28,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="nome" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="autor" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="dataCriacao" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="resumo" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="path" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="dependencias" minOccurs="0">
  *           &lt;complexType>
@@ -43,7 +43,6 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
- *         &lt;element name="ultimaCompilacao" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -55,9 +54,11 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "nome",
+    "autor",
+    "dataCriacao",
+    "resumo",
     "path",
-    "dependencias",
-    "ultimaCompilacao"
+    "dependencias"
 })
 @XmlRootElement(name = "projeto")
 public class Projeto {
@@ -65,10 +66,14 @@ public class Projeto {
     @XmlElement(required = true)
     protected String nome;
     @XmlElement(required = true)
+    protected String autor;
+    @XmlElement(required = true)
+    protected String dataCriacao;
+    @XmlElement(required = true)
+    protected String resumo;
+    @XmlElement(required = true)
     protected String path;
     protected Projeto.Dependencias dependencias;
-    @XmlSchemaType(name = "dateTime")
-    protected XMLGregorianCalendar ultimaCompilacao;
 
     /**
      * Obtém o valor da propriedade nome.
@@ -92,6 +97,78 @@ public class Projeto {
      */
     public void setNome(String value) {
         this.nome = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade autor.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAutor() {
+        return autor;
+    }
+
+    /**
+     * Define o valor da propriedade autor.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAutor(String value) {
+        this.autor = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade dataCriacao.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    /**
+     * Define o valor da propriedade dataCriacao.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDataCriacao(String value) {
+        this.dataCriacao = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade resumo.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getResumo() {
+        return resumo;
+    }
+
+    /**
+     * Define o valor da propriedade resumo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setResumo(String value) {
+        this.resumo = value;
     }
 
     /**
@@ -142,33 +219,8 @@ public class Projeto {
         this.dependencias = value;
     }
 
-    /**
-     * Obtém o valor da propriedade ultimaCompilacao.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public XMLGregorianCalendar getUltimaCompilacao() {
-        return ultimaCompilacao;
-    }
 
     /**
-     * Define o valor da propriedade ultimaCompilacao.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
-     */
-    public void setUltimaCompilacao(XMLGregorianCalendar value) {
-        this.ultimaCompilacao = value;
-    }
-
-
-
-	/**
      * <p>Classe Java de anonymous complex type.
      * 
      * <p>O seguinte fragmento do esquema especifica o conteúdo esperado contido dentro desta classe.

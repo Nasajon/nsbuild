@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
     <nome>etiqueta_base</nome>
+    <autor>[Identidde Nasajon]</autor>
+    <dataCriacao>[01/01/1900]</dataCriacao>
+    <resumo>[Indicar resumo para documentação do projeto]</resumo>
     <path>source\desktop_new\commonfeature\etiqueta_base\package\etiqueta_base.dproj</path>
     <dependencias/>
-    <ultimaCompilacao>2016-08-20T09:45:43.482-03:00</ultimaCompilacao>
 </projeto>

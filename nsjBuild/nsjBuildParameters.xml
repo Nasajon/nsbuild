@@ -4,4 +4,5 @@
   <nsjb:xmls_projects_path>xmls</nsjb:xmls_projects_path>
   <nsjb:max_processos>2</nsjb:max_processos>
   <nsjb:batch_name>internal_build.bat</nsjb:batch_name>
+  <nsjb:inline>false</nsjb:inline>
 </nsjb:parametros_nsjbuild>

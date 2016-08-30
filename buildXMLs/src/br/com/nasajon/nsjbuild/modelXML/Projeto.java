@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2016.07.06 às 04:18:04 PM BRT 
+// Gerado em: 2016.08.29 às 12:22:08 PM BRT 
 //
 
 
@@ -28,13 +28,16 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="nome" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="autor" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="dataCriacao" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="resumo" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="path" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="dependencias" minOccurs="0">
  *           &lt;complexType>
  *             &lt;complexContent>
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
- *                   &lt;element name="dependencia" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="50"/>
+ *                   &lt;element name="dependencia" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="1000"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
  *             &lt;/complexContent>
@@ -51,6 +54,9 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "nome",
+    "autor",
+    "dataCriacao",
+    "resumo",
     "path",
     "dependencias"
 })
@@ -59,6 +65,12 @@ public class Projeto {
 
     @XmlElement(required = true)
     protected String nome;
+    @XmlElement(required = true)
+    protected String autor;
+    @XmlElement(required = true)
+    protected String dataCriacao;
+    @XmlElement(required = true)
+    protected String resumo;
     @XmlElement(required = true)
     protected String path;
     protected Projeto.Dependencias dependencias;
@@ -85,6 +97,78 @@ public class Projeto {
      */
     public void setNome(String value) {
         this.nome = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade autor.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAutor() {
+        return autor;
+    }
+
+    /**
+     * Define o valor da propriedade autor.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAutor(String value) {
+        this.autor = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade dataCriacao.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getDataCriacao() {
+        return dataCriacao;
+    }
+
+    /**
+     * Define o valor da propriedade dataCriacao.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setDataCriacao(String value) {
+        this.dataCriacao = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade resumo.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getResumo() {
+        return resumo;
+    }
+
+    /**
+     * Define o valor da propriedade resumo.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setResumo(String value) {
+        this.resumo = value;
     }
 
     /**
@@ -146,7 +230,7 @@ public class Projeto {
      *   &lt;complexContent>
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
-     *         &lt;element name="dependencia" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="50"/>
+     *         &lt;element name="dependencia" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="1000"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
      *   &lt;/complexContent>

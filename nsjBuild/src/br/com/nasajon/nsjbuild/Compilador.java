@@ -1,6 +1,8 @@
 package br.com.nasajon.nsjbuild;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Compilador implements ControleCompilacao {
@@ -12,8 +14,9 @@ public class Compilador implements ControleCompilacao {
 	private BuildMode buildMode;
 	private String batchName;
 	private boolean isAborted;
+	private BuildTarget buildTarget;
 	
-	public Compilador(Grafo grafoDependencias, int maxThreadsAtivas, BuildMode buildMode, String batchName) {
+	public Compilador(Grafo grafoDependencias, int maxThreadsAtivas, BuildMode buildMode, String batchName, BuildTarget buildTarget) {
 		
 		super();
 		
@@ -24,95 +27,32 @@ public class Compilador implements ControleCompilacao {
 		this.buildMode = buildMode;
 		this.batchName = batchName;
 		this.isAborted = false;
+		this.buildTarget = buildTarget;
 	}
-
-//	public void compilaProjetoComDependenciasBuscaLargura(String idProjeto) throws InterruptedException {
-//
-//		Grafo grafoMinimo = BuscaLargura.buscaLarguraDependeciasRetornaGrafo(idProjeto, grafoDependencias);
-//		
-//		// Compilando enquanto houver no por compilar. A cada um compilado, atualiza as folhas...
-//		No n = null;
-//		while((n = grafoMinimo.getFolha()) != null) {
-//
-//			// Compilando as folhas:
-//			while(this.threadsAtivas > maxThreadsAtivas) {
-//				Thread.sleep(2000);
-//			}
-//
-//			new ThreadCompilacao(n, this).start();
-//			synchronized (this.threadsAtivas) {
-//				this.threadsAtivas++;
-//			}
-//
-//			grafoMinimo.removeNo(n.getId());
-//		}
-//	}
 
 	public void compilaProjetoComDependencias(String idProjeto) throws GrafoCiclicoException, InterruptedException {
 		
 		BuscaProfundidade.buscaProfundidade(idProjeto, grafoDependencias, this);
 	}
-	
-//	public void compilaProjetoComDependenciasOld(String idProjeto) {
-//		Queue<No> listaNosPorCompilar = BuscaLargura.buscaLarguraDependecias(idProjeto, grafoDependencias);
-//		Set<No> nosPorCompilar = new HashSet<No>(listaNosPorCompilar);
-//		
-//		Set<No> nosCompilados = new HashSet<No>();
-//		Queue<No> folhas = new LinkedList<No>();
-//		Queue<No> folhasRecemCompiladas = new LinkedList<No>();
-//		
-//		// Descobrindo as folhas:
-//		for (No n: nosPorCompilar) {
-//			if(n.getSaidas().size() == 0) {
-//				folhas.add(n);
-//			}
-//		}
-//		
-//		// Compilando enquanto houver no por compilar. A cada um compilado, atualiza as folhas...
-//		while(nosPorCompilar.size() > 0) {
-//			folhasRecemCompiladas.clear();
-//			
-//			// Compilando as folhas:
-//			while(folhas.size() > 0) {
-//				No n = folhas.poll();
-//				
-//				n.compilar();
-//				
-//				folhasRecemCompiladas.offer(n);
-//				nosCompilados.add(n);
-//				
-//				nosPorCompilar.remove(n);
-//			}
-//			
-//			// Descobrindo as novas folhas, a partir das que foram compiladas:
-//			while(folhasRecemCompiladas.size() > 0) {
-//				No n = folhasRecemCompiladas.poll();
-//				
-//				for(No pai: n.getEntradas()) {
-//					if (!nosPorCompilar.contains(pai)) {
-//						continue;
-//					}
-//					
-//					boolean encontrouDependenciaPorCompilar = false;
-//					
-//					for(No dependencia: n.getSaidas()) {
-//						if (dependencia.equals(n)) {
-//							continue;
-//						}
-//						
-//						if (nosPorCompilar.contains(dependencia)) {
-//							encontrouDependenciaPorCompilar = true;
-//							break;
-//						}
-//					}
-//					
-//					if (!encontrouDependenciaPorCompilar) {
-//						folhas.offer(pai);
-//					}
-//				}
-//			}
-//		}
-//	}
+
+	public void compileAll() throws GrafoCiclicoException, InterruptedException {
+		
+		List<No> listaNaoCompilados = new ArrayList<No>();
+		
+		for (String idNo : grafoDependencias.getNos().keySet()) {
+			No no = grafoDependencias.getNo(idNo);
+			
+			if (!no.isMarcado()) {
+				listaNaoCompilados.add(no);
+			}
+		}
+		
+		for (No n : listaNaoCompilados) {
+			if (!n.isMarcado()) {
+				BuscaProfundidade.buscaProfundidade(n.getId(), grafoDependencias, this);
+			}
+		}
+	}
 
 	public Grafo getGrafoDependencias() {
 		return grafoDependencias;
@@ -125,7 +65,6 @@ public class Compilador implements ControleCompilacao {
 	@Override
 	public boolean compilar(No no) throws InterruptedException {
 		
-//		while(this.threadsAtivas >= maxThreadsAtivas || !this.nosCompilados.containsAll(no.getSaidas())) {
 		while(this.threadsAtivas >= maxThreadsAtivas || no.existsSaidaNaoCompilada()) {
 			if (this.isAborted) {
 				return false;
@@ -177,5 +116,9 @@ public class Compilador implements ControleCompilacao {
 
 	public boolean isAborted() {
 		return isAborted;
+	}
+
+	public BuildTarget getBuildTarget() { 
+		return this.buildTarget;
 	}
 }

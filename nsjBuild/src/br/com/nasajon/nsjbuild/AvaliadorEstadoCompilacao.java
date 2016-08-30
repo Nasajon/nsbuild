@@ -7,7 +7,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Set;
 
-import br.com.nasajon.nsjbuild.modelXML.Projeto;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 
 public class AvaliadorEstadoCompilacao {
@@ -19,14 +18,25 @@ public class AvaliadorEstadoCompilacao {
 		this.parametrosBuild = parametrosBuild;
 	}
 	
-	public boolean isProjetoCompilado(Projeto projeto) throws IOException {
+	/**
+	 * 
+	 * @param projeto
+	 * @param isBuildAlterados Se o desejado é compilar apenas os projetos alterados, então consideram-se como compilados (isto é, não precisam ser avaliados) os projetos sobre os quais não se tem informações (a ideia é que o programador terá chamado o nsjbuild anteriormente para compilar o que ele precisava para o trabalho, e com o parâmetro 'alterados', o build compila só o que foi alterado (desde a última compilação) e os projetos que dependem dos mesmos - é chamado um build 'all' no final). 
+	 * @return
+	 * @throws IOException
+	 */
+	public boolean isProjetoCompilado(ProjetoWrapper projeto, boolean isBuildAlterados) throws IOException {
 		if (projeto.getUltimaCompilacao() == null) {
-			return false;
+			if (!isBuildAlterados) {
+				return false;
+			} else {
+				return true;
+			}
 		}
 		
-		Calendar cal = projeto.getUltimaCompilacao().toGregorianCalendar(); 
+		Calendar cal = projeto.getUltimaCompilacao(); 
 		
-		File arquivoDproj = new File(parametrosBuild.getErpPath() + projeto.getPath());
+		File arquivoDproj = new File(parametrosBuild.getErpPath() + projeto.getProjeto().getPath());
 		if (this.contemAlteracao(arquivoDproj, cal)) {
 			return false;
 		}

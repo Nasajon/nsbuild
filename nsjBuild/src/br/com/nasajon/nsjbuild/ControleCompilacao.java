@@ -11,4 +11,5 @@ public interface ControleCompilacao {
 	public String getBatchName();
 	
 	public boolean isAborted(); 
+	public BuildTarget getBuildTarget(); 
 }
