@@ -51,6 +51,20 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:element name="batch_prebuild" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Nome do batch a ser chamado antes da execução do build (antes da busca no grafo, que compila cada projeto).
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
+				<xs:element name="batch_clean" type="xs:string">
+					<xs:annotation>
+						<xs:documentation>
+							Nome do batch a ser chamado quando o usuário escolhe a opção clean.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				
 			</xs:sequence>
 		</xs:complexType>

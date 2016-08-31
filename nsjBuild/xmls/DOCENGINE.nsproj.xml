@@ -8,6 +8,5 @@
     <dependencias>
         <dependencia>commonutils_static</dependencia>
         <dependencia>nsorm</dependencia>
-        <dependencia>tlb</dependencia>
     </dependencias>
 </projeto>

@@ -48,7 +48,6 @@
         <dependencia>bi</dependencia>
         <dependencia>operacaoordemservico</dependencia>
         <dependencia>nscertificadodigital</dependencia>
-        <dependencia>tlb</dependencia>
         <dependencia>tiposfollowups</dependencia>
         <dependencia>contafinanceira</dependencia>
         <dependencia>nsintegradorged</dependencia>

@@ -5,9 +5,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.datatype.DatatypeConfigurationException;
-
 public class BuscaLargura {
 
 //	public static Grafo buscaLarguraDependeciasRetornaGrafo(String idRaiz, Grafo grafo) {
@@ -53,7 +50,7 @@ public class BuscaLargura {
 //		return retorno;
 //	}
 
-	public static void desmarcaNosQueUtilizamAtual(String idRaiz, Grafo grafo, boolean inline) throws JAXBException, DatatypeConfigurationException, FileNotFoundException, FreeCacheException, IOException {
+	public static void desmarcaNosQueUtilizamAtual(String idRaiz, Grafo grafo, boolean inline) throws FileNotFoundException, FreeCacheException, IOException {
 
 		No raiz = grafo.getNo(idRaiz);
 		if (raiz == null) {

@@ -5,7 +5,5 @@
     <dataCriacao>[01/01/1900]</dataCriacao>
     <resumo>[Indicar resumo para documentação do projeto]</resumo>
     <path>source\desktop_new\commonutils_static\package\commonutils_static.dproj</path>
-    <dependencias>
-        <dependencia>tlb</dependencia>
-    </dependencias>
+    <dependencias />
 </projeto>

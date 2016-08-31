@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2016.08.29 às 05:03:49 PM BRT 
+// Gerado em: 2016.08.30 às 04:40:42 PM BRT 
 //
 
 
@@ -31,6 +31,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="max_processos" type="{http://www.w3.org/2001/XMLSchema}integer"/>
  *         &lt;element name="batch_name" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="inline" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="batch_prebuild" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="batch_clean" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -45,7 +47,9 @@ import javax.xml.bind.annotation.XmlType;
     "xmlsProjectsPath",
     "maxProcessos",
     "batchName",
-    "inline"
+    "inline",
+    "batchPrebuild",
+    "batchClean"
 })
 @XmlRootElement(name = "parametros_nsjbuild")
 public class ParametrosNsjbuild {
@@ -59,6 +63,10 @@ public class ParametrosNsjbuild {
     @XmlElement(name = "batch_name", required = true)
     protected String batchName;
     protected boolean inline;
+    @XmlElement(name = "batch_prebuild", required = true)
+    protected String batchPrebuild;
+    @XmlElement(name = "batch_clean", required = true)
+    protected String batchClean;
 
     /**
      * Obtém o valor da propriedade erpPath.
@@ -170,6 +178,54 @@ public class ParametrosNsjbuild {
      */
     public void setInline(boolean value) {
         this.inline = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade batchPrebuild.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBatchPrebuild() {
+        return batchPrebuild;
+    }
+
+    /**
+     * Define o valor da propriedade batchPrebuild.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBatchPrebuild(String value) {
+        this.batchPrebuild = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade batchClean.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getBatchClean() {
+        return batchClean;
+    }
+
+    /**
+     * Define o valor da propriedade batchClean.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setBatchClean(String value) {
+        this.batchClean = value;
     }
 
 }

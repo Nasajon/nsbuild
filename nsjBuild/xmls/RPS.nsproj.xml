@@ -8,7 +8,6 @@
     <dependencias>
         <dependencia>limitedecredito</dependencia>
         <dependencia>nsjreporteditor</dependencia>
-        <dependencia>tlb</dependencia>
         <dependencia>nsintegradorged</dependencia>
         <dependencia>contafinanceira</dependencia>
         <dependencia>relatorios</dependencia>

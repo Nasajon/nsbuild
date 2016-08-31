@@ -10,7 +10,6 @@
         <dependencia>nsorm</dependencia>
         <dependencia>nsreport</dependencia>
         <dependencia>nsxeutil</dependencia>
-        <dependencia>tlb</dependencia>
         <dependencia>resources</dependencia>
         <dependencia>v2</dependencia>
         <dependencia>nsproxy</dependencia>

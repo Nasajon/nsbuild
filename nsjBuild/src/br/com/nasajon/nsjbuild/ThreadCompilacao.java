@@ -22,7 +22,7 @@ public class ThreadCompilacao extends Thread {
 		long inicio = System.currentTimeMillis();
 		
 		try {
-			System.out.println(this.no.getId() + " - INICIANDO" );
+			System.out.println(this.no.getId() + " - INICIANDO..." );
 			Process p = Runtime.getRuntime().exec(this.controleCompilacao.getBatchName() + " " + this.controleCompilacao.getBuildMode() + " " + this.no.getPath() + " " + this.no.getId() + " " + this.controleCompilacao.getBuildTarget().toCallString());
 			
 			if(p.waitFor() != 0) {
@@ -33,6 +33,13 @@ public class ThreadCompilacao extends Thread {
 				for (int i = 0; i < error.available(); i++) {
 					System.out.print("" + (char)error.read());
 				}
+				System.out.println("");
+				
+				error = p.getErrorStream();
+				for (int i = 0; i < error.available(); i++) {
+					System.out.print("" + (char)error.read());
+				}
+				
 				return;
 			} else {
 				this.no.getProjeto().setUltimaCompilacao(new Date());
