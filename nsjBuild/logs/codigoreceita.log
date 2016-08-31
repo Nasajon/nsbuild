@@ -1,0 +1,12 @@
+Microsoft (R) Build Engine Version 3.5.30729.8693
+[Microsoft .NET Framework, Version 2.0.50727.8689]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+_PasCoreCompile:
+  Embarcadero Delphi for Win32 compiler version 24.0
+  Copyright (c) 1983,2012 Embarcadero Technologies, Inc.
+C:\@work\erp\source\desktop_new\commonfeature\codigoreceita\commonfeature.codigoreceita.browser.pas(24): Hint warning H2365: Override method TBrowser_CodigoReceita<TDTO,TDAO,TController>.afterConstruction should match case of ancestor TNsORMBrowser<TDTO,TDAO,TController>.AfterConstruction
+C:\@work\erp\source\desktop_new\commonfeature\codigoreceita\commonfeature.codigoreceita.browser.pas(26): Hint warning H2269: Overriding virtual method 'TBrowser_CodigoReceita<TDTO,TDAO,TController>.AfterConstruction' has lower visibility (private) than base class 'nsORM.browser.TNsORMBrowser<commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TDTO,commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TDAO,commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TController>' (public)
+C:\@work\erp\source\desktop_new\commonfeature\codigoreceita\commonfeature.codigoreceita.browser.pas(26): Hint warning H2269: Overriding virtual method 'TBrowser_CodigoReceita<TDTO,TDAO,TController>.getCaption' has lower visibility (private) than base class 'nsORM.browser.TNsORMBrowser<commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TDTO,commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TDAO,commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TController>' (protected)
+C:\@work\erp\source\desktop_new\commonfeature\codigoreceita\commonfeature.codigoreceita.browser.pas(28): Hint warning H2269: Overriding virtual method 'TBrowser_CodigoReceita<TDTO,TDAO,TController>.getFicha' has lower visibility (private) than base class 'nsORM.browser.TNsORMBrowser<commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TDTO,commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TDAO,commonfeature.codigoreceita.browser.TBrowser_CodigoReceita<TDTO,TDAO,TController>.TController>' (protected)
+  299 lines, 3.52 seconds, 15299420 bytes code, 147520 bytes data.

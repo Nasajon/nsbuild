@@ -1,0 +1,20 @@
+Microsoft (R) Build Engine Version 3.5.30729.8693
+[Microsoft .NET Framework, Version 2.0.50727.8689]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+_PasCoreCompile:
+  Embarcadero Delphi for Win32 compiler version 24.0
+  Copyright (c) 1983,2012 Embarcadero Technologies, Inc.
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dto.pas(151): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dto.pas(151): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dto.pas(151): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dto.pas(151): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dto.pas(29): Hint warning H2219: Private symbol 'SetDataHoraInclusao' declared but never used
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dao.pas(34): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dao.pas(34): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dao.pas(34): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.dao.pas(34): warning W1020: Constructing instance of 'TDTO_documentosServiceDocument' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.browser.pas(21): Hint warning H2365: Override method TBrowser_Base_documentosServiceDocument<TDTO,TDAO,TController>.GetCaption should match case of ancestor TNsORMBrowser<TDTO,TDAO,TController>.getCaption
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.browser.pas(22): Hint warning H2269: Overriding virtual method 'TBrowser_Base_documentosServiceDocument<TDTO,TDAO,TController>.getCaption' has lower visibility (private) than base class 'nsORM.browser.TNsORMBrowser<commonfeature.documentosServiceDocument.browser.TBrowser_Base_documentosServiceDocument<TDTO,TDAO,TController>.TDTO,commonfeature.documentosServiceDocument.browser.TBrowser_Base_documentosServiceDocument<TDTO,TDAO,TController>.TDAO,commonfeature.documentosServiceDocument.browser.TBrowser_Base_documentosServiceDocument<TDTO,TDAO,TController>.TController>' (protected)
+C:\@work\erp\source\desktop_new\commonfeature\documentosServiceDocument\commonfeature.documentosServiceDocument.browser.pas(27): Hint warning H2365: Override method TBrowser_Base_documentosServiceDocument<TDTO,TDAO,TController>.GetFicha should match case of ancestor TNsORMBrowser<TDTO,TDAO,TController>.getFicha
+  508 lines, 4.16 seconds, 15299552 bytes code, 147528 bytes data.

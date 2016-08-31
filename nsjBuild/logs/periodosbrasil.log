@@ -1,0 +1,45 @@
+Microsoft (R) Build Engine Version 3.5.30729.8693
+[Microsoft .NET Framework, Version 2.0.50727.8689]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+_PasCoreCompile:
+  Embarcadero Delphi for Win32 compiler version 24.0
+  Copyright (c) 1983,2012 Embarcadero Technologies, Inc.
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.dto.pas(24): warning W1010: Method 'Destroy' hides virtual method of base type 'TDTO_Generics'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.dto.pas(70): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.dto.pas(70): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.NewObject'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.dto.pas(70): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.dto.pas(70): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.dto.pas(70): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.controller.pas(25): warning W1010: Method 'Destroy' hides virtual method of base type 'nsORM.controller.TNsORMController<commonfeature.periodosbrasil.dto.TDTO_PeriodoBrasil,commonfeature.periodosbrasil.dao.TDAO_PeriodoBrasil>'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.controller.pas(83): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.controller.pas(83): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.NewObject'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.controller.pas(83): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.controller.pas(83): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.controller.pas(83): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\relatorio\commonfeature.periodosbrasil.relatorio.model.pas(29): warning W1055: PUBLISHED caused RTTI ($M+) to be added to type 'TRel_PeriodoBrasil'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(164): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(164): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(164): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(164): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(211): warning W1036: Variable 't_Form' might not have been initialized
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(510): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(510): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.NewObject'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(510): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(510): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(510): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(758): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(758): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.NewObject'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(758): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(758): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(758): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(959): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(959): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.NewObject'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(959): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(959): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(959): warning W1020: Constructing instance of 'TDTO_PeriodoBrasil' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(984): Hint warning H2077: Value assigned to 't_DataEntradaSimulacao' never used
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(978): Hint warning H2077: Value assigned to 't_DataEntradaSimulacao' never used
+C:\@work\erp\source\desktop_new\commonfeature\periodosbrasil\commonfeature.periodosbrasil.ficha.pas(989): warning W1036: Variable 't_DataSaidaSimulacao' might not have been initialized
+C:\Program Files (x86)\Embarcadero\RAD Studio\10.0\Bin\CodeGear.Delphi.Targets : Hint warning H2161: Warning: Duplicate resource:  Type 10 (RCDATA), ID TDMICONESUSUARIO; File C:\@work\erp\source\desktop_new\_codelink\frameworks\editorConsulta.dmIconesUsuario.dfm resource kept; file C:\@work\erp\source\desktop_new\_codelink\commonfeature\uDmIconesUsuario.dfm resource discarded.
+  3019 lines, 14.53 seconds, 34139844 bytes code, 337528 bytes data.

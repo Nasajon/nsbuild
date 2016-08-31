@@ -1,0 +1,9 @@
+Microsoft (R) Build Engine Version 3.5.30729.8693
+[Microsoft .NET Framework, Version 2.0.50727.8689]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+_PasCoreCompile:
+  Embarcadero Delphi for Win32 compiler version 24.0
+  Copyright (c) 1983,2012 Embarcadero Technologies, Inc.
+urConvTool.pas(47): warning W1055: PUBLISHED caused RTTI ($M+) to be added to type 'TConvTool'
+  566 lines, 0.94 seconds, 4954604 bytes code, 113480 bytes data.

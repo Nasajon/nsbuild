@@ -1,0 +1,36 @@
+Microsoft (R) Build Engine Version 3.5.30729.8693
+[Microsoft .NET Framework, Version 2.0.50727.8689]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+_PasCoreCompile:
+  Embarcadero Delphi for Win32 compiler version 24.0
+  Copyright (c) 1983,2012 Embarcadero Technologies, Inc.
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\helpers\nsTest.helpers.pas(128): Hint warning H2077: Value assigned to 't_RttiProp' never used
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\helpers\nsTest.helpers.pas(148): Hint warning H2077: Value assigned to 't_RttiProp' never used
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.Common.pas(55): warning W1009: Redeclaration of 'ClassName' hides a member in the base class
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IComponentImplementation.pas(172): Hint warning H2077: Value assigned to 'TTestComponent.recursiveFind' never used
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IComponentImplementation.pas(243): warning W1036: Variable 't_thread' might not have been initialized
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IControlImplementation.pas(39): warning W1010: Method 'createEX' hides virtual method of base type 'TTestComponent'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IControlImplementation.pas(99): warning W1036: Variable 'dwData' might not have been initialized
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IControlImplementation.pas(99): warning W1036: Variable 'dwExtraInfo' might not have been initialized
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IControlImplementation.pas(20): Hint warning H2219: Private symbol 'MouseEvent' declared but never used
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IGridImplementation.pas(59): Hint warning H2365: Override method TTestGrid.destroy should match case of ancestor TObject.Destroy
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(109): warning W1035: Return value of function 'TTestRibbon.findItem' might be undefined
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(115): Hint warning H2164: Variable 'i' is declared but never used in 'TTestRibbon.findTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(115): Hint warning H2164: Variable 'j' is declared but never used in 'TTestRibbon.findTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(116): Hint warning H2164: Variable 'bar' is declared but never used in 'TTestRibbon.findTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(118): Hint warning H2164: Variable 'grp' is declared but never used in 'TTestRibbon.findTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(119): Hint warning H2164: Variable 'itc' is declared but never used in 'TTestRibbon.findTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(148): Hint warning H2164: Variable 't_hwnd' is declared but never used in 'TTestRibbon.openTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(150): Hint warning H2164: Variable 't_tabPoint' is declared but never used in 'TTestRibbon.openTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.IRibbonImplementation.pas(152): Hint warning H2164: Variable 't_screenPoint' is declared but never used in 'TTestRibbon.openTab'
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\forms\nsTest.formInspector.pas(76): Hint warning H2269: Overriding virtual method 'TFormInspector.AfterConstruction' has lower visibility (private) than base class 'TForm' (public)
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\forms\nsTest.formInspector.pas(78): Hint warning H2269: Overriding virtual method 'TFormInspector.BeforeDestruction' has lower visibility (private) than base class 'TForm' (public)
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\forms\nsTest.formInspector.pas(174): warning W1036: Variable 't_sdata' might not have been initialized
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\forms\nsTest.formInspector.pas(196): warning W1036: Variable 't_sdata' might not have been initialized
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\forms\nsTest.formInspector.pas(216): warning W1036: Variable 't_sdata' might not have been initialized
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.TestService.pas(49): Hint warning H2269: Overriding virtual method 'TTestService.AfterConstruction' has lower visibility (protected) than base class 'TAutoObject' (public)
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.TestService.pas(51): Hint warning H2269: Overriding virtual method 'TTestService.BeforeDestruction' has lower visibility (protected) than base class 'TAutoObject' (public)
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.TestService.pas(187): warning W1035: Return value of function 'TTestService.notify' might be undefined
+C:\@work\erp\source\desktop_new\frameworks\nsTest\source\classes\nsTest.TestService.pas(191): Hint warning H2164: Variable 't_out_form' is declared but never used in 'TTestService.findFormByClass'
+  3541 lines, 1.73 seconds, 11471452 bytes code, 193176 bytes data.

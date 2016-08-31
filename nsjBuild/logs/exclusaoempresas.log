@@ -1,0 +1,13 @@
+Microsoft (R) Build Engine Version 3.5.30729.8693
+[Microsoft .NET Framework, Version 2.0.50727.8689]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+_PasCoreCompile:
+  Embarcadero Delphi for Win32 compiler version 24.0
+  Copyright (c) 1983,2012 Embarcadero Technologies, Inc.
+C:\@work\erp\source\desktop_new\commonfeature\exclusaoempresas\Source\commomfeature.exclusaoempresas.controller.pas(50): Hint warning H2164: Variable 'a_node' is declared but never used in 'TExclusaoEmpresa.PreencherDadosComboEmpresa'
+C:\@work\erp\source\desktop_new\commonfeature\exclusaoempresas\Source\commomfeature.exclusaoempresas.controller.pas(53): Hint warning H2164: Variable 't_Node_ChildChild' is declared but never used in 'TExclusaoEmpresa.PreencherDadosComboEmpresa'
+C:\@work\erp\source\desktop_new\commonfeature\exclusaoempresas\Source\commonfeature.exclusaoempresas.process.pas(29): Hint warning H2365: Override method TExclusaoEmpresaProcess.execute should match case of ancestor TThread.Execute
+C:\@work\erp\source\desktop_new\commonfeature\exclusaoempresas\Source\commonfeature.exclusaoempresas.frmprincipal.pas(53): Hint warning H2269: Overriding virtual method 'TfrmPrincipalExclusaoEmpresa.AfterConstruction' has lower visibility (private) than base class 'TForm' (public)
+C:\@work\erp\source\desktop_new\commonfeature\exclusaoempresas\Source\commonfeature.exclusaoempresas.frmprincipal.pas(152): Hint warning H2077: Value assigned to 't_process' never used
+  930 lines, 2.16 seconds, 10694700 bytes code, 189820 bytes data.

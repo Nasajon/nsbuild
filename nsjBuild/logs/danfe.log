@@ -1,0 +1,47 @@
+Microsoft (R) Build Engine Version 3.5.30729.8693
+[Microsoft .NET Framework, Version 2.0.50727.8689]
+Copyright (C) Microsoft Corporation 2007. All rights reserved.
+
+_PasCoreCompile:
+  Embarcadero Delphi for Win32 compiler version 24.0
+  Copyright (c) 1983,2012 Embarcadero Technologies, Inc.
+C:\@work\erp\source\desktop_new\commonutils_static\resources\commonutils.resources.aparencia.pas(66): Hint warning H2077: Value assigned to 'IniFile' never used
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(162): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(162): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(162): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(162): warning W1020: Constructing instance of 'TDTO_Estabelecimento' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(218): Hint warning H2164: Variable 't_NFE' is declared but never used in 'TProcesso_Danfe.EditarDanfe'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(295): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(295): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(295): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(295): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(264): Hint warning H2164: Variable 't_XML_DocEngine' is declared but never used in 'TProcesso_Danfe.Build'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(321): warning W1020: Constructing instance of 'TDTO_Empresa' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(321): warning W1020: Constructing instance of 'TDTO_Empresa' containing abstract method 'TDTO_Generics.NewObject'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(321): warning W1020: Constructing instance of 'TDTO_Empresa' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(321): warning W1020: Constructing instance of 'TDTO_Empresa' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(321): warning W1020: Constructing instance of 'TDTO_Empresa' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(356): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(356): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(356): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(356): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(439): warning W1036: Variable 't_Layout' might not have been initialized
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(432): warning W1036: Variable 't_LayoutPadrao' might not have been initialized
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(556): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(556): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(556): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(556): warning W1020: Constructing instance of 'TDTO_Operacao' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(1172): warning W1057: Implicit string cast from 'ShortString' to 'string'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(1394): warning W1020: Constructing instance of 'TDTO_FormaPagamento' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(1394): warning W1020: Constructing instance of 'TDTO_FormaPagamento' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(1394): warning W1020: Constructing instance of 'TDTO_FormaPagamento' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.processo.pas(1394): warning W1020: Constructing instance of 'TDTO_FormaPagamento' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.fichateste.pas(117): warning W1020: Constructing instance of 'TDTO_DocFis' containing abstract method 'TDTO_Generics.GetSecurityLabel'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.fichateste.pas(117): warning W1020: Constructing instance of 'TDTO_DocFis' containing abstract method 'TDTO_Generics.NewObject'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.fichateste.pas(117): warning W1020: Constructing instance of 'TDTO_DocFis' containing abstract method 'TDTO_Generics.Validate'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.fichateste.pas(117): warning W1020: Constructing instance of 'TDTO_DocFis' containing abstract method 'TDTO_Generics.LoadFromTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.fichateste.pas(117): warning W1020: Constructing instance of 'TDTO_DocFis' containing abstract method 'TDTO_Generics.SaveToTemplateData'
+C:\@work\erp\source\desktop_new\commonfeature\danfe\source\commonfeature.danfe.fichateste.pas(121): warning W1020: Constructing instance of 'TBrowser_DocFis' containing abstract method '{nsORM.browser}TNsORMBrowser<commonfeature.docfis.dto.TDTO_DocFis,commonfeature.docfis.dao.TDAO_DocFis,commonfeature.docfis.controller.TController_DocFis>.getFicha'
+danfe.dpr(44): warning W1036: Variable 't_fichaTeste' might not have been initialized
+C:\Program Files (x86)\Embarcadero\RAD Studio\10.0\Bin\CodeGear.Delphi.Targets : Hint warning H2161: Warning: Duplicate resource:  Type 10 (RCDATA), ID TDMICONESUSUARIO; File C:\@work\erp\source\desktop_new\_codelink\frameworks\editorConsulta.dmIconesUsuario.dfm resource kept; file C:\@work\erp\source\desktop_new\_codelink\commonfeature\uDmIconesUsuario.dfm resource discarded.
+  2160 lines, 12.30 seconds, 30439348 bytes code, 330188 bytes data.
