@@ -1,15 +1,12 @@
 package br.com.nasajon.nsjbuild;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.xml.bind.JAXBException;
 
@@ -179,7 +176,7 @@ public class Main {
 		try {
 			long antesGrafo = System.currentTimeMillis();
 			System.out.println("Montando grafo...");
-			Grafo g = montaGrafo(parametros, listaProjetos, isBuildForce, isBuildAlterados);
+			Grafo g = Grafo.montaGrafo(parametros, listaProjetos, isBuildForce, isBuildAlterados);
 			Double intervaloGrafo = ((System.currentTimeMillis() - antesGrafo)/1000.0)/60.0;
 			System.out.println("Grafo completo. Tempo: " + intervaloGrafo + " minutos.");
 			
@@ -245,52 +242,6 @@ public class Main {
 			bm = BuildMode.release;
 		}
 		return bm;
-	}
-
-	private static Grafo montaGrafo(
-		ParametrosNsjbuild parametros,
-		List<ProjetoWrapper> listaProjetos,
-		boolean isBuildForce,
-		boolean isBuildAlterados
-	) throws FileNotFoundException, FreeCacheException, IOException {
-			
-		AvaliadorEstadoCompilacao avaliador = new AvaliadorEstadoCompilacao(parametros);
-		
-		// Montando o GRAFO - Primeira passada - Nós:
-		Grafo g = new Grafo();
-		for (ProjetoWrapper p : listaProjetos) {
-			No n = g.addNo(p.getProjeto().getNome(), parametros.getErpPath() + p.getProjeto().getPath(), p);
-			
-			Boolean isProjetoCompilado = false;
-			if (!isBuildForce) {
-				isProjetoCompilado = avaliador.isProjetoCompilado(p, isBuildAlterados); 
-			}
-			n.setMarcado(isProjetoCompilado);
-			n.setVisitado(false);
-		}
-
-		// Montando o GRAFO - Segunda passada - Arestas:
-		for (ProjetoWrapper p : listaProjetos) {
-			for (String d : p.getProjeto().getDependencias().getDependencia()) {
-				g.addAresta(p.getProjeto().getNome(), d);
-			}
-		}
-
-		// Montando o GRAFO - Terceira passada - Marcando nós pendentes de compilação (por dependência com os não compilados):
-		if (!isBuildForce) {
-			Set<String> raizes = new HashSet<String>();
-			for (No n : g.getNos().values()) {
-				if (!n.isMarcado()) {
-					raizes.add(n.getId());
-				}
-			}
-			
-			for (String idNo : raizes) {
-				BuscaLargura.desmarcaNosQueUtilizamAtual(idNo, g, parametros.isInline());
-			}
-		}
-		
-		return g;
 	}
 
 	private static List<ProjetoWrapper> carregaListaDeProjetos(ParametrosNsjbuild parametros) {
@@ -461,19 +412,21 @@ public class Main {
 	}
 	
 	private static void imprimirFormaUso() {
+		System.out.println("");
+		System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("nsjBuild <nome do projeto/all/alterados/clean/clean_cache> [debug/release] [force] [" + BuildTarget.toSeparatedString("/") + "]");
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Conceitos importantes:");
 		System.out.println("all - Chama o msbuild para todos os projetos nunca compilados ou modificados.");
 		System.out.println("");
-		System.out.println("alterados - Chama o msbuild somente para os projetos modificados desde a última compilção (e para os projetos que dependem dos mesmos).");
+		System.out.println("alterados - Chama o msbuild somente para os projetos modificados desde a última compilação (e para os projetos que dependem dos mesmos).");
 		System.out.println("");
 		System.out.println("clean - Apaga todas as DCUs e limpa a cache de projetos compilados (isto é apaga os arquivos de controle para a data da última compilação).");
 		System.out.println("");
 		System.out.println("clean_cache - Limpa a cache de projetos compilados (isto é apaga os arquivos de controle para a data da última compilação).");
 		System.out.println("");
-		System.out.println("debug/release - Modo de build (só não é obrigatório numa chamada ao 'clean').");
+		System.out.println("debug/release - Modo de build (só não é obrigatório numa chamada ao 'clean' ou 'clean_cache').");
 		System.out.println("");
 		System.out.println("force - Chama o msbuild para todos os projetos na árvore de compilação desejada (não importando se já algum projeto já tenha sido compilado anteriormente).");
 		System.out.println("");
