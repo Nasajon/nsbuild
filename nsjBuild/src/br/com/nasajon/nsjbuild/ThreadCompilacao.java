@@ -1,7 +1,7 @@
 package br.com.nasajon.nsjbuild;
 
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Date;
 
 public class ThreadCompilacao extends Thread {
@@ -26,20 +26,26 @@ public class ThreadCompilacao extends Thread {
 			Process p = Runtime.getRuntime().exec(this.controleCompilacao.getBatchName() + " " + this.controleCompilacao.getBuildMode() + " " + this.no.getPath() + " " + this.no.getId() + " " + this.controleCompilacao.getBuildTarget().toCallString());
 			
 			if(p.waitFor() != 0) {
+				String caminhoLog = "\"logs" + File.separator + this.no.getId() + ".log\"";
+				Process p2 = Runtime.getRuntime().exec("cmd /C start notepad " + caminhoLog);
+				if (p2.waitFor() != 0) {
+					System.out.println("Erro ao abrir arquivo de log: " + caminhoLog);
+				}
+
 				this.controleCompilacao.notifyThreadError(this.no, "ERRO DE COMPILAÇÃO NO PROJETO: " + this.no.getId());
 				this.no.getProjeto().setUltimaCompilacao(null);
 				
-				InputStream error = p.getInputStream();
-				for (int i = 0; i < error.available(); i++) {
-					System.out.print("" + (char)error.read());
-				}
-				System.out.println("");
-				
-				error = p.getErrorStream();
-				for (int i = 0; i < error.available(); i++) {
-					System.out.print("" + (char)error.read());
-				}
-				
+//				InputStream error = p.getInputStream();
+//				for (int i = 0; i < error.available(); i++) {
+//					System.out.print("" + (char)error.read());
+//				}
+//				System.out.println("");
+//				
+//				error = p.getErrorStream();
+//				for (int i = 0; i < error.available(); i++) {
+//					System.out.print("" + (char)error.read());
+//				}
+
 				return;
 			} else {
 				this.no.getProjeto().setUltimaCompilacao(new Date());
@@ -56,7 +62,7 @@ public class ThreadCompilacao extends Thread {
 		}
 
 		Double intervalo = ((System.currentTimeMillis() - inicio)/1000.0)/60.0;
-		System.out.println(this.no.getId() + " - FINALIZADO: " + intervalo + " minutos.");
+		System.out.println(this.no.getId() + " - FINALIZADO: " + String.format("%.4f", intervalo) + " minutos.");
 		this.controleCompilacao.notifyThreadFinished(this.no);
 	}
 	

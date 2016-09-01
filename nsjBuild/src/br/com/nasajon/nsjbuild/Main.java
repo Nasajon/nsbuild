@@ -120,7 +120,7 @@ public class Main {
 			System.out.println("Montando grafo...");
 			Grafo g = Grafo.montaGrafo(parametros, listaProjetos, isBuildForce, isBuildAlterados);
 			Double intervaloGrafo = ((System.currentTimeMillis() - antesGrafo)/1000.0)/60.0;
-			System.out.println("Grafo completo. Tempo: " + intervaloGrafo + " minutos.");
+			System.out.println("Grafo completo. Tempo: " + String.format("%.4f", intervaloGrafo) + " minutos.");
 			
 			Compilador compilador = new Compilador(g, parametros.getMaxProcessos().intValue(), bm, parametros.getBatchName(), buildTarget);
 			
@@ -144,10 +144,10 @@ public class Main {
 			Double intervaloMinutos = ((fim - inicio)/1000.0)/60.0;
 			
 			if (!compilador.isAborted()) {
-				System.out.println("BUILD FINALIZADO COM SUCESSO. Demorou " + intervaloMinutos + " (minutos)");
+				System.out.println("BUILD FINALIZADO COM SUCESSO. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos)");
 				return;
 			} else {
-				System.out.println("Build com falhas. Demorou " + intervaloMinutos + " (minutos)");
+				System.out.println("Build com falhas. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos)");
 				System.exit(1);
 				return;
 			}
