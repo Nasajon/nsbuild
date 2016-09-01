@@ -68,6 +68,7 @@
         <dependencia>produto</dependencia>
         <dependencia>pretitulos</dependencia>
         <dependencia>docengine</dependencia>
+        <dependencia>loteserie</dependencia>
         <dependencia>scrittamateriais</dependencia>
         <dependencia>nslog</dependencia>
         <dependencia>nsemail</dependencia>

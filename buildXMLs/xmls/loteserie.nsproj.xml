@@ -1,20 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <projeto xmlns="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildProject.xsd ">
-    <nome>movimento</nome>
+    <nome>loteserie</nome>
     <autor>[Identidde Nasajon]</autor>
     <dataCriacao>[01/01/1900]</dataCriacao>
     <resumo>[Indicar resumo para documentação do projeto]</resumo>
-    <path>source\desktop_new\commonfeature\movimento\package\movimento.dproj</path>
+    <path>source\desktop_new\commonfeature\loteserie\package\loteserie.dproj</path>
     <dependencias>
         <dependencia>commonutils_static</dependencia>
-        <dependencia>item</dependencia>
         <dependencia>produto</dependencia>
         <dependencia>nsorm</dependencia>
-        <dependencia>docfis</dependencia>
-        <dependencia>loteserie</dependencia>
-        <dependencia>scrittamateriais</dependencia>
-        <dependencia>configuracao</dependencia>
-        <dependencia>operacoes</dependencia>
-        <dependencia>entidadesempresariais</dependencia>
     </dependencias>
 </projeto>

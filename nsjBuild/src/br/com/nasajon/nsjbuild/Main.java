@@ -16,10 +16,10 @@ public class Main {
 	private static final String PAR_HELP = "/? -? --help -help /help";
 	
 	private static final String PAR_BUILD_CLEAN = "clean";
-	private static final String PAR_BUILD_CLEAN_CACHE = "clean_cache";
-	private static final String PAR_BUILD_ALL = "all";
-	private static final String PAR_BUILD_ALTERADOS = "alterados";
-	private static final String PAR_BUILD_FORCE = "force";
+//	private static final String PAR_BUILD_CLEAN_CACHE = "clean_cache";
+	private static final String PAR_BUILD_UPDATE = "update";
+//	private static final String PAR_BUILD_ALTERADOS = "alterados";
+//	private static final String PAR_BUILD_FORCE = "force";
 
 	public static void main(String[] args) {
 
@@ -44,14 +44,14 @@ public class Main {
 			return;
 		}
 		
-		// Verificando se não é uma chamada ao clean (para limpar a cache):
-		if (parProjeto.equals(PAR_BUILD_CLEAN_CACHE)) {
-			if (!limparCache()) {
-				System.exit(1);
-			}
-			
-			return;
-		}
+//		// Verificando se não é uma chamada ao clean (para limpar a cache):
+//		if (parProjeto.equals(PAR_BUILD_CLEAN_CACHE)) {
+//			if (!limparCache()) {
+//				System.exit(1);
+//			}
+//			
+//			return;
+//		}
 		
 		// Carregando parâmetros de configuração do build:
 		ParametrosNsjbuild parametros = carregaParametrosBuild();
@@ -69,30 +69,10 @@ public class Main {
 			return;
 		}
 		
-		// Testando se foltou o build mode
-		if (args.length < 2) {
-			System.out.println("");
-			System.out.println("");
-			System.out.println("Por favor, indique o objetivo do build (primeiro parâmetro), e o modo de build. Exemplo de uso:");
-			imprimirFormaUso();
-
-			System.exit(1);
-			return;
-		}
-		
 		// Resolvendo o build mode:
 		BuildMode bm = resolveBuildMode(args);
 		
-		if (bm == null) {
-			System.out.println("");
-			System.out.println("");
-			System.out.println("Modo de build inválido. Por favor digite '" + BuildMode.debug.toString() + "' ou '" + BuildMode.release.toString() + "'. Exemplo de uso:");
-			imprimirFormaUso();
-
-			System.exit(1);
-			return;
-		}
-		
+		// Carregando a lista de projetos:
 		List<ProjetoWrapper> listaProjetos = carregaListaDeProjetos(parametros);
 		if (listaProjetos == null) {
 			System.out.println("");
@@ -106,7 +86,7 @@ public class Main {
 		// Verificando se o projeto passado existe:
 		boolean isBuildAlterados = false;
 		
-		if (!parProjeto.equals(PAR_BUILD_ALL) && !parProjeto.equals(PAR_BUILD_ALTERADOS)) {
+		if (!parProjeto.equals(PAR_BUILD_UPDATE)) {
 			boolean achou = false;
 			for (ProjetoWrapper p: listaProjetos) {
 				if (p.getProjeto().getNome().equals(parProjeto)) {
@@ -123,49 +103,11 @@ public class Main {
 				System.exit(1);
 				return;
 			}
-		} else if (parProjeto.equals(PAR_BUILD_ALTERADOS)) {
-			isBuildAlterados = true;
 		}
 		
 		// Verificando se foi passado o parâmetro de build force:
 		boolean isBuildForce = false;
 		BuildTarget buildTarget = BuildTarget.build;
-		
-		if (args.length > 2) {
-			String terceiroParametro = args[2]; 
-			String quartoParametro = "";
-			if (args.length > 3) {
-				quartoParametro = args[3];
-			}
-					
-			if (!terceiroParametro.equals(PAR_BUILD_FORCE) && !BuildTarget.isBuildTarget(terceiroParametro)) {
-				System.out.println("");
-				System.out.println("");
-				System.out.println("Parâmetro de inválido. Exemplo de uso:");
-				imprimirFormaUso();
-
-				System.exit(1);
-				return;
-			} else if (!quartoParametro.equals("") && !quartoParametro.equals(PAR_BUILD_FORCE) && !BuildTarget.isBuildTarget(quartoParametro)) {
-				System.out.println("");
-				System.out.println("");
-				System.out.println("Parâmetro de inválido. Exemplo de uso:");
-				imprimirFormaUso();
-
-				System.exit(1);
-				return;
-			} else {
-				if (terceiroParametro.equals(PAR_BUILD_FORCE) || quartoParametro.equals(PAR_BUILD_FORCE)) {
-					isBuildForce = true;
-				}
-				
-				if (BuildTarget.isBuildTarget(terceiroParametro)) {
-					buildTarget = BuildTarget.valueOf(terceiroParametro);
-				} else if (BuildTarget.isBuildTarget(quartoParametro)) {
-					buildTarget = BuildTarget.valueOf(quartoParametro);
-				}
-			}
-		}
 		
 		// Setando o inline como ON se o target for "Build", pois neste caso independente do INLINE, as
 		// dependencias sempre exigem de recompilação.
@@ -187,7 +129,7 @@ public class Main {
 				return;
 			}
 			
-			if (!parProjeto.equals(PAR_BUILD_ALL) && !isBuildAlterados) {
+			if (!parProjeto.equals(PAR_BUILD_UPDATE) && !isBuildAlterados) {
 				compilador.compilaProjetoComDependencias(parProjeto);
 			} else {
 				compilador.compileAll();
@@ -233,7 +175,11 @@ public class Main {
 	}
 
 	private static BuildMode resolveBuildMode(String[] args) {
-		BuildMode bm = null;
+		BuildMode bm = BuildMode.debug;
+		
+		if (args.length < 2) {
+			return bm;
+		}
 		
 		if (args[1].equals(BuildMode.debug.toString())) {
 			bm = BuildMode.debug;
@@ -413,28 +359,28 @@ public class Main {
 	
 	private static void imprimirFormaUso() {
 		System.out.println("");
-		System.out.println("-----------------------------------------------------------------------------------------------------------------------------------------------------------");
-		System.out.println("nsjBuild <nome do projeto/all/alterados/clean/clean_cache> [debug/release] [force] [" + BuildTarget.toSeparatedString("/") + "]");
+		System.out.println("----------------------------------------------------------------");
+		System.out.println("SINTAXE ESPERADA:");
+		System.out.println("");
+		System.out.println("nsbuild <nome do projeto/update/clean> [debug (default)/release]");
+		System.out.println("----------------------------------------------------------------");
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Conceitos importantes:");
-		System.out.println("all - Chama o msbuild para todos os projetos nunca compilados ou modificados.");
 		System.out.println("");
-		System.out.println("alterados - Chama o msbuild somente para os projetos modificados desde a última compilação (e para os projetos que dependem dos mesmos).");
+		System.out.println("nome do projeto - Especifica o projeto objetivo a ser compilado (todos os projetos - ainda não compilados, ou alterados - na árvore de dependências do mesmo serão compilados à priori).");
 		System.out.println("");
-		System.out.println("clean - Apaga todas as DCUs e limpa a cache de projetos compilados (isto é apaga os arquivos de controle para a data da última compilação).");
+		System.out.println("update - Compila todos os projetos disponíveis (ainda não compilados, ou alterados), respeitando a ordem de dependências entre os mesmos.");
 		System.out.println("");
-		System.out.println("clean_cache - Limpa a cache de projetos compilados (isto é apaga os arquivos de controle para a data da última compilação).");
+		System.out.println("clean - Apaga todas as DCUs e limpa a cache de controle dos projetos compilados (ATENÇÃO: Após ser chamado o clean, uma chamada ao comando 'nsbuild update' será equivalente ao antigo build.bat na opção zero).");
 		System.out.println("");
-		System.out.println("debug/release - Modo de build (só não é obrigatório numa chamada ao 'clean' ou 'clean_cache').");
-		System.out.println("");
-		System.out.println("force - Chama o msbuild para todos os projetos na árvore de compilação desejada (não importando se já algum projeto já tenha sido compilado anteriormente).");
-		System.out.println("");
-		System.out.println("compile/build - Chama o build passando o target desejado (o padrão é 'compile', para evitar recompilação desnecessária a nível das units).");
+		System.out.println("debug/release - Modo de build, isto é, gera os executáveis em modo debug (para depuração) ou modo de entrega (release).");
 		System.out.println("");
 		System.out.println("");
-		System.out.println("Obs.: Para garantir a recompilação de todos os projetos (antigo build.bat na opção 0), é preciso usar os comandos:");
-		System.out.println("nsjbuild clean");
-		System.out.println("nsjbuild all force build");
+		System.out.println("Obs. 1: Utilize o seguinte comando para visualizar este manual de uso: 'nsbuild /?'");
+		System.out.println("");
+		System.out.println("Obs. 2: Para forçar a recompilação de todos os projetos (antigo build.bat na opção 0), é preciso usar sequencialmente os comandos:");
+		System.out.println("nsbuild clean");
+		System.out.println("nsbuild update");
 	}
 }
