@@ -67,7 +67,7 @@ public class Main {
 
 			p.setDependencias(dp);
 			
-			p.setAutor("[Identidde Nasajon]");
+			p.setAutor("[Identidade Nasajon]");
 			p.setDataCriacao("[01/01/1900]");
 			p.setResumo("[Indicar resumo para documentação do projeto]");
 			
