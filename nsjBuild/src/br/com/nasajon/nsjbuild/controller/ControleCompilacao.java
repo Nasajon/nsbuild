@@ -1,4 +1,7 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.controller;
+
+import br.com.nasajon.nsjbuild.model.BuildTarget;
+import br.com.nasajon.nsjbuild.model.No;
 
 public interface ControleCompilacao {
 	
@@ -12,4 +15,7 @@ public interface ControleCompilacao {
 	
 	public boolean isAborted(); 
 	public BuildTarget getBuildTarget(); 
+
+	public Integer getQtdProjetosCompilar();
+	public Integer incrementarQtdIniciados();
 }

@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -22,6 +22,16 @@ public class No {
 		entradas = new HashSet<No>();
 		saidas = new HashSet<No>();
 		compilacaoChamada = false;
+	}
+	
+	public No getCloneSemRelacionamentos() {
+		No n = new No(this.id, this.path, this.projeto);
+		
+		n.setMarcado(this.marcado);
+		n.setVisitado(this.visitado);
+		n.setCompilacaoChamada(this.compilacaoChamada);
+		
+		return n;
 	}
 	
 	public String getId() {

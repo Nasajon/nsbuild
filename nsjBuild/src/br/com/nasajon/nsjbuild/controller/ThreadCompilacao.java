@@ -1,8 +1,10 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.controller;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+
+import br.com.nasajon.nsjbuild.model.No;
 
 public class ThreadCompilacao extends Thread {
 
@@ -22,7 +24,15 @@ public class ThreadCompilacao extends Thread {
 		long inicio = System.currentTimeMillis();
 		
 		try {
-			System.out.println(this.no.getId() + " - INICIANDO..." );
+			Integer qtdProjetosCompilados = this.controleCompilacao.incrementarQtdIniciados();
+			Integer qtdProjetosCompilar  = this.controleCompilacao.getQtdProjetosCompilar();
+			
+			if (qtdProjetosCompilar != null) {
+				System.out.println(this.no.getId() + " - INICIANDO... Projeto " + qtdProjetosCompilados + " de " + qtdProjetosCompilar);
+			} else {
+				System.out.println(this.no.getId() + " - INICIANDO...");
+			}
+			
 			Process p = Runtime.getRuntime().exec(this.controleCompilacao.getBatchName() + " " + this.controleCompilacao.getBuildMode() + " " + this.no.getPath() + " " + this.no.getId() + " " + this.controleCompilacao.getBuildTarget().toCallString());
 			
 			if(p.waitFor() != 0) {

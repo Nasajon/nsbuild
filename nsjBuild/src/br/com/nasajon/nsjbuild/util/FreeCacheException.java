@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.util;
 
 import java.io.File;
 import java.io.IOException;

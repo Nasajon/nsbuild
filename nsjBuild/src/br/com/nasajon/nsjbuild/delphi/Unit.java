@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.delphi;
 
 public class Unit {
 	

@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.model;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import br.com.nasajon.nsjbuild.modelXML.Projeto;
+import br.com.nasajon.nsjbuild.util.FreeCacheException;
 
 public class ProjetoWrapper {
 	private Projeto projeto;

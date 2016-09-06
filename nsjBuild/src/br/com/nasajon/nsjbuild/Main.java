@@ -7,10 +7,19 @@ import java.io.InputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 import javax.xml.bind.JAXBException;
 
+import br.com.nasajon.nsjbuild.controller.Compilador;
+import br.com.nasajon.nsjbuild.model.BuildMode;
+import br.com.nasajon.nsjbuild.model.BuildTarget;
+import br.com.nasajon.nsjbuild.model.Grafo;
+import br.com.nasajon.nsjbuild.model.No;
+import br.com.nasajon.nsjbuild.model.ProjetoWrapper;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
+import br.com.nasajon.nsjbuild.util.GrafoCiclicoException;
+import br.com.nasajon.nsjbuild.util.XMLHandler;
 
 public class Main {
 	private static final String PAR_HELP = "/? -? --help -help /help";
@@ -118,21 +127,30 @@ public class Main {
 		try {
 			long antesGrafo = System.currentTimeMillis();
 			System.out.println("Montando grafo...");
-			Grafo g = Grafo.montaGrafo(parametros, listaProjetos, isBuildForce, isBuildAlterados);
+			Grafo grafo = Grafo.montaGrafo(parametros, listaProjetos, isBuildForce, isBuildAlterados);
+			Grafo grafoClone = grafo.getCloneGrafo();
 			Double intervaloGrafo = ((System.currentTimeMillis() - antesGrafo)/1000.0)/60.0;
 			System.out.println("Grafo completo. Tempo: " + String.format("%.4f", intervaloGrafo) + " minutos.");
 			
-			Compilador compilador = new Compilador(g, parametros.getMaxProcessos().intValue(), bm, parametros.getBatchName(), buildTarget);
+			Compilador compilador = new Compilador(parametros.getMaxProcessos().intValue(), bm, parametros.getBatchName(), buildTarget);
 			
 			if (!callPreBuildBatch(parametros)) {
 				System.exit(1);
 				return;
 			}
 			
+			Queue<No> simulacaoCompilacao;
+			Queue<No> compilados;
 			if (!parProjeto.equals(PAR_BUILD_UPDATE) && !isBuildAlterados) {
-				compilador.compilaProjetoComDependencias(parProjeto);
+				simulacaoCompilacao = compilador.simularCompilacaoProjetoComDependencias(grafoClone, parProjeto);
+				compilador.setQtdProjetosCompilar(simulacaoCompilacao.size());
+				
+				compilados = compilador.compilaProjetoComDependencias(grafo, parProjeto);
 			} else {
-				compilador.compileAll();
+				simulacaoCompilacao = compilador.simulateCompileAll(grafoClone);
+				compilador.setQtdProjetosCompilar(simulacaoCompilacao.size());
+				
+				compilados = compilador.compileAll(grafo);
 			}
 			
 			while (!compilador.isAborted() && compilador.existsThreadAtiva()) {
@@ -144,10 +162,10 @@ public class Main {
 			Double intervaloMinutos = ((fim - inicio)/1000.0)/60.0;
 			
 			if (!compilador.isAborted()) {
-				System.out.println("BUILD FINALIZADO COM SUCESSO. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos)");
+				System.out.println("BUILD FINALIZADO COM SUCESSO. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos). Quantidade de projetos compilados: " + compilados.size());
 				return;
 			} else {
-				System.out.println("Build com falhas. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos)");
+				System.out.println("Build com falhas. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos). Quantidade de projetos compilados: " + compilados.size());
 				System.exit(1);
 				return;
 			}

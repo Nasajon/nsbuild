@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.util;
 
 import java.io.File;
 
@@ -6,6 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import br.com.nasajon.nsjbuild.model.ProjetoWrapper;
 import br.com.nasajon.nsjbuild.modelXML.Projeto;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 

@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.model;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import br.com.nasajon.nsjbuild.controller.AvaliadorEstadoCompilacao;
+import br.com.nasajon.nsjbuild.controller.BuscaLargura;
+import br.com.nasajon.nsjbuild.delphi.AvaliadorEstadoCompilacaoDelphi;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
+import br.com.nasajon.nsjbuild.util.FreeCacheException;
 
 public class Grafo {
 
@@ -106,20 +110,20 @@ public class Grafo {
 		return true;
 	}
 
-	public Grafo getCopiaGrafo() {
-		Grafo copia = new Grafo();
+	public Grafo getCloneGrafo() {
+		Grafo copiaGrafo = new Grafo();
 
 		for (No n: this.nos.values()) {
-			copia.addNo(n.getId(), n.getPath(), n.getProjeto());
+			copiaGrafo.getNos().put(n.getId(), n.getCloneSemRelacionamentos());
 		}
 
 		for (No n: this.nos.values()) {
 			for (No saida: n.getSaidas()) {
-				copia.addAresta(n.getId(), saida.getId());
+				copiaGrafo.addAresta(n.getId(), saida.getId());
 			}
 		}
 
-		return copia;
+		return copiaGrafo;
 	}
 
 	public static Grafo montaGrafo(
@@ -129,7 +133,7 @@ public class Grafo {
 			boolean isBuildAlterados
 			) throws FileNotFoundException, FreeCacheException, IOException {
 
-		AvaliadorEstadoCompilacao avaliador = new AvaliadorEstadoCompilacao(parametros);
+		AvaliadorEstadoCompilacao avaliador = new AvaliadorEstadoCompilacaoDelphi(parametros);
 
 		// Montando o GRAFO - Primeira passada - Nós:
 		Grafo g = new Grafo();

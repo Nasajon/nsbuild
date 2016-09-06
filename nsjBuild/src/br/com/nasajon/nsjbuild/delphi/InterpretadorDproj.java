@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild;
+package br.com.nasajon.nsjbuild.delphi;
 
 import java.io.BufferedReader;
 import java.io.File;
