@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2016.08.29 às 12:22:08 PM BRT 
+// Gerado em: 2016.09.06 às 05:54:29 PM BRT 
 //
 
 
@@ -43,6 +43,7 @@ import javax.xml.bind.annotation.XmlType;
  *             &lt;/complexContent>
  *           &lt;/complexType>
  *         &lt;/element>
+ *         &lt;element name="ignore" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -58,7 +59,8 @@ import javax.xml.bind.annotation.XmlType;
     "dataCriacao",
     "resumo",
     "path",
-    "dependencias"
+    "dependencias",
+    "ignore"
 })
 @XmlRootElement(name = "projeto")
 public class Projeto {
@@ -74,6 +76,7 @@ public class Projeto {
     @XmlElement(required = true)
     protected String path;
     protected Projeto.Dependencias dependencias;
+    protected Boolean ignore;
 
     /**
      * Obtém o valor da propriedade nome.
@@ -217,6 +220,30 @@ public class Projeto {
      */
     public void setDependencias(Projeto.Dependencias value) {
         this.dependencias = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade ignore.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isIgnore() {
+        return ignore;
+    }
+
+    /**
+     * Define o valor da propriedade ignore.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setIgnore(Boolean value) {
+        this.ignore = value;
     }
 
 

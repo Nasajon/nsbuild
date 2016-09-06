@@ -64,6 +64,13 @@
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
+				<xs:element name="ignore" type="xs:boolean" minOccurs="0" maxOccurs="1" nillable="false">
+					<xs:annotation>
+						<xs:documentation>
+							Se for true, o projeto será ignorado pelo nsbuild (não entrará no grafo de compilação).
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				
 			</xs:sequence>
 		</xs:complexType>

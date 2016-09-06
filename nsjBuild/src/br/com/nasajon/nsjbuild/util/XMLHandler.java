@@ -86,6 +86,10 @@ public class XMLHandler {
 			try {
 				ProjetoWrapper pw = xmlHandler.carregaXMLProjeto(f);
 				
+				if (pw.getProjeto().isIgnore() != null && pw.getProjeto().isIgnore()) {
+					continue;
+				}
+				
 				listaProjetos.add(pw);
 			} catch (JAXBException e) {
 				System.out.println("Erro ao ler XML de projeto: " + f.getAbsolutePath());
