@@ -3,9 +3,9 @@ package br.com.nasajon.nsjbuild.controller;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import br.com.nasajon.nsjbuild.exception.GrafoCiclicoException;
 import br.com.nasajon.nsjbuild.model.Grafo;
 import br.com.nasajon.nsjbuild.model.No;
-import br.com.nasajon.nsjbuild.util.GrafoCiclicoException;
 
 public class BuscaProfundidade {
 

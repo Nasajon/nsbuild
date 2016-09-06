@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 
+import br.com.nasajon.nsjbuild.exception.GrafoCiclicoException;
 import br.com.nasajon.nsjbuild.model.BuildMode;
 import br.com.nasajon.nsjbuild.model.BuildTarget;
 import br.com.nasajon.nsjbuild.model.Grafo;
 import br.com.nasajon.nsjbuild.model.No;
-import br.com.nasajon.nsjbuild.util.GrafoCiclicoException;
 
 public class Compilador implements ControleCompilacao {
 	
@@ -66,7 +66,7 @@ public class Compilador implements ControleCompilacao {
 		}
 		
 		for (No n : listaNaoCompilados) {
-			if (!n.isMarcado()) {
+			if (!n.isCompilacaoChamada()) {
 				Queue<No> iteracao = BuscaProfundidade.buscaProfundidade(n.getId(), grafoDependencias, this, false);
 				
 				retorno.addAll(iteracao);
@@ -92,7 +92,7 @@ public class Compilador implements ControleCompilacao {
 		}
 		
 		for (No n : listaNaoCompilados) {
-			if (!n.isMarcado()) {
+			if (!n.isCompilacaoChamada()) {
 				Queue<No> iteracao = BuscaProfundidade.buscaProfundidade(n.getId(), grafoDependencias, this, true);
 				
 				retorno.addAll(iteracao);

@@ -12,8 +12,8 @@ import java.util.Set;
 import br.com.nasajon.nsjbuild.controller.AvaliadorEstadoCompilacao;
 import br.com.nasajon.nsjbuild.controller.BuscaLargura;
 import br.com.nasajon.nsjbuild.delphi.AvaliadorEstadoCompilacaoDelphi;
+import br.com.nasajon.nsjbuild.exception.FreeCacheException;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
-import br.com.nasajon.nsjbuild.util.FreeCacheException;
 
 public class Grafo {
 

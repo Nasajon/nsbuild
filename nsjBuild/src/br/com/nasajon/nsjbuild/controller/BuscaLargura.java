@@ -5,9 +5,9 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Queue;
 
+import br.com.nasajon.nsjbuild.exception.FreeCacheException;
 import br.com.nasajon.nsjbuild.model.Grafo;
 import br.com.nasajon.nsjbuild.model.No;
-import br.com.nasajon.nsjbuild.util.FreeCacheException;
 
 public class BuscaLargura {
 

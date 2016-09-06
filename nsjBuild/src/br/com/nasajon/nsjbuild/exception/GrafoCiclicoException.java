@@ -1,4 +1,4 @@
-package br.com.nasajon.nsjbuild.util;
+package br.com.nasajon.nsjbuild.exception;
 
 public class GrafoCiclicoException extends Exception {
 

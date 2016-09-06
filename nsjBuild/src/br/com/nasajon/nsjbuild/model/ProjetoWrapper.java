@@ -7,19 +7,26 @@ import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashSet;
+import java.util.Set;
 
+import br.com.nasajon.nsjbuild.delphi.Unit;
+import br.com.nasajon.nsjbuild.exception.FreeCacheException;
 import br.com.nasajon.nsjbuild.modelXML.Projeto;
-import br.com.nasajon.nsjbuild.util.FreeCacheException;
 
 public class ProjetoWrapper {
 	private Projeto projeto;
 	private File arquivoXML;
 	private Calendar ultimaCompilacao;
+	private Set<Unit> units;
+	private Set<ProjetoWrapper> dependenciasCalculadas;
 	
 	public ProjetoWrapper() {
 		super();
 		
 		this.ultimaCompilacao = null;
+		this.dependenciasCalculadas = new HashSet<ProjetoWrapper>();
+		this.units = new HashSet<Unit>();
 	}
 	
 	public File getArquivoXML() {
@@ -88,5 +95,21 @@ public class ProjetoWrapper {
 		projetoCache.getParentFile().mkdirs();
 		
 		return projetoCache;
+	}
+
+	public Set<Unit> getUnits() {
+		return units;
+	}
+
+	public void setUnits(Set<Unit> units) {
+		this.units = units;
+	}
+
+	public Set<ProjetoWrapper> getDependenciasCalculadas() {
+		return dependenciasCalculadas;
+	}
+
+	public void setDependenciasCalculadas(Set<ProjetoWrapper> dependenciasCalculadas) {
+		this.dependenciasCalculadas = dependenciasCalculadas;
 	}
 }

@@ -1,24 +1,22 @@
 package br.com.nasajon.nsjbuild;
 
 import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
 import javax.xml.bind.JAXBException;
 
 import br.com.nasajon.nsjbuild.controller.Compilador;
+import br.com.nasajon.nsjbuild.exception.GrafoCiclicoException;
 import br.com.nasajon.nsjbuild.model.BuildMode;
 import br.com.nasajon.nsjbuild.model.BuildTarget;
 import br.com.nasajon.nsjbuild.model.Grafo;
 import br.com.nasajon.nsjbuild.model.No;
 import br.com.nasajon.nsjbuild.model.ProjetoWrapper;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
-import br.com.nasajon.nsjbuild.util.GrafoCiclicoException;
 import br.com.nasajon.nsjbuild.util.XMLHandler;
 
 public class Main {
@@ -29,6 +27,7 @@ public class Main {
 	private static final String PAR_BUILD_UPDATE = "update";
 //	private static final String PAR_BUILD_ALTERADOS = "alterados";
 //	private static final String PAR_BUILD_FORCE = "force";
+	private static final String PAR_BUILD_VALIDATE = "validate";
 
 	public static void main(String[] args) {
 
@@ -67,14 +66,17 @@ public class Main {
 		
 		// Verificando se não é uma chamada ao clean (para limpar a cache):
 		if (parProjeto.equals(PAR_BUILD_CLEAN)) {
-			if (!limparCache()) {
+			if (!(new MainClean()).execute(parametros)) {
 				System.exit(1);
 			}
-			
-			if (!callCleanBatch(parametros)) {
+			return;
+		}
+		
+		// Verificando se não é uma chamada ao validate (para validar as dependências e/ou replicação de nomes de units):
+		if (parProjeto.equals(PAR_BUILD_VALIDATE)) {
+			if (!(new MainValidate()).execute(args, parametros)) {
 				System.exit(1);
 			}
-			
 			return;
 		}
 		
@@ -82,7 +84,7 @@ public class Main {
 		BuildMode bm = resolveBuildMode(args);
 		
 		// Carregando a lista de projetos:
-		List<ProjetoWrapper> listaProjetos = carregaListaDeProjetos(parametros);
+		List<ProjetoWrapper> listaProjetos = XMLHandler.carregaListaDeProjetos(parametros);
 		if (listaProjetos == null) {
 			System.out.println("");
 			System.out.println("");
@@ -208,37 +210,6 @@ public class Main {
 		return bm;
 	}
 
-	private static List<ProjetoWrapper> carregaListaDeProjetos(ParametrosNsjbuild parametros) {
-		File raiz = new File(parametros.getXmlsProjectsPath());
-		FilenameFilter textFilter = new FilenameFilter() {
-			public boolean accept(File dir, String name) {
-				String lowercaseName = name.toLowerCase();
-				if (lowercaseName.endsWith(".nsproj.xml")) {
-					return true;
-				} else {
-					return false;
-				}
-			}
-		};
-
-		List<ProjetoWrapper> listaProjetos = new ArrayList<ProjetoWrapper>();
-		XMLHandler xmlHandler = new XMLHandler();
-		
-		for (File f : raiz.listFiles(textFilter)){
-			try {
-				ProjetoWrapper pw = xmlHandler.carregaXMLProjeto(f);
-				
-				listaProjetos.add(pw);
-			} catch (JAXBException e) {
-				System.out.println("Erro ao ler XML de projeto: " + f.getAbsolutePath());
-				e.printStackTrace();
-				return null;
-			}
-		}
-		
-		return listaProjetos;
-	}
-
 	private static ParametrosNsjbuild carregaParametrosBuild() {
 		ParametrosNsjbuild parametros = new ParametrosNsjbuild();
 		parametros.setErpPath("c:\\@work\\erp");
@@ -271,65 +242,6 @@ public class Main {
 		return parametros;
 	}
 	
-	private static boolean limparCache() {
-		File dirCache = new File("cache");
-		
-		if (dirCache.exists() && dirCache.isDirectory()) {
-			for (File f: dirCache.listFiles()) {
-				if(!f.delete()) {
-					System.out.println("Erro ao limpar cache. Erro ao apagar arquivo: " + f.getAbsolutePath());
-
-					return false;
-				}
-			}
-		}
-		
-		return true;
-	}
-	
-	private static boolean callCleanBatch(ParametrosNsjbuild parametros) {
-
-		try {
-			Process p = Runtime.getRuntime().exec(parametros.getBatchClean());
-			
-			if(p.waitFor() != 0) {
-				System.out.println("");
-				System.out.println("");
-				System.out.println("");
-				System.out.println("");
-
-				System.out.println("Erro ao executar batch de 'clean' dos projetos:");
-
-				InputStream error = p.getInputStream();
-				for (int i = 0; i < error.available(); i++) {
-					System.out.print("" + (char)error.read());
-				}
-				System.out.println("");
-				
-				error = p.getErrorStream();
-				for (int i = 0; i < error.available(); i++) {
-					System.out.print("" + (char)error.read());
-				}
-				
-				return false;
-			} else {
-				System.out.println("Batch de 'clean' executado com sucesso.");
-				
-				return true;
-			}
-		} catch (Exception e) {
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-			System.out.println("");
-
-			System.out.println("Erro ao executar batch de 'clean' dos projetos:");
-			e.printStackTrace();
-			
-			return false;
-		}
-	}
-
 	private static boolean callPreBuildBatch(ParametrosNsjbuild parametros) {
 
 		System.out.println("Chamando o batch de 'pre-build'...");
