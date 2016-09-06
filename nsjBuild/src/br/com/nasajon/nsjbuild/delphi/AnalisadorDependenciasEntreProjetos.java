@@ -26,9 +26,9 @@ public class AnalisadorDependenciasEntreProjetos {
 		this.mostrarReplicacoesUnits = mostrarReplicacoesUnits;
 	}
 	
-	public void resolverDependencias(List<ProjetoWrapper> listaProjetos) throws ReplicacaoUnitException, IOException {
+	public void resolverDependencias(List<ProjetoWrapper> listaProjetos, StringBuilder sbSaida) throws ReplicacaoUnitException, IOException {
 		
-		this.criaFilaCompilacao(listaProjetos);
+		this.criaFilaCompilacao(listaProjetos, sbSaida);
 		
 		// Passada 0 - Fazendo parser de units por projeto:
 		Iterator<ProjetoWrapper> it = listaProjetos.iterator();
@@ -53,7 +53,7 @@ public class AnalisadorDependenciasEntreProjetos {
 			}
 			
 			for (Unit unit : projeto.getUnits()) {
-				this.addRelacionamentoUnitProjeto(unit.getNome(), projeto);
+				this.addRelacionamentoUnitProjeto(unit.getNome(), projeto, sbSaida);
 			}
 		}
 		
@@ -94,7 +94,7 @@ public class AnalisadorDependenciasEntreProjetos {
 		}
 	}
 	
-	private void addRelacionamentoUnitProjeto(String unit, ProjetoWrapper projeto) throws ReplicacaoUnitException {
+	private void addRelacionamentoUnitProjeto(String unit, ProjetoWrapper projeto, StringBuilder sbSaida) throws ReplicacaoUnitException {
 		
 		ProjetoWrapper p = mapaProjetosPorUnit.get(unit);
 
@@ -103,7 +103,7 @@ public class AnalisadorDependenciasEntreProjetos {
 			int posFila2 = filaCompilacao.indexOf(";" + projeto.getProjeto().getNome().toLowerCase() + ";");
 			
 			if (mostrarReplicacoesUnits) {
-				System.out.println("ATENCAO: Unit de nome '" + unit + "' replicada nos projetos: '" + projeto.getProjeto().getNome() + "' e '" + p.getProjeto().getNome() + "'.");
+				sbSaida.append("ATENCAO: Unit de nome '" + unit + "' replicada nos projetos: '" + projeto.getProjeto().getNome() + "' e '" + p.getProjeto().getNome() + "'.\r\n");
 			}
 
 			if (posFila2 < posFila1) {
@@ -116,14 +116,14 @@ public class AnalisadorDependenciasEntreProjetos {
 		mapaProjetosPorUnit.put(unit, projeto);
 	}
 
-	private void criaFilaCompilacao(List<ProjetoWrapper> listaProjetos) {
+	private void criaFilaCompilacao(List<ProjetoWrapper> listaProjetos, StringBuilder sbSaida) {
 		
 		Iterator<ProjetoWrapper> it = listaProjetos.iterator();
 		while(it.hasNext()) {
 			ProjetoWrapper projeto = it.next();
 			
 			if (filaCompilacao.contains(";" + projeto.getProjeto().getNome().toLowerCase() + ";")) {
-				System.out.println("ATENCAO: Replicação de nome de projeto: " + projeto.getProjeto().getNome());
+				sbSaida.append("ATENCAO: Replicação de nome de projeto: " + projeto.getProjeto().getNome() + "\r\n");
 			} else {
 				filaCompilacao += ";" + projeto.getProjeto().getNome().toLowerCase();
 			}
@@ -131,7 +131,7 @@ public class AnalisadorDependenciasEntreProjetos {
 		
 		filaCompilacao = filaCompilacao + ";";
 		
-		System.out.println("Fila de compilação:");
-		System.err.println(filaCompilacao);
+		sbSaida.append("Fila de compilação:\r\n");
+		sbSaida.append(filaCompilacao + "\r\n");
 	}
 }

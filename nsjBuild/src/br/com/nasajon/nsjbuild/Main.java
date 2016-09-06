@@ -10,7 +10,9 @@ import java.util.Queue;
 import javax.xml.bind.JAXBException;
 
 import br.com.nasajon.nsjbuild.controller.Compilador;
+import br.com.nasajon.nsjbuild.exception.DependenciaInvalidaException;
 import br.com.nasajon.nsjbuild.exception.GrafoCiclicoException;
+import br.com.nasajon.nsjbuild.exception.ProjectFileNotFoundException;
 import br.com.nasajon.nsjbuild.model.BuildMode;
 import br.com.nasajon.nsjbuild.model.BuildTarget;
 import br.com.nasajon.nsjbuild.model.Grafo;
@@ -189,6 +191,18 @@ public class Main {
 			System.out.println("");
 			System.out.println("Erro de IO ao checar status de compilação dos projetos:");
 			e.printStackTrace();
+			System.exit(1);
+			return;
+		} catch (DependenciaInvalidaException e) {
+			System.out.println("");
+			System.out.println("");
+			System.out.println(e.getMessage());
+			System.exit(1);
+			return;
+		} catch (ProjectFileNotFoundException e) {
+			System.out.println("");
+			System.out.println("");
+			System.out.println(e.getMessage());
 			System.exit(1);
 			return;
 		}

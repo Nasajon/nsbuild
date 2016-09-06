@@ -1,5 +1,6 @@
 package br.com.nasajon.nsjbuild.model;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
@@ -12,7 +13,9 @@ import java.util.Set;
 import br.com.nasajon.nsjbuild.controller.AvaliadorEstadoCompilacao;
 import br.com.nasajon.nsjbuild.controller.BuscaLargura;
 import br.com.nasajon.nsjbuild.delphi.AvaliadorEstadoCompilacaoDelphi;
+import br.com.nasajon.nsjbuild.exception.DependenciaInvalidaException;
 import br.com.nasajon.nsjbuild.exception.FreeCacheException;
+import br.com.nasajon.nsjbuild.exception.ProjectFileNotFoundException;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 
 public class Grafo {
@@ -131,14 +134,20 @@ public class Grafo {
 			List<ProjetoWrapper> listaProjetos,
 			boolean isBuildForce,
 			boolean isBuildAlterados
-			) throws FileNotFoundException, FreeCacheException, IOException {
+			) throws FileNotFoundException, FreeCacheException, IOException, DependenciaInvalidaException, ProjectFileNotFoundException {
 
 		AvaliadorEstadoCompilacao avaliador = new AvaliadorEstadoCompilacaoDelphi(parametros);
 
 		// Montando o GRAFO - Primeira passada - Nós:
 		Grafo g = new Grafo();
 		for (ProjetoWrapper p : listaProjetos) {
-			No n = g.addNo(p.getProjeto().getNome(), parametros.getErpPath() + p.getProjeto().getPath(), p);
+			String pathDproj = parametros.getErpPath() + p.getProjeto().getPath();
+			
+			if (!(new File(pathDproj)).exists()) {
+				throw new ProjectFileNotFoundException(p.getProjeto().getNome(), pathDproj);
+			}
+			
+			No n = g.addNo(p.getProjeto().getNome(), pathDproj, p);
 
 			Boolean isProjetoCompilado = false;
 			if (!isBuildForce) {
@@ -151,7 +160,9 @@ public class Grafo {
 		// Montando o GRAFO - Segunda passada - Arestas:
 		for (ProjetoWrapper p : listaProjetos) {
 			for (String d : p.getProjeto().getDependencias().getDependencia()) {
-				g.addAresta(p.getProjeto().getNome(), d);
+				if (!g.addAresta(p.getProjeto().getNome(), d)) {
+					throw new DependenciaInvalidaException(p.getProjeto().getNome(), d);
+				}
 			}
 		}
 

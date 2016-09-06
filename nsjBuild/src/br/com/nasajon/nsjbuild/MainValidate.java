@@ -1,5 +1,7 @@
 package br.com.nasajon.nsjbuild;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,7 +11,9 @@ import java.util.Set;
 
 import br.com.nasajon.nsjbuild.controller.Compilador;
 import br.com.nasajon.nsjbuild.delphi.AnalisadorDependenciasEntreProjetos;
+import br.com.nasajon.nsjbuild.exception.DependenciaInvalidaException;
 import br.com.nasajon.nsjbuild.exception.GrafoCiclicoException;
+import br.com.nasajon.nsjbuild.exception.ProjectFileNotFoundException;
 import br.com.nasajon.nsjbuild.exception.ReplicacaoUnitException;
 import br.com.nasajon.nsjbuild.model.BuildMode;
 import br.com.nasajon.nsjbuild.model.BuildTarget;
@@ -22,6 +26,7 @@ import br.com.nasajon.nsjbuild.util.XMLHandler;
 public class MainValidate {
 	
 	private static final String PAR_MOSTRAR_UNITS_REPLICADAS = "units"; 
+	private static final String PATH_ARQUIVO_LOG = "logs" + File.separator + "validate.log"; 
 
 	public boolean execute(String[] args, ParametrosNsjbuild parametros) {
 
@@ -40,6 +45,8 @@ public class MainValidate {
 			mostrarUnitsReplicadas = args[1].equals(PAR_MOSTRAR_UNITS_REPLICADAS);
 		}
 
+		StringBuilder sbSaida = new StringBuilder();
+		
 		try {
 			long antesGrafo = System.currentTimeMillis();
 			System.out.println("Montando grafo...");
@@ -60,7 +67,7 @@ public class MainValidate {
 			// Analisando as dependências entre os projetos:
 			AnalisadorDependenciasEntreProjetos analisador = new AnalisadorDependenciasEntreProjetos(parametros, mostrarUnitsReplicadas);
 			
-			analisador.resolverDependencias(listaProjetosEmOrdem);
+			analisador.resolverDependencias(listaProjetosEmOrdem, sbSaida);
 			
 			// Imprimindo as inconsistências encontradas:
 			for (ProjetoWrapper projeto: listaProjetosEmOrdem) {
@@ -92,19 +99,26 @@ public class MainValidate {
 				}
 				
 				// Imprimindo faltas e sobras:
+				if (projetosSobrando.size() > 0 || projetosFaltando.size() > 0) {
+					sbSaida.append("\r\n");
+					sbSaida.append("PROJETO '" + projeto.getProjeto().getNome() + "':\r\n");
+				}
+					
 				if (projetosSobrando.size() > 0) {
-					System.out.println("");
-					System.out.println("PROJETO '" + projeto.getProjeto().getNome() + "' - Lista de dependencias desnecessárias no XML:");
+					sbSaida.append("Lista de dependencias desnecessárias no XML:\r\n");
+					
 					for (String s : projetosSobrando) {
-						System.out.println(s);
+						sbSaida.append(s + "\r\n");
 					}
+					
+					sbSaida.append("\r\n");
 				}
 				
 				if (projetosFaltando.size() > 0) {
-					System.out.println("");
-					System.out.println("PROJETO '" + projeto.getProjeto().getNome() + "' - Lista de dependencias necessárias não encontradas no XML:");
+					sbSaida.append("Lista de dependencias necessárias não encontradas no XML:\r\n");
+
 					for (String s : projetosFaltando) {
-						System.out.println(s);
+						sbSaida.append(s + "\r\n");
 					}
 				}
 			}
@@ -132,6 +146,41 @@ public class MainValidate {
 			System.out.println("");
 			System.out.println(e.getMessage());
 			return false;
+		} catch (DependenciaInvalidaException e) {
+			System.out.println("");
+			System.out.println("");
+			System.out.println(e.getMessage());
+			return false;
+		} catch (ProjectFileNotFoundException e) {
+			System.out.println("");
+			System.out.println("");
+			System.out.println(e.getMessage());
+			return false;
+		}
+		
+		// Imprimindo saída em tela:
+		System.out.println(sbSaida);
+		System.out.println("Este log de validação também estará disponível no arquivo: " + PATH_ARQUIVO_LOG);
+		
+		// Imprimindo saida em arquivo:
+		if (sbSaida.length() > 0) {
+			File arquivoLog = new File(PATH_ARQUIVO_LOG);
+			
+			if (arquivoLog.exists()) {
+				if (!arquivoLog.delete()) {
+					System.out.println("ERRO ao excluir arquivo de log (para imprimir novo log): " + PATH_ARQUIVO_LOG);
+				}
+			}
+			
+			try (
+					FileWriter fw = new FileWriter(arquivoLog)
+			) {
+				fw.write(sbSaida.toString());
+			} catch (IOException e) {
+				System.out.println("Erro ao persistir saída em arquivo:");
+				e.printStackTrace();
+				return false;
+			}
 		}
 		
 		return true;		
