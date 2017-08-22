@@ -179,4 +179,8 @@ public class Compilador implements ControleCompilacao {
 			return ++this.qtdProjetosIniciados;
 		}
 	}
+	
+	public Integer getTotalCompilados() {
+		return this.nosCompilados.size();
+	}
 }

@@ -35,6 +35,7 @@ public class Main {
 
 		long inicio = System.currentTimeMillis();
 		
+		// Verificando se não foram passados parâmetros:
 		if (args.length < 1) {
 			System.out.println("");
 			System.out.println("");
@@ -45,14 +46,44 @@ public class Main {
 			return;
 		}
 		
-		// Pegando o prâmetro do projeto (objetivo do build):
-		String parProjeto = args[0];
+		Boolean isClean = false;
+		Boolean isValidate = false;
+		String parProjeto = "";
+		BuildMode bm = BuildMode.debug;
+		BuildTarget buildTarget = BuildTarget.build;
 		
-		// Verificando se é uma chamada ao help:
-		if (PAR_HELP.contains(parProjeto)) {
-			imprimirFormaUso();
-			return;
+		// Analisando cada parâmetro:
+		for (int i = 0; i < args.length; i++) {
+			String s = args[i];
+			
+			if (PAR_HELP.contains(s)) { // Verificando se é uma chamada ao help:
+				imprimirFormaUso();
+				return;
+			} else if (s.equals(PAR_BUILD_CLEAN)) { // Verificando se é uma chamada ao clean:
+				isClean = true;
+			} else if (s.equals(PAR_BUILD_VALIDATE)) {
+				isValidate = true;
+			} else if (s.equals(BuildMode.debug.toString())) {
+				bm = BuildMode.debug; // Resolvendo o build mode
+			} else if (s.equals(BuildMode.release.toString())) {
+				bm = BuildMode.release; // Resolvendo o build mode
+			} else if (s.equals(BuildTarget.build.toString())) {
+				buildTarget = BuildTarget.build; // Resolvendo o build target
+			} else if (s.equals(BuildTarget.compile.toString())) {
+				buildTarget = BuildTarget.compile; // Resolvendo o build target
+			} else {
+				parProjeto = s;
+			}
 		}
+		
+//		// Pegando o prâmetro do projeto (objetivo do build):
+//		String parProjeto = args[0];
+		
+//		// Verificando se é uma chamada ao help:
+//		if (PAR_HELP.contains(parProjeto)) {
+//			imprimirFormaUso();
+//			return;
+//		}
 		
 //		// Verificando se não é uma chamada ao clean (para limpar a cache):
 //		if (parProjeto.equals(PAR_BUILD_CLEAN_CACHE)) {
@@ -67,7 +98,7 @@ public class Main {
 		ParametrosNsjbuild parametros = carregaParametrosBuild();
 		
 		// Verificando se não é uma chamada ao clean (para limpar a cache):
-		if (parProjeto.equals(PAR_BUILD_CLEAN)) {
+		if (isClean) {
 			if (!(new MainClean()).execute(parametros)) {
 				System.exit(1);
 			}
@@ -75,15 +106,15 @@ public class Main {
 		}
 		
 		// Verificando se não é uma chamada ao validate (para validar as dependências e/ou replicação de nomes de units):
-		if (parProjeto.equals(PAR_BUILD_VALIDATE)) {
+		if (isValidate) {
 			if (!(new MainValidate()).execute(args, parametros)) {
 				System.exit(1);
 			}
 			return;
 		}
 		
-		// Resolvendo o build mode:
-		BuildMode bm = resolveBuildMode(args);
+//		// Resolvendo o build mode:
+//		BuildMode bm = resolveBuildMode(args);
 		
 		// Carregando a lista de projetos:
 		List<ProjetoWrapper> listaProjetos = XMLHandler.carregaListaDeProjetos(parametros);
@@ -120,7 +151,7 @@ public class Main {
 		
 		// Verificando se foi passado o parâmetro de build force:
 		boolean isBuildForce = false;
-		BuildTarget buildTarget = BuildTarget.build;
+//		BuildTarget buildTarget = BuildTarget.build;
 		
 		// Setando o inline como ON se o target for "Build", pois neste caso independente do INLINE, as
 		// dependencias sempre exigem de recompilação.
@@ -144,17 +175,16 @@ public class Main {
 			}
 			
 			Queue<No> simulacaoCompilacao;
-			Queue<No> compilados;
 			if (!parProjeto.equals(PAR_BUILD_UPDATE) && !isBuildAlterados) {
 				simulacaoCompilacao = compilador.simularCompilacaoProjetoComDependencias(grafoClone, parProjeto);
 				compilador.setQtdProjetosCompilar(simulacaoCompilacao.size());
 				
-				compilados = compilador.compilaProjetoComDependencias(grafo, parProjeto);
+				compilador.compilaProjetoComDependencias(grafo, parProjeto);
 			} else {
 				simulacaoCompilacao = compilador.simulateCompileAll(grafoClone);
 				compilador.setQtdProjetosCompilar(simulacaoCompilacao.size());
 				
-				compilados = compilador.compileAll(grafo);
+				compilador.compileAll(grafo);
 			}
 			
 			while (!compilador.isAborted() && compilador.existsThreadAtiva()) {
@@ -166,10 +196,10 @@ public class Main {
 			Double intervaloMinutos = ((fim - inicio)/1000.0)/60.0;
 			
 			if (!compilador.isAborted()) {
-				System.out.println("BUILD FINALIZADO COM SUCESSO. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos). Quantidade de projetos compilados: " + compilados.size());
+				System.out.println("BUILD FINALIZADO COM SUCESSO. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos). Quantidade de projetos compilados: " + compilador.getTotalCompilados());
 				return;
 			} else {
-				System.out.println("Build com falhas. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos). Quantidade de projetos compilados: " + compilados.size());
+				System.out.println("Build com falhas. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos). Quantidade de projetos compilados: " + compilador.getTotalCompilados());
 				System.exit(1);
 				return;
 			}
@@ -208,21 +238,21 @@ public class Main {
 		}
 	}
 
-	private static BuildMode resolveBuildMode(String[] args) {
-		BuildMode bm = BuildMode.debug;
-		
-		if (args.length < 2) {
-			return bm;
-		}
-		
-		if (args[1].equals(BuildMode.debug.toString())) {
-			bm = BuildMode.debug;
-		}
-		if (args[1].equals(BuildMode.release.toString())) {
-			bm = BuildMode.release;
-		}
-		return bm;
-	}
+//	private static BuildMode resolveBuildMode(String[] args) {
+//		BuildMode bm = BuildMode.debug;
+//		
+//		if (args.length < 2) {
+//			return bm;
+//		}
+//		
+//		if (args[1].equals(BuildMode.debug.toString())) {
+//			bm = BuildMode.debug;
+//		}
+//		if (args[1].equals(BuildMode.release.toString())) {
+//			bm = BuildMode.release;
+//		}
+//		return bm;
+//	}
 
 	private static ParametrosNsjbuild carregaParametrosBuild() {
 		ParametrosNsjbuild parametros = new ParametrosNsjbuild();
