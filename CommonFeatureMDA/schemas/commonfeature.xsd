@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.nasajon.com.br/commonfeature" elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xmlns:cf="http://www.nasajon.com.br/commonfeature">
+
+	<xs:include schemaLocation="tipos_dados.xsd" />
+	<xs:include schemaLocation="campo.xsd" />
+	<xs:include schemaLocation="lista.xsd" />
+
+	<xs:element name="commonfeature">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="entidade">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="schema" type="cf:TSchema" />
+							<xs:element name="tabela" type="xs:string" />
+							<xs:element name="alias" type="xs:string" />
+							<xs:element name="campos" type="cf:TListaCampos" />
+							<xs:element name="campos_objeto" type="cf:TListaCamposObjeto" />
+							<xs:element name="listas" type="cf:TListaListas" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

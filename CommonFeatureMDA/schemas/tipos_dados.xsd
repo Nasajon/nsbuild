@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.nasajon.com.br/commonfeature" elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xmlns:cf="http://www.nasajon.com.br/commonfeature">
+
+	<xs:simpleType name="TSchema">
+		<xs:annotation>
+			<xs:documentation>
+				Schemas do banco de dados
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="agente" />
+			<xs:enumeration value="brokerclient" />
+			<xs:enumeration value="compras" />
+			<xs:enumeration value="contabil" />
+			<xs:enumeration value="contabilizacao" />
+			<xs:enumeration value="controller" />
+			<xs:enumeration value="conversor" />
+			<xs:enumeration value="crm" />
+			<xs:enumeration value="ecf" />
+			<xs:enumeration value="estoque" />
+			<xs:enumeration value="exportacao" />
+			<xs:enumeration value="extensoes" />
+			<xs:enumeration value="extras" />
+			<xs:enumeration value="financas" />
+			<xs:enumeration value="importacao" />
+			<xs:enumeration value="internal" />
+			<xs:enumeration value="ns" />
+			<xs:enumeration value="nsview" />
+			<xs:enumeration value="pdv" />
+			<xs:enumeration value="persona" />
+			<xs:enumeration value="ponto" />
+			<xs:enumeration value="public" />
+			<xs:enumeration value="scritta" />
+			<xs:enumeration value="servicedocument" />
+			<xs:enumeration value="servicos" />
+			<xs:enumeration value="util" />
+			<xs:enumeration value="workflow" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="TTipoCampo">
+		<xs:annotation>
+			<xs:documentation>
+				Tipos de campo aceitos
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="uuid" />
+			<xs:enumeration value="string" />
+			<xs:enumeration value="char" />
+			<xs:enumeration value="integer" />
+			<xs:enumeration value="smallInt" />
+			<xs:enumeration value="int64" />
+			<xs:enumeration value="currency" />
+			<xs:enumeration value="double" />
+			<xs:enumeration value="float" />
+			<xs:enumeration value="date" />
+			<xs:enumeration value="datetime" />
+			<xs:enumeration value="boolean" />
+			<xs:enumeration value="enum" />
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.nasajon.com.br/commonfeature" elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xmlns:cf="http://www.nasajon.com.br/commonfeature">
+
+	<xs:include schemaLocation="tipos_dados.xsd" />
+
+	<xs:complexType name="TListaCampos">
+		<xs:sequence>
+			<xs:element name="campo" type="cf:TCampo" minOccurs="1" maxOccurs="1000" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TCampo">
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="alias" type="xs:string" minOccurs="0" maxOccurs="1" />
+			<xs:element name="tipo" type="cf:TTipoCampo" />
+			
+			<xs:element name="enumerado" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="valor" type="xs:string" minOccurs="1" maxOccurs="1000" />
+					</xs:sequence>
+					<xs:attribute name="nome" type="xs:string" use="required" />
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="browser_column" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="caption" type="xs:string" />
+						<xs:element name="largura" type="xs:int" minOccurs="0" maxOccurs="1" />
+						<xs:element name="visivel" type="xs:boolean" default="true" minOccurs="0" maxOccurs="1" />
+						<xs:element name="can_show_or_hide" type="xs:boolean" default="true" minOccurs="0" maxOccurs="1" />
+						<xs:element name="can_filter" type="xs:boolean" default="true" minOccurs="0" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="return_to_dto" type="xs:boolean" default="true" minOccurs="0" maxOccurs="1" />
+			<xs:element name="field_for_crud" type="xs:boolean" default="false" minOccurs="0" maxOccurs="1" />
+			<xs:element name="pk" type="xs:boolean" default="false" minOccurs="0" maxOccurs="1" />
+			
+			<xs:element name="uk" default="false" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:simpleContent>
+						<xs:extension base="xs:boolean">
+							<xs:attribute name="nome" type="xs:string" use="optional" />
+						</xs:extension>
+					</xs:simpleContent>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="not_null" type="xs:boolean" default="false" minOccurs="0" maxOccurs="1" />
+
+			<xs:element name="view" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="component_name" type="xs:string" />
+						<xs:choice>
+							<xs:element name="caption" type="xs:string" />
+							<xs:element name="label_component" type="xs:string" />
+						</xs:choice>
+
+						<xs:element name="browser" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+<!-- 									<xs:element name="caption" type="xs:string" /> -->
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TListaCamposObjeto">
+		<xs:sequence>
+			<xs:element name="campo_objeto" type="cf:TCampoObjeto" minOccurs="0" maxOccurs="1000" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="TCampoObjeto">
+		<xs:sequence>
+			<xs:element name="nome" type="xs:string" />
+			<xs:element name="tipo" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>
