@@ -1,0 +1,88 @@
+package #{package_name};
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  vclimg,
+  xmlrtl,
+  vclactnband,
+  vclx,
+  soaprtl,
+  dbrtl,
+  inet,
+  IndySystem,
+  IndyProtocols,
+  IndyCore,
+  DbxCommonDriver,
+  vcldb,
+  dsnap,
+  dac240,
+  unidac240,
+  dxCoreRS24,
+  cxLibraryRS24,
+  dxGDIPlusRS24,
+  dxThemeRS24,
+  dxServerModeRS24,
+  cxDataRS24,
+  dxmdsRS24,
+  cxEditorsRS24,
+  cxPageControlRS24,
+  dxLayoutControlRS24,
+  dxComnRS24,
+  dxSpreadSheetRS24,
+  cxGridRS24,
+  cxExportRS24,
+  cxPivotGridRS24,
+  cxTreeListRS24,
+  dxBarRS24,
+  dxRibbonRS24,
+  dxBarExtItemsRS24,
+  dxSkinsCoreRS24,
+  dxPScxPCProdRS24,
+  dxPSCoreRS24,
+  dxPSLnksRS24,
+  dxPScxCommonRS24,
+  dxPScxExtCommonRS24,
+  dxPsPrVwAdvRS24,
+  dxPSPrVwRibbonRS24,
+  cxTreeListdxBarPopupMenuRS24,
+  dxSkinscxPCPainterRS24,
+  dxSkinsdxBarPainterRS24,
+  dxSkinsdxRibbonPainterRS24,  
+  dxPSdxLCLnkRS24,
+  dxPScxGridLnkRS24,
+  dxPScxPivotGridLnkRS24,
+  dxPScxTLLnkRS24,
+  NasajonSkinRS24,
+  NasajonSkinDestaqueRS24;
+  
+#{contains}
+
+end.

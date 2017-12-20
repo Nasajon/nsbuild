@@ -1,6 +1,6 @@
 # nsBuild
 
-Essa ferramenta tem como objetivo compilar, gerar e gerir dependÃªncias de projetos em Delphi.
+Essa ferramenta tem como objetivo compilar, gerar e gerir dependências de projetos em Delphi.
 
 ----------------------------------------------------------------
 SINTAXE ESPERADA:
@@ -11,19 +11,20 @@ nsbuild <nome do projeto/update/clean/make:bpl> [debug (default)/release]
 
 Conceitos importantes:
 
-- nome do projeto - Especifica o projeto objetivo a ser compilado (todos os projetos - ainda nÃ£o compilados, ou alterados - na Ã¡rvore de dependÃªncias do mesmo serÃ£o compilados Ã  priori).
+- nome do projeto - Especifica o projeto objetivo a ser compilado (todos os projetos - ainda não compilados, ou alterados - na árvore de dependências do mesmo serão compilados à priori).
 
-- update - Compila todos os projetos disponÃ­veis (ainda nÃ£o compilados, ou alterados), respeitando a ordem de dependÃªncias entre os mesmos.
+- update - Compila todos os projetos disponíveis (ainda não compilados, ou alterados), respeitando a ordem de dependências entre os mesmos.
 
-- clean - Apaga todas as DCUs e limpa a cache de controle dos projetos compilados (ATENÃ‡ÃƒO: ApÃ³s ser chamado o clean, uma chamada ao comando 'nsbuild update' serÃ¡ equivalente ao antigo build.bat na opÃ§Ã£o zero).
+- clean - Apaga todas as DCUs e limpa a cache de controle dos projetos compilados (ATENÇÃO: Após ser chamado o clean, uma chamada ao comando 'nsbuild update' será equivalente ao antigo build.bat na opção zero).
 
-- debug/release - Modo de build, isto Ã©, gera os executÃ¡veis em modo debug (para depuraÃ§Ã£o) ou modo de entrega (release).
+- debug/release - Modo de build, isto é, gera os executáveis em modo debug (para depuração) ou modo de entrega (release).
 
 - make:bpl - cria um projeto do tipo BPL se baseando no projeto .dpr.
 
 
 Obs. 1: Utilize o seguinte comando para visualizar o manual de uso: 'nsbuild /?'
 
-Obs. 2: Para forÃ§ar a recompilaÃ§Ã£o de todos os projetos (antigo build.bat na opÃ§Ã£o 0), Ã© preciso usar sequencialmente os comandos:
+Obs. 2: Para forçar a recompilação de todos os projetos (antigo build.bat na opção 0), é preciso usar sequencialmente os comandos:
+
 nsbuild clean
 nsbuild update

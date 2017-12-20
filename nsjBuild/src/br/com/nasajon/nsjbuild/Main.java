@@ -23,39 +23,43 @@ import br.com.nasajon.nsjbuild.util.XMLHandler;
 
 public class Main {
 	private static final String PAR_HELP = "/? -? --help -help /help";
-	
+
 	private static final String PAR_BUILD_CLEAN = "clean";
 //	private static final String PAR_BUILD_CLEAN_CACHE = "clean_cache";
 	private static final String PAR_BUILD_UPDATE = "update";
 //	private static final String PAR_BUILD_ALTERADOS = "alterados";
 //	private static final String PAR_BUILD_FORCE = "force";
 	private static final String PAR_BUILD_VALIDATE = "validate";
+	private static final String PAR_MAKE_BPL = "make:bpl";
+	private static final String PAR_DEPENDENCIES = "dependencies:update";
 
 	public static void main(String[] args) {
 
 		long inicio = System.currentTimeMillis();
-		
+
 		// Verificando se não foram passados parâmetros:
 		if (args.length < 1) {
 			System.out.println("");
 			System.out.println("");
 			System.out.println("Por favor, indique o objetivo do build (primeiro parâmetro). Exemplo de uso:");
 			imprimirFormaUso();
-			
+
 			System.exit(1);
 			return;
 		}
-		
+
 		Boolean isClean = false;
 		Boolean isValidate = false;
 		String parProjeto = "";
 		BuildMode bm = BuildMode.debug;
 		BuildTarget buildTarget = BuildTarget.build;
-		
+		Boolean isMakeBpl = false;
+		Boolean isDependenciesUpdate = false;
+
 		// Analisando cada parâmetro:
 		for (int i = 0; i < args.length; i++) {
 			String s = args[i];
-			
+
 			if (PAR_HELP.contains(s)) { // Verificando se é uma chamada ao help:
 				imprimirFormaUso();
 				return;
@@ -71,32 +75,36 @@ public class Main {
 				buildTarget = BuildTarget.build; // Resolvendo o build target
 			} else if (s.equals(BuildTarget.compile.toString())) {
 				buildTarget = BuildTarget.compile; // Resolvendo o build target
+			} else if (s.equals(PAR_MAKE_BPL)) {
+				isMakeBpl = true;
+			} else if (s.equals(PAR_DEPENDENCIES)) {
+				isDependenciesUpdate = true;
 			} else {
 				parProjeto = s;
 			}
 		}
-		
+
 //		// Pegando o prâmetro do projeto (objetivo do build):
 //		String parProjeto = args[0];
-		
+
 //		// Verificando se é uma chamada ao help:
 //		if (PAR_HELP.contains(parProjeto)) {
 //			imprimirFormaUso();
 //			return;
 //		}
-		
+
 //		// Verificando se não é uma chamada ao clean (para limpar a cache):
 //		if (parProjeto.equals(PAR_BUILD_CLEAN_CACHE)) {
 //			if (!limparCache()) {
 //				System.exit(1);
 //			}
-//			
+//
 //			return;
 //		}
-		
+
 		// Carregando parâmetros de configuração do build:
 		ParametrosNsjbuild parametros = carregaParametrosBuild();
-		
+
 		// Verificando se não é uma chamada ao clean (para limpar a cache):
 		if (isClean) {
 			if (!(new MainClean()).execute(parametros)) {
@@ -104,7 +112,7 @@ public class Main {
 			}
 			return;
 		}
-		
+
 		// Verificando se não é uma chamada ao validate (para validar as dependências e/ou replicação de nomes de units):
 		if (isValidate) {
 			if (!(new MainValidate()).execute(args, parametros)) {
@@ -112,10 +120,18 @@ public class Main {
 			}
 			return;
 		}
-		
+
 //		// Resolvendo o build mode:
 //		BuildMode bm = resolveBuildMode(args);
 		
+		if (isDependenciesUpdate) {
+			if (!new MainRepoDependencies().execute(parametros)) {
+				System.exit(1);
+			}
+			
+			return;
+		}
+
 		// Carregando a lista de projetos:
 		List<ProjetoWrapper> listaProjetos = XMLHandler.carregaListaDeProjetos(parametros);
 		if (listaProjetos == null) {
@@ -126,10 +142,18 @@ public class Main {
 			System.exit(1);
 			return;
 		}
-		
+
+		if (isMakeBpl) {
+			if (!new MainBPL().execute(parametros, parProjeto, listaProjetos)) {
+				System.exit(1);
+			}
+
+			return;
+		}
+
 		// Verificando se o projeto passado existe:
 		boolean isBuildAlterados = false;
-		
+
 		if (!parProjeto.equals(PAR_BUILD_UPDATE)) {
 			boolean achou = false;
 			for (ProjetoWrapper p: listaProjetos) {
@@ -138,7 +162,7 @@ public class Main {
 					break;
 				}
 			}
-			
+
 			if (!achou) {
 				System.out.println("");
 				System.out.println("");
@@ -148,17 +172,17 @@ public class Main {
 				return;
 			}
 		}
-		
+
 		// Verificando se foi passado o parâmetro de build force:
 		boolean isBuildForce = false;
 //		BuildTarget buildTarget = BuildTarget.build;
-		
+
 		// Setando o inline como ON se o target for "Build", pois neste caso independente do INLINE, as
 		// dependencias sempre exigem de recompilação.
 		if (buildTarget == BuildTarget.build) {
 			parametros.setInline(true);
 		}
-		
+
 		try {
 			long antesGrafo = System.currentTimeMillis();
 			System.out.println("Montando grafo...");
@@ -166,35 +190,35 @@ public class Main {
 			Grafo grafoClone = grafo.getCloneGrafo();
 			Double intervaloGrafo = ((System.currentTimeMillis() - antesGrafo)/1000.0)/60.0;
 			System.out.println("Grafo completo. Tempo: " + String.format("%.4f", intervaloGrafo) + " minutos.");
-			
+
 			Compilador compilador = new Compilador(parametros.getMaxProcessos().intValue(), bm, parametros.getBatchName(), buildTarget);
-			
+
 			if (!callPreBuildBatch(parametros)) {
 				System.exit(1);
 				return;
 			}
-			
+
 			Queue<No> simulacaoCompilacao;
 			if (!parProjeto.equals(PAR_BUILD_UPDATE) && !isBuildAlterados) {
 				simulacaoCompilacao = compilador.simularCompilacaoProjetoComDependencias(grafoClone, parProjeto);
 				compilador.setQtdProjetosCompilar(simulacaoCompilacao.size());
-				
+
 				compilador.compilaProjetoComDependencias(grafo, parProjeto);
 			} else {
 				simulacaoCompilacao = compilador.simulateCompileAll(grafoClone);
 				compilador.setQtdProjetosCompilar(simulacaoCompilacao.size());
-				
+
 				compilador.compileAll(grafo);
 			}
-			
+
 			while (!compilador.isAborted() && compilador.existsThreadAtiva()) {
 				Thread.sleep(2000);
 			}
-			
+
 			// Imprimindo mensagem de finalização:
 			long fim = System.currentTimeMillis();
 			Double intervaloMinutos = ((fim - inicio)/1000.0)/60.0;
-			
+
 			if (!compilador.isAborted()) {
 				System.out.println("BUILD FINALIZADO COM SUCESSO. Demorou " + String.format("%.4f", intervaloMinutos) + " (minutos). Quantidade de projetos compilados: " + compilador.getTotalCompilados());
 				return;
@@ -240,11 +264,11 @@ public class Main {
 
 //	private static BuildMode resolveBuildMode(String[] args) {
 //		BuildMode bm = BuildMode.debug;
-//		
+//
 //		if (args.length < 2) {
 //			return bm;
 //		}
-//		
+//
 //		if (args[1].equals(BuildMode.debug.toString())) {
 //			bm = BuildMode.debug;
 //		}
@@ -263,11 +287,11 @@ public class Main {
 		parametros.setBatchPrebuild("prebuild.bat");
 		parametros.setBatchClean("clean.bat");
 		parametros.setInline(true);
-		
+
 		File fileParametros = new File("nsjBuildParameters.xml");
 		if (fileParametros.exists()) {
 			XMLHandler xmlHandler = new XMLHandler();
-			
+
 			try {
 				parametros = xmlHandler.carregaXMLParametros(fileParametros);
 			} catch (JAXBException e) {
@@ -277,45 +301,45 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
-		
+
 		// Adicionando o separador de arquivo no final do path do ERP (se necessário):
 		if (!parametros.getErpPath().endsWith("\\") && !parametros.getErpPath().endsWith("/")) {
 			parametros.setErpPath(parametros.getErpPath() + File.separator);
 		}
-		
+
 		return parametros;
 	}
-	
+
 	private static boolean callPreBuildBatch(ParametrosNsjbuild parametros) {
 
 		System.out.println("Chamando o batch de 'pre-build'...");
-		
+
 		try {
 			Process p = Runtime.getRuntime().exec(parametros.getBatchPrebuild());
-			
+
 			if(p.waitFor() != 0) {
 				System.out.println("");
 				System.out.println("");
 				System.out.println("");
 				System.out.println("");
-				
+
 				System.out.println("Erro ao executar batch de 'pre-build':");
-				
+
 				InputStream error = p.getInputStream();
 				for (int i = 0; i < error.available(); i++) {
 					System.out.print("" + (char)error.read());
 				}
 				System.out.println("");
-				
+
 				error = p.getErrorStream();
 				for (int i = 0; i < error.available(); i++) {
 					System.out.print("" + (char)error.read());
 				}
-				
+
 				return false;
 			} else {
 				System.out.println("Batch de 'pre-build' executado com sucesso.");
-				
+
 				return true;
 			}
 		} catch (Exception e) {
@@ -323,20 +347,20 @@ public class Main {
 			System.out.println("");
 			System.out.println("");
 			System.out.println("");
-			
+
 			System.out.println("Erro ao executar batch de 'pre-build':");
 			e.printStackTrace();
-			
+
 			return false;
 		}
 	}
-	
+
 	private static void imprimirFormaUso() {
 		System.out.println("");
 		System.out.println("----------------------------------------------------------------");
 		System.out.println("SINTAXE ESPERADA:");
 		System.out.println("");
-		System.out.println("nsbuild <nome do projeto/update/clean> [debug (default)/release]");
+		System.out.println("nsbuild <nome do projeto/update/clean/make:bpl> [debug (default)/release]");
 		System.out.println("----------------------------------------------------------------");
 		System.out.println("");
 		System.out.println("");
@@ -349,6 +373,8 @@ public class Main {
 		System.out.println("clean - Apaga todas as DCUs e limpa a cache de controle dos projetos compilados (ATENÇÃO: Após ser chamado o clean, uma chamada ao comando 'nsbuild update' será equivalente ao antigo build.bat na opção zero).");
 		System.out.println("");
 		System.out.println("debug/release - Modo de build, isto é, gera os executáveis em modo debug (para depuração) ou modo de entrega (release).");
+		System.out.println("");
+		System.out.println("make:bpl - cria um projeto do tipo BPL se baseando no projeto .dpr.");
 		System.out.println("");
 		System.out.println("");
 		System.out.println("Obs. 1: Utilize o seguinte comando para visualizar este manual de uso: 'nsbuild /?'");

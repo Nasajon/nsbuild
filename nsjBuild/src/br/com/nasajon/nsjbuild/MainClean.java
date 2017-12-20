@@ -9,14 +9,14 @@ public class MainClean {
 
 	public boolean execute(ParametrosNsjbuild parametros) {
 		if (!this.limparCache()) {
-			return false;		
+			return false;
 		}
 		
 		if (!this.callCleanBatch(parametros)) {
 			return false;		
 		}
 		
-		return true;		
+		return true;
 	}
 	
 	private boolean limparCache() {
@@ -24,6 +24,10 @@ public class MainClean {
 		
 		if (dirCache.exists() && dirCache.isDirectory()) {
 			for (File f: dirCache.listFiles()) {
+				if (f.getName().endsWith(".gitignore")) {
+					continue;
+				}
+				
 				if(!f.delete()) {
 					System.out.println("Erro ao limpar cache. Erro ao apagar arquivo: " + f.getAbsolutePath());
 

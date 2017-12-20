@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema attributeFormDefault="unqualified" 
+           elementFormDefault="qualified" 
+           targetNamespace="http://www.nasajon.com.br/repositoryDependencies" 
+           xmlns="http://www.nasajon.com.br/repositoryDependencies" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="repositoryDependencies">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="dependency" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:extension base="xs:string">
+                <xs:attribute type="xs:string" name="version" use="optional"/>
+                <xs:attribute type="xs:string" name="repository" use="optional"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+</xs:schema>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<repositoryDependencies xmlns="http://www.nasajon.com.br/repositoryDependencies">
+  <dependency version="master" repository="https://github.com/Nasajon/desktop-utils.git">desktop-utils</dependency>
+  <dependency version="master" repository="https://github.com/Nasajon/desktop-libraries.git">desktop-libraries</dependency>
+  <dependency version="master" repository="https://github.com/Nasajon/desktop-components.git">desktop-components</dependency>
+</repositoryDependencies>

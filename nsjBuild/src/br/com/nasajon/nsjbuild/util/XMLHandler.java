@@ -10,8 +10,10 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
 import br.com.nasajon.nsjbuild.model.ProjetoWrapper;
+import br.com.nasajon.nsjbuild.model.RepositoryDependencyWrapper;
 import br.com.nasajon.nsjbuild.modelXML.Projeto;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
+import br.com.nasajon.nsjbuild.modelXML.repositorydependencies.RepositoryDependencies;
 
 public class XMLHandler {
 
@@ -34,6 +36,17 @@ public class XMLHandler {
 		pw.setArquivoXML(arquivoXML);
 		
 		return pw;
+	}
+	
+	public RepositoryDependencyWrapper carregaXMLRepositoryDependencies(File arquivoXML) throws JAXBException {
+		JAXBContext jaxbContext = JAXBContext.newInstance(RepositoryDependencies.class);
+		
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		RepositoryDependencies repositoryDependencies = (RepositoryDependencies) jaxbUnmarshaller.unmarshal(arquivoXML);
+		
+		RepositoryDependencyWrapper wrapper = new RepositoryDependencyWrapper(repositoryDependencies);
+		
+		return wrapper;
 	}
 	
 //	public void atualizaUltimaCompilacaoXML(File arquivoXML, boolean sucesso) throws JAXBException, DatatypeConfigurationException {

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<repositoryDependencies xmlns="http://www.nasajon.com.br/repositoryDependencies">
+  <dependency version="master" repository="https://github.com/Nasajon/desktop-utils.git">desktop-utils</dependency>  
+</repositoryDependencies>
