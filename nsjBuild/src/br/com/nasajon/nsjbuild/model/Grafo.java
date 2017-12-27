@@ -63,7 +63,7 @@ public class Grafo {
 			return false;
 		}
 
-		Iterator<No> it = no.getEntradas().iterator(); 
+		Iterator<No> it = no.getEntradas().iterator();
 		while(it.hasNext()) {
 			No n2 = it.next();
 
@@ -76,7 +76,7 @@ public class Grafo {
 			}
 		}
 
-		it = no.getSaidas().iterator(); 
+		it = no.getSaidas().iterator();
 		while(it.hasNext()) {
 			No n2 = it.next();
 
@@ -141,17 +141,18 @@ public class Grafo {
 		// Montando o GRAFO - Primeira passada - Nós:
 		Grafo g = new Grafo();
 		for (ProjetoWrapper p : listaProjetos) {
-			String pathDproj = parametros.getErpPath() + p.getProjeto().getPath();
-			
+			//String pathDproj = parametros.getErpPath() + p.getProjeto().getPath();
+			String pathDproj = p.getProjectFullName(parametros);
+
 			if (!(new File(pathDproj)).exists()) {
 				throw new ProjectFileNotFoundException(p.getProjeto().getNome(), pathDproj);
 			}
-			
+
 			No n = g.addNo(p.getProjeto().getNome(), pathDproj, p);
 
 			Boolean isProjetoCompilado = false;
 			if (!isBuildForce) {
-				isProjetoCompilado = avaliador.isProjetoCompilado(p, isBuildAlterados); 
+				isProjetoCompilado = avaliador.isProjetoCompilado(p, isBuildAlterados);
 			}
 			n.setMarcado(isProjetoCompilado);
 			n.setVisitado(false);
@@ -177,7 +178,7 @@ public class Grafo {
 
 			for (String idNo : raizes) {
 				No n = g.getNo(idNo);
-				
+
 				if (!n.isVisitado()) {
 					BuscaLargura.desmarcaNosQueUtilizamAtual(idNo, g, parametros.isInline());
 				}
@@ -190,7 +191,7 @@ public class Grafo {
 				n.setVisitado(false);
 			}
 		}
-		
+
 		return g;
 	}
 }

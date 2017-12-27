@@ -4,6 +4,7 @@
     <autor>[Identidade Nasajon]</autor>
     <dataCriacao>[01/01/1900]</dataCriacao>
     <resumo>[Indicar resumo para documentação do projeto]</resumo>
-    <path>source\desktop_new\commonutils_static\package\commonutils_static.dproj</path>
-    <dependencias />
+    <path>C:\@work\desktop-utils\package\commonutils_static.dproj</path>
+    <dependencias>
+    </dependencias>
 </projeto>

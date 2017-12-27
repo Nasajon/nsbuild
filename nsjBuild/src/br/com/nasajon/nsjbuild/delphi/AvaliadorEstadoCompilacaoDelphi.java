@@ -10,11 +10,11 @@ import br.com.nasajon.nsjbuild.model.ProjetoWrapper;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 
 public class AvaliadorEstadoCompilacaoDelphi extends AvaliadorEstadoCompilacao {
-	
+
 	public AvaliadorEstadoCompilacaoDelphi(ParametrosNsjbuild parametrosBuild) {
 		super(parametrosBuild);
 	}
-	
+
 	@Override
 	public boolean isProjetoCompilado(ProjetoWrapper projeto, boolean isBuildAlterados) throws IOException {
 		if (projeto.getUltimaCompilacao() == null) {
@@ -24,10 +24,12 @@ public class AvaliadorEstadoCompilacaoDelphi extends AvaliadorEstadoCompilacao {
 				return true;
 			}
 		}
-		
-		Calendar cal = projeto.getUltimaCompilacao(); 
-		
-		File arquivoDproj = new File(parametrosBuild.getErpPath() + projeto.getProjeto().getPath());
+
+		Calendar cal = projeto.getUltimaCompilacao();
+
+		//File arquivoDproj = new File(parametrosBuild.getErpPath() + projeto.getProjeto().getPath());
+		File arquivoDproj = new File(projeto.getProjectFullName(parametrosBuild));
+
 		if (this.contemAlteracao(arquivoDproj, cal)) {
 			return false;
 		}
@@ -37,14 +39,14 @@ public class AvaliadorEstadoCompilacaoDelphi extends AvaliadorEstadoCompilacao {
 			int pos = pathDpr.toLowerCase().lastIndexOf(".dproj");
 			pathDpr = pathDpr.substring(0, pos) + ".dpr";
 			File fileDpr = new File(pathDpr);
-			
+
 			if (this.contemAlteracao(fileDpr, cal)) {
 				return false;
 			}
 		}
-		
+
 		Set<Unit> units = InterpretadorDproj.extrairIncludes(arquivoDproj);
-		
+
 		for (Unit u : units) {
 			String pathUnit = arquivoDproj.getParentFile().getAbsolutePath();
 			if (!pathUnit.endsWith("/") && !pathUnit.endsWith("\\")) {
@@ -62,13 +64,13 @@ public class AvaliadorEstadoCompilacaoDelphi extends AvaliadorEstadoCompilacao {
 				int pos = pathDfm.toLowerCase().lastIndexOf(".pas");
 				pathDfm = pathDfm.substring(0, pos) + ".dfm";
 				File fDfm = new File(pathDfm);
-				
+
 				if (this.contemAlteracao(fDfm, cal)) {
 					return false;
 				}
-			}			
+			}
 		}
-		
+
 		return true;
 	}
 }

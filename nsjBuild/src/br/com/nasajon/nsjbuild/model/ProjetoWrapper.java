@@ -119,8 +119,28 @@ public class ProjetoWrapper {
 	}
 
 	public String getProjectPath(ParametrosNsjbuild parametros) {
-		File arq = new File(parametros.getErpPath() + File.separator + getProjeto().getPath());
+		File arq;
+
+		if (new File(getProjeto().getPath()).exists()) {
+			arq = new File(getProjeto().getPath());
+		}
+		else {
+			arq = new File(parametros.getErpPath() + File.separator + getProjeto().getPath());
+		}
 
 		return arq.getParent() + File.separator;
+	}
+
+	public String getProjectFullName(ParametrosNsjbuild parametros) {
+		File arq;
+
+		if (new File(getProjeto().getPath()).exists()) {
+			arq = new File(getProjeto().getPath());
+		}
+		else {
+			arq = new File(parametros.getErpPath() + File.separator + getProjeto().getPath());
+		}
+
+		return arq.getAbsolutePath();
 	}
 }
