@@ -2,7 +2,7 @@
 // Este arquivo foi gerado pela Arquitetura JavaTM para Implementação de Referência (JAXB) de Bind XML, v2.2.8-b130911.1802 
 // Consulte <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
 // Todas as modificações neste arquivo serão perdidas após a recompilação do esquema de origem. 
-// Gerado em: 2016.08.30 às 04:40:42 PM BRT 
+// Gerado em: 2017.12.27 às 12:26:20 PM BRST 
 //
 
 
@@ -33,6 +33,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="inline" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *         &lt;element name="batch_prebuild" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="batch_clean" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="cache_path" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -49,7 +50,8 @@ import javax.xml.bind.annotation.XmlType;
     "batchName",
     "inline",
     "batchPrebuild",
-    "batchClean"
+    "batchClean",
+    "cachePath"
 })
 @XmlRootElement(name = "parametros_nsjbuild")
 public class ParametrosNsjbuild {
@@ -67,6 +69,8 @@ public class ParametrosNsjbuild {
     protected String batchPrebuild;
     @XmlElement(name = "batch_clean", required = true)
     protected String batchClean;
+    @XmlElement(name = "cache_path", required = true, nillable = true)
+    protected String cachePath;
 
     /**
      * Obtém o valor da propriedade erpPath.
@@ -226,6 +230,30 @@ public class ParametrosNsjbuild {
      */
     public void setBatchClean(String value) {
         this.batchClean = value;
+    }
+
+    /**
+     * Obtém o valor da propriedade cachePath.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCachePath() {
+        return cachePath;
+    }
+
+    /**
+     * Define o valor da propriedade cachePath.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCachePath(String value) {
+        this.cachePath = value;
     }
 
 }

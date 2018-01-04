@@ -16,9 +16,7 @@ import br.com.nasajon.nsjbuild.delphi.Unit;
 import br.com.nasajon.nsjbuild.model.ProjetoWrapper;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 
-public class MainBPL {
-
-	private ParametrosNsjbuild parametros;
+public class MainBPL {	
 
 	private static final String TAG_PACKAGE_NAME = "#{package_name}";
 	private static final String TAG_PROJECT_GUID = "#{project_guid}";
@@ -28,9 +26,7 @@ public class MainBPL {
 	//private static final String TAG_DCU_OUTPUT_DIR = "#{dcu_output_dir}";
 
 	public boolean execute(ParametrosNsjbuild parametros,
-			String paramProjeto, List<ProjetoWrapper> listaProjetos) {
-
-		this.parametros = parametros;
+			String paramProjeto, List<ProjetoWrapper> listaProjetos) {		
 
 		if (listaProjetos == null) {
 			System.out.println("");
@@ -82,7 +78,7 @@ public class MainBPL {
 	}
 
 	private void makeDprojFile(ProjetoWrapper projetoWrapper) throws FileNotFoundException {
-		File arquivo = new File(projetoWrapper.getProjectPath(parametros) + projetoWrapper.getPackageName() + ".dproj");
+		File arquivo = new File(projetoWrapper.getProjectPath() + projetoWrapper.getPackageName() + ".dproj");
 
 		if (arquivo.exists()) {
 			System.out.println("Arquivo " + arquivo.getPath() + " já existe, ignorando.");
@@ -107,7 +103,7 @@ public class MainBPL {
 		String dccReference = "";
 
 		try {
-			File arq = new File(projetoWrapper.getProjectPath(parametros) + projetoWrapper.getProjeto().getNome() + ".dproj");
+			File arq = new File(projetoWrapper.getProjectPath() + projetoWrapper.getProjeto().getNome() + ".dproj");
 
 			searchPath = InterpretadorDproj.getSearchPath(arq);
 			dccReference = InterpretadorDproj.getDCCReferences(arq);
@@ -164,7 +160,7 @@ public class MainBPL {
 	}
 
 	private void makeDpkFile(ProjetoWrapper projetoWrapper) throws FileNotFoundException {
-		File arquivo = new File(projetoWrapper.getProjectPath(parametros) + projetoWrapper.getPackageName() + ".dpk");
+		File arquivo = new File(projetoWrapper.getProjectPath() + projetoWrapper.getPackageName() + ".dpk");
 
 		if (arquivo.exists()) {
 			System.out.println("Arquivo " + arquivo.getPath() + " já existe, ignorando.");
@@ -188,7 +184,7 @@ public class MainBPL {
 		Set<Unit> includes;
 
 		try {
-			File arq = new File(projetoWrapper.getProjectPath(parametros) + projetoWrapper.getProjeto().getNome() + ".dproj");
+			File arq = new File(projetoWrapper.getProjectPath() + projetoWrapper.getProjeto().getNome() + ".dproj");
 			includes = InterpretadorDproj.extrairIncludes(arq);
 
 		} catch (FileNotFoundException e) {

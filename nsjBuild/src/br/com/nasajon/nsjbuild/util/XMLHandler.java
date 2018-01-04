@@ -26,12 +26,12 @@ public class XMLHandler {
 		return parametros;
 	}
 	
-	public ProjetoWrapper carregaXMLProjeto(File arquivoXML) throws JAXBException {
+	public ProjetoWrapper carregaXMLProjeto(File arquivoXML, ParametrosNsjbuild parametros) throws JAXBException {
 		JAXBContext jaxbContext = JAXBContext.newInstance(Projeto.class);
 
 		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 		Projeto p = (Projeto) jaxbUnmarshaller.unmarshal(arquivoXML);
-		ProjetoWrapper pw = new ProjetoWrapper();
+		ProjetoWrapper pw = new ProjetoWrapper(parametros);
 		pw.setProjeto(p);
 		pw.setArquivoXML(arquivoXML);
 		
@@ -97,7 +97,7 @@ public class XMLHandler {
 		
 		for (File f : raiz.listFiles(textFilter)){
 			try {
-				ProjetoWrapper pw = xmlHandler.carregaXMLProjeto(f);
+				ProjetoWrapper pw = xmlHandler.carregaXMLProjeto(f, parametros);
 				
 				if (pw.getProjeto().isIgnore() != null && pw.getProjeto().isIgnore()) {
 					continue;

@@ -14,14 +14,12 @@ import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 
 public class AnalisadorDependenciasEntreProjetos {
 	private Map<String, ProjetoWrapper> mapaProjetosPorUnit;
-	private String filaCompilacao = "";
-	private ParametrosNsjbuild parametros;
+	private String filaCompilacao = "";	
 	private boolean mostrarReplicacoesUnits;
 
 	public AnalisadorDependenciasEntreProjetos(ParametrosNsjbuild parametros, boolean mostrarReplicacoesUnits) {
 		super();
-
-		this.parametros = parametros;
+		
 		this.mapaProjetosPorUnit = new HashMap<String, ProjetoWrapper>();
 		this.mostrarReplicacoesUnits = mostrarReplicacoesUnits;
 	}
@@ -35,7 +33,7 @@ public class AnalisadorDependenciasEntreProjetos {
 		while(it.hasNext()) {
 			ProjetoWrapper projeto = it.next();
 
-			File arquivoDproj = new File(projeto.getProjectFullName(parametros));
+			File arquivoDproj = new File(projeto.getProjectFullName());
 
 			Set<Unit> units = InterpretadorDproj.extrairIncludes(arquivoDproj);
 
@@ -62,7 +60,7 @@ public class AnalisadorDependenciasEntreProjetos {
 		while(it.hasNext()) {
 			ProjetoWrapper projeto = it.next();
 
-			File arquivoDproj = new File(projeto.getProjectFullName(parametros));
+			File arquivoDproj = new File(projeto.getProjectFullName());
 			File dirDproj = arquivoDproj.getParentFile();
 
 			for (Unit unit : projeto.getUnits()) {

@@ -8,7 +8,7 @@ import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 public class MainClean {
 
 	public boolean execute(ParametrosNsjbuild parametros) {
-		if (!this.limparCache()) {
+		if (!this.limparCache(parametros)) {
 			return false;
 		}
 		
@@ -19,8 +19,14 @@ public class MainClean {
 		return true;
 	}
 	
-	private boolean limparCache() {
-		File dirCache = new File("cache");
+	private boolean limparCache(ParametrosNsjbuild parametros) {
+		String cachePath = parametros.getCachePath();
+		if (cachePath.isEmpty())
+		{
+			cachePath = "cache";
+		}
+		
+		File dirCache = new File(cachePath);
 		
 		if (dirCache.exists() && dirCache.isDirectory()) {
 			for (File f: dirCache.listFiles()) {

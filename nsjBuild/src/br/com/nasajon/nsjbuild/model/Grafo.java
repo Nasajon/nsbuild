@@ -142,7 +142,7 @@ public class Grafo {
 		Grafo g = new Grafo();
 		for (ProjetoWrapper p : listaProjetos) {
 			//String pathDproj = parametros.getErpPath() + p.getProjeto().getPath();
-			String pathDproj = p.getProjectFullName(parametros);
+			String pathDproj = p.getProjectFullName();
 
 			if (!(new File(pathDproj)).exists()) {
 				throw new ProjectFileNotFoundException(p.getProjeto().getNome(), pathDproj);

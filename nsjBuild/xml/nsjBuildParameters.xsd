@@ -65,6 +65,13 @@
 						</xs:documentation>
 					</xs:annotation>
 				</xs:element>
+				<xs:element name="cache_path" type="xs:string" nillable="true">
+					<xs:annotation>
+						<xs:documentation>
+							Caminho da pasta de saída aonde será guardado o cache.
+						</xs:documentation>
+					</xs:annotation>
+				</xs:element>
 				
 			</xs:sequence>
 		</xs:complexType>

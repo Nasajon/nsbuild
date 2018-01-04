@@ -21,13 +21,15 @@ public class ProjetoWrapper {
 	private Calendar ultimaCompilacao;
 	private Set<Unit> units;
 	private Set<ProjetoWrapper> dependenciasCalculadas;
+	private ParametrosNsjbuild parametros;
 
-	public ProjetoWrapper() {
+	public ProjetoWrapper(ParametrosNsjbuild parametros) {
 		super();
 
 		this.ultimaCompilacao = null;
 		this.dependenciasCalculadas = new HashSet<ProjetoWrapper>();
 		this.units = new HashSet<Unit>();
+		this.parametros = parametros;
 	}
 
 	public File getArquivoXML() {
@@ -91,7 +93,13 @@ public class ProjetoWrapper {
 	}
 
 	private File getCacheFile() {
-		File projetoCache = new File("cache" + File.separator + projeto.getNome() + ".cache");
+		String cachePath = parametros.getCachePath();
+		if (cachePath.isEmpty())
+		{
+			cachePath = "cache";
+		}
+		
+		File projetoCache = new File(cachePath + File.separator + projeto.getNome() + ".cache");
 
 		projetoCache.getParentFile().mkdirs();
 
@@ -118,7 +126,7 @@ public class ProjetoWrapper {
 		return getProjeto().getNome()+"BPL";
 	}
 
-	public String getProjectPath(ParametrosNsjbuild parametros) {
+	public String getProjectPath() {
 		File arq;
 
 		if (new File(getProjeto().getPath()).exists()) {
@@ -131,7 +139,7 @@ public class ProjetoWrapper {
 		return arq.getParent() + File.separator;
 	}
 
-	public String getProjectFullName(ParametrosNsjbuild parametros) {
+	public String getProjectFullName() {
 		File arq;
 
 		if (new File(getProjeto().getPath()).exists()) {
@@ -142,5 +150,9 @@ public class ProjetoWrapper {
 		}
 
 		return arq.getAbsolutePath();
+	}
+	
+	public ParametrosNsjbuild getParametrosNsjBuild() {
+		return this.parametros;
 	}
 }

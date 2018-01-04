@@ -28,7 +28,7 @@ public class AvaliadorEstadoCompilacaoDelphi extends AvaliadorEstadoCompilacao {
 		Calendar cal = projeto.getUltimaCompilacao();
 
 		//File arquivoDproj = new File(parametrosBuild.getErpPath() + projeto.getProjeto().getPath());
-		File arquivoDproj = new File(projeto.getProjectFullName(parametrosBuild));
+		File arquivoDproj = new File(projeto.getProjectFullName());
 
 		if (this.contemAlteracao(arquivoDproj, cal)) {
 			return false;

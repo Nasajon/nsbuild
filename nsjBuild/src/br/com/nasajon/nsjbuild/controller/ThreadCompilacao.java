@@ -2,6 +2,8 @@ package br.com.nasajon.nsjbuild.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Date;
 
 import br.com.nasajon.nsjbuild.model.No;
@@ -45,16 +47,15 @@ public class ThreadCompilacao extends Thread {
 				this.controleCompilacao.notifyThreadError(this.no, "ERRO DE COMPILAÇÃO NO PROJETO: " + this.no.getId());
 				this.no.getProjeto().setUltimaCompilacao(null);
 				
-//				InputStream error = p.getInputStream();
-//				for (int i = 0; i < error.available(); i++) {
-//					System.out.print("" + (char)error.read());
-//				}
-//				System.out.println("");
-//				
-//				error = p.getErrorStream();
-//				for (int i = 0; i < error.available(); i++) {
-//					System.out.print("" + (char)error.read());
-//				}
+				String logFilePath = this.no.getProjeto().getParametrosNsjBuild().getErpPath() + "\\build\\logs\\" + this.no.getId() + ".log"; 
+				
+				File log = new File(logFilePath);
+				
+				if (log.exists()) {
+					String content = new String(Files.readAllBytes(Paths.get(log.getAbsolutePath())));
+					
+					System.out.println(content);	
+				}
 
 				return;
 			} else {

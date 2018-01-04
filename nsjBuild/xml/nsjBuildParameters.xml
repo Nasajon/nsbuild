@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nsjb:parametros_nsjbuild xmlns:nsjb="http://www.nasajon.com.br/nsjbuild" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.nasajon.com.br/nsjbuild nsjBuildParameters.xsd ">
-  <nsjb:erp_path>C:\@work\erp</nsjb:erp_path>
-  <nsjb:xmls_projects_path>C:\Users\sergiosilva\workspace\nsjBuild\xml\</nsjb:xmls_projects_path>
-  <nsjb:max_processos>2</nsjb:max_processos>
+  <nsjb:erp_path>C:\@work\desktop-utils\</nsjb:erp_path>
+  <nsjb:xmls_projects_path>xmls</nsjb:xmls_projects_path>
+  <nsjb:max_processos>3</nsjb:max_processos>
   <nsjb:batch_name>internal_build.bat</nsjb:batch_name>
-  <nsjb:inline>false</nsjb:inline>
+  <nsjb:inline>true</nsjb:inline>
+  <nsjb:batch_prebuild>prebuild.bat</nsjb:batch_prebuild>
+  <nsjb:batch_clean>clean.bat</nsjb:batch_clean>
 </nsjb:parametros_nsjbuild>
