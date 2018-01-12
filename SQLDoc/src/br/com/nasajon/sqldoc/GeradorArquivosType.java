@@ -111,7 +111,7 @@ public class GeradorArquivosType {
 
 	public String geraConteudoJSONHTML(String nomeJSON) {
 		StringBuilder sb = new StringBuilder();
-		// Cabeçalho:
+		// CabeÃ§alho:
 		sb.append("<html>\r\n");
 		sb.append("<head>\r\n");
 		sb.append("<meta http-equiv=\"Content-Type\" content=\"text/html;charset=UTF-8\"/>\r\n");
@@ -122,7 +122,7 @@ public class GeradorArquivosType {
 				+ "left: 50%;	z-index: 2;	height: 100%;	position: absolute;}" + "</style>");
 		sb.append("<body>\r\n");
 
-		// Título da página:
+		// TÃ­tulo da pÃ¡gina:
 		sb.append("<div "
 				+ "style=\"margin-top:5%;padding-left: 1%;padding-right: 5%;width:85.7%;"
 				+ "left:4.2%;position: absolute;background-color:#2F2F2F\">");
@@ -146,17 +146,17 @@ public class GeradorArquivosType {
 				"<div style=\"background-color: white; min-height:100%;display: block; height: auto; margin-left: 1.5%;"
 						+ " margin-right: 1.5%; z-index: 0; border: solid lightgray; padding-left: 4%; padding-right: 18%; padding-top: 15%;\">");
 
-		// Sessão JSON
+		// SessÃ£o JSON
 		sb.append("<h2> Function: </h2>\r\n");
 		sb.append("<ul>\r\n");
 
 		sb.append("<li>");
-		sb.append(getJson().replaceAll(",", ",<br>"));
+		sb.append(getJson().replaceAll("\n", ",<br>"));
 		sb.append("</li>\r\n");
 
 		sb.append("</ul>\r\n");
 
-		// Sessão Campos
+		// SessÃ£o Campos
 		if ((this.campos != null) && (this.campos.size() > 0)) {
 			sb.append("<h2> Detalhes: </h2>\r\n");
 			sb.append("<ul>\r\n");
@@ -180,10 +180,10 @@ public class GeradorArquivosType {
 
 		sb.append("<div "
 				+ "style=\"margin-top:0%;padding-left: 1%;padding-right: 5%;width:85.7%;left:4.2%;position: absolute;color:white;background-color:black;\">");
-		sb.append("<p style=\"padding-left:10%;padding-top:4%;\"><b>©2015&nbsp;Nasajon Sistemas&nbsp;</b>");
+		sb.append("<p style=\"padding-left:10%;padding-top:4%;\"><b>Â©2015&nbsp;Nasajon Sistemas&nbsp;</b>");
 		sb.append("<br>");
 
-		sb.append("<b style=\"display:inline;\"><label>Av. Rio Branco, 45 - 18º Centro - Rio de Janeiro - RJ</label>");
+		sb.append("<b style=\"display:inline;\"><label>Av. Rio Branco, 45 - 18Âº Centro - Rio de Janeiro - RJ</label>");
 		sb.append("<img style=\"padding-left:75%;margin-top:-4.8%;padding-top:1%\"  src = 'logo-rodape.png'>");
 		sb.append("<br>");
 
