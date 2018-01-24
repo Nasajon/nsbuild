@@ -93,11 +93,7 @@ public class ProjetoWrapper {
 	}
 
 	private File getCacheFile() {
-		String cachePath = parametros.getCachePath();
-		if (cachePath.isEmpty())
-		{
-			cachePath = "cache";
-		}
+		String cachePath = Cache.resolveCachePath(parametros);		
 		
 		File projetoCache = new File(cachePath + File.separator + projeto.getNome() + ".cache");
 

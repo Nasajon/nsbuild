@@ -3,6 +3,7 @@ package br.com.nasajon.nsjbuild;
 import java.io.File;
 import java.io.InputStream;
 
+import br.com.nasajon.nsjbuild.model.Cache;
 import br.com.nasajon.nsjbuild.modelXML.buildParameters.ParametrosNsjbuild;
 
 public class MainClean {
@@ -20,11 +21,9 @@ public class MainClean {
 	}
 	
 	private boolean limparCache(ParametrosNsjbuild parametros) {
-		String cachePath = parametros.getCachePath();
-		if (cachePath.isEmpty())
-		{
-			cachePath = "cache";
-		}
+		String cachePath = Cache.resolveCachePath(parametros);
+		
+		System.out.println("Path: " + cachePath);
 		
 		File dirCache = new File(cachePath);
 		
