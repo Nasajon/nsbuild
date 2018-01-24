@@ -23,8 +23,6 @@ public class MainClean {
 	private boolean limparCache(ParametrosNsjbuild parametros) {
 		String cachePath = Cache.resolveCachePath(parametros);
 		
-		System.out.println("Path: " + cachePath);
-		
 		File dirCache = new File(cachePath);
 		
 		if (dirCache.exists() && dirCache.isDirectory()) {

@@ -16,8 +16,6 @@ public class Cache {
 		if (cachePath.isEmpty()) {
 			return "cache";
 		}
-		
-		System.out.println("envValue: " + envValue);
 
 		if (envValue != null) {
 			cachePath = cachePath.replace("%" + CACHE_ENV_NAME + "%", envValue);
