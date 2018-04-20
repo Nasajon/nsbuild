@@ -110,12 +110,14 @@ public class Compilador implements ControleCompilacao {
 				return false;
 			}
 			
+			System.out.println("dormir");
 			Thread.sleep(2000);
 		}
 		
 		synchronized (this.threadsAtivas) {
 			this.threadsAtivas++;
 		}
+		System.out.println("iniciando thread");
 		new ThreadCompilacao(no, this).start();
 		
 		return true;
