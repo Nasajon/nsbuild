@@ -41,8 +41,13 @@ public class MainValidate {
 		}
 		
 		Boolean mostrarUnitsReplicadas = false;
+		String projetoDestino = null;
 		if (args.length > 1) {
 			mostrarUnitsReplicadas = args[1].equals(PAR_MOSTRAR_UNITS_REPLICADAS);
+			
+			if (!mostrarUnitsReplicadas) {
+				projetoDestino = args[1];
+			}
 		}
 
 		StringBuilder sbSaida = new StringBuilder();
@@ -57,7 +62,12 @@ public class MainValidate {
 			Compilador compilador = new Compilador(parametros.getMaxProcessos().intValue(), BuildMode.debug, parametros.getBatchName(), BuildTarget.build);
 			
 			// Rodando a busca para colocar os projetos em ordem:
-			Queue<No> simulacaoCompilacao = compilador.simulateCompileAll(grafo);
+			Queue<No> simulacaoCompilacao;
+			if (projetoDestino != null) {
+				simulacaoCompilacao = compilador.simularCompilacaoProjetoComDependencias(grafo, projetoDestino);
+			} else {
+				simulacaoCompilacao = compilador.simulateCompileAll(grafo);
+			}
 			
 			List<ProjetoWrapper> listaProjetosEmOrdem = new ArrayList<>();
 			for (No n: simulacaoCompilacao) {
@@ -101,10 +111,16 @@ public class MainValidate {
 				// Imprimindo faltas e sobras:
 				if (projetosSobrando.size() > 0 || projetosFaltando.size() > 0) {
 					sbSaida.append("\r\n");
+					sbSaida.append("================================================================================");
+					sbSaida.append("\r\n");
 					sbSaida.append("PROJETO '" + projeto.getProjeto().getNome() + "':\r\n");
+					sbSaida.append("================================================================================");
+					sbSaida.append("\r\n");
 				}
 					
 				if (projetosSobrando.size() > 0) {
+					sbSaida.append("--------------------------------------------------------------------------------");
+					sbSaida.append("\r\n");
 					sbSaida.append("Lista de dependencias desnecessárias no XML:\r\n");
 					
 					for (String s : projetosSobrando) {
@@ -115,6 +131,8 @@ public class MainValidate {
 				}
 				
 				if (projetosFaltando.size() > 0) {
+					sbSaida.append("--------------------------------------------------------------------------------");
+					sbSaida.append("\r\n");
 					sbSaida.append("Lista de dependencias necessárias não encontradas no XML:\r\n");
 
 					for (String s : projetosFaltando) {
