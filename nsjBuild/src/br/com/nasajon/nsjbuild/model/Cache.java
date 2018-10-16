@@ -13,7 +13,7 @@ public class Cache {
 		String envValue = System.getenv(CACHE_ENV_NAME);
 		String cachePath = parametros.getCachePath();
 
-		if (cachePath.isEmpty()) {
+		if (cachePath == null || cachePath.isEmpty()) {
 			return "cache";
 		}
 
